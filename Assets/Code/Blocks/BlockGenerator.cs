@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Code.Blocks
@@ -11,11 +12,16 @@ namespace Code.Blocks
         private float _spawnTimer;
         private float _currentTime;
 
+        private void Awake()
+        {
+            _spawnTimer = 2f;
+        }
+
         private void Update()
         {
-            _currentTime -= Time.deltaTime;
+            _currentTime += Time.deltaTime;
             
-            if(_spawnTimer > _currentTime && CurrentBlock.BlockState == BlockState.Lock)
+            if(_spawnTimer < _currentTime)
             {
                 SpawnBlock();
                 _currentTime = 0;
@@ -26,6 +32,14 @@ namespace Code.Blocks
         {
             GameObject blockObject = Instantiate(blockPrefab, transform.position, Quaternion.identity);
             CurrentBlock = blockObject.GetComponent<Block>();
+        }
+
+        public void DropBlock()
+        {
+            if (CurrentBlock != null)
+            {
+                CurrentBlock.SetBlockStateToFalling();
+            }
         }
     }
 }
