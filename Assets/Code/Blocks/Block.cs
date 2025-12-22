@@ -1,6 +1,5 @@
-using System;
-using Code.Checkers;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace Code.Blocks
@@ -18,36 +17,35 @@ namespace Code.Blocks
     {
         private static readonly int Contrast = Shader.PropertyToID("_Contrast");
         
+        public UnityEvent OnDestroyEvent;
+        public UnityEvent OnDamageEvent;
+        
+        [SerializeField] private BlockSO blockSo;
+        
         private Rigidbody2D _rigidbody;
+        private SpriteRenderer _spriteRenderer;
         private Material _grayMat;
         private Camera _camera;
         
-        private CastChecker2D _castChecker;
-        
-        [SerializeField] private int maxHealth;
-        [SerializeField] private int currentHealth;
-        [SerializeField] private int weight;
-        
-        [SerializeField] private int maxHeight;
-        [SerializeField] private int minHeight;
-        [SerializeField] private int maxDistance;
-        [SerializeField] private int minDistance;
-
         private BlockState _blockState;
         
+        private int _currentHealth;
+        
         private bool IsMoveY => _rigidbody.linearVelocity.y == 0f;
+        private bool IsLock => _blockState == BlockState.Lock;
+        private bool _isGround;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
-            _castChecker = GetComponentInChildren<CastChecker2D>();
-            _grayMat = GetComponentInChildren<SpriteRenderer>().material;
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             
+            _grayMat = _spriteRenderer.material;
             _camera = Camera.main;
-
+            
             _blockState = BlockState.None;
-
-            currentHealth = maxHealth;
+            
+            _currentHealth = blockSo.maxHealth;
         }
 
         private void Update()
@@ -68,6 +66,67 @@ namespace Code.Blocks
             }
         }
 
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if(IsLock || _isGround) return;
+            
+            _isGround = true;
+
+            _rigidbody.linearDamping = 10f;
+            
+            int impactMagnitude = (int)collision.relativeVelocity.magnitude;
+            
+            if (collision.gameObject.TryGetComponent<Block>(out var block))
+            {
+                block.StopMove();
+                block.TakeDamage(blockSo.weight + impactMagnitude);
+            }
+            
+            StopMove();
+        }
+
+        private void OnCollisionExit2D(Collision2D collision)
+        {
+            _isGround = false;
+            _rigidbody.linearDamping = 0f;
+        }
+
+        private void ChangeBreakSprite()
+        {
+            int healthQuarter = blockSo.maxHealth / 4;
+
+            if (_currentHealth > healthQuarter * 3)
+                _spriteRenderer.sprite = blockSo.default_Sprite;
+            else if (_currentHealth > healthQuarter * 2)
+                _spriteRenderer.sprite = blockSo.break_2_Sprite;
+            else if (_currentHealth > healthQuarter)
+                _spriteRenderer.sprite = blockSo.break_3_Sprite;
+            else
+                _spriteRenderer.sprite = blockSo.break_4_Sprite;
+        }
+
+        public void TakeDamage(int damage)
+        {
+            if(IsLock) return;
+            
+            OnDamageEvent?.Invoke();
+            ChangeBreakSprite();
+            
+            _currentHealth -= damage;
+
+            if (_currentHealth <= 0)
+                DestroyBlock();
+        }
+
+        public void Heal(int heal)
+        {
+            ChangeBreakSprite();
+            
+            _currentHealth += heal;
+            
+            if (blockSo.maxHealth < _currentHealth)
+                _currentHealth = blockSo.maxHealth;
+        }
 
         private void SetFreezePosition(bool isFreeze)
         {
@@ -76,19 +135,26 @@ namespace Code.Blocks
             else
                 _rigidbody.constraints = RigidbodyConstraints2D.None;
         }
-
+        
         public void FireBlock()
         {
             _blockState = BlockState.Fire;
             
-            Vector2 direction = (transform.position.x > 0 ? Vector2.left : Vector2.right) * Random.Range(minDistance, maxDistance);;
-            direction += Vector2.up * Random.Range(minHeight, maxHeight);
+            Vector2 direction = (transform.position.x > 0 ? Vector2.left : Vector2.right)
+                                * Random.Range(blockSo.minDistance, blockSo.maxDistance);//방향
+            direction += Vector2.up * Random.Range(blockSo.minHeight, blockSo.maxHeight);//높이
+            direction *= _rigidbody.mass;//질량 무시
             
             _rigidbody.gravityScale = 0.5f;
             _rigidbody.AddForce(direction, ForceMode2D.Impulse);
         }
+        
+        private void StopMove()
+        {
+            _rigidbody.linearVelocity = Vector2.zero;   
+        }
 
-        public void SetLockBlock(bool isLock)
+        private void SetLockBlock(bool isLock)
         {
             if (isLock)
             {
@@ -106,7 +172,7 @@ namespace Code.Blocks
 
         public void SetBlockStateToFalling()
         {
-            _rigidbody.linearVelocity = Vector2.zero;
+            _rigidbody.linearVelocity = Vector2.down;
             _rigidbody.gravityScale = 3f;
             
             _rigidbody.AddForce(Vector2.down * 1.5f, ForceMode2D.Force);
@@ -114,13 +180,13 @@ namespace Code.Blocks
             SetFreezePosition(false);
         }
         
-        public void SetBlockStateToLand()
+        private void SetBlockStateToLand()
         {
             _blockState = BlockState.Land;
+
+            StopMove();
             
-            _rigidbody.mass *= 3f;
-            
-            GameObject[] blocks = _castChecker.GetCastData();
+            /*GameObject[] blocks = _castChecker.GetCastData();
                 
             foreach (GameObject block in blocks)
             {
@@ -131,27 +197,12 @@ namespace Code.Blocks
                     if (damageable != null)
                         damageable.TakeDamage(weight);
                 }
-            }
-        }
-
-        public void TakeDamage(int damage)
-        {
-            currentHealth -= damage;
-
-            if (currentHealth <= 0)
-                DestroyBlock();
-        }
-
-        public void Heal(int heal)
-        {
-            currentHealth += heal;
-            
-            if (maxHealth < currentHealth)
-                currentHealth = maxHealth;
+            }*/
         }
 
         private void DestroyBlock()
         {
+            OnDestroyEvent?.Invoke();
             Destroy(gameObject);
         }
     }

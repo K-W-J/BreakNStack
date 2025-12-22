@@ -139,9 +139,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 20
+  m_Mass: 16
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 10
   m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -169,10 +169,10 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   weight: 20
-  maxHeight: 35
-  minHeight: 25
-  maxDistance: 80
-  minDistance: 60
+  maxHeight: 3
+  minHeight: 1
+  maxDistance: 5
+  minDistance: 3
 --- !u!1 &4965022183956839898
 GameObject:
   m_ObjectHideFlags: 0

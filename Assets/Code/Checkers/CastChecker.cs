@@ -35,7 +35,13 @@ namespace Code.Checkers
         {
             _results = new RaycastHit2D[maxCount];
         }
-        
+
+        private void Update()
+        {
+            if(transform.rotation != Quaternion.Euler(0, 0, 180f))
+                transform.rotation = Quaternion.Euler(0, 0, 180f);
+        }
+
         public bool CastCheck(CastType castType = CastType.Ray)
         {
             bool isOverlap;
