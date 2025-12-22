@@ -71,10 +71,12 @@ namespace Code.Blocks
             if(IsLock || _isGround) return;
             
             _isGround = true;
-
-            _rigidbody.linearDamping = 10f;
             
             int impactMagnitude = (int)collision.relativeVelocity.magnitude;
+            
+            if(impactMagnitude < 5) return;
+            
+            _rigidbody.linearDamping = 10f;
             
             if (collision.gameObject.TryGetComponent<Block>(out var block))
             {
@@ -110,9 +112,10 @@ namespace Code.Blocks
             if(IsLock) return;
             
             OnDamageEvent?.Invoke();
-            ChangeBreakSprite();
             
             _currentHealth -= damage;
+            
+            ChangeBreakSprite();
 
             if (_currentHealth <= 0)
                 DestroyBlock();
@@ -120,9 +123,9 @@ namespace Code.Blocks
 
         public void Heal(int heal)
         {
-            ChangeBreakSprite();
-            
             _currentHealth += heal;
+
+            ChangeBreakSprite();
             
             if (blockSo.maxHealth < _currentHealth)
                 _currentHealth = blockSo.maxHealth;
@@ -151,7 +154,7 @@ namespace Code.Blocks
         
         private void StopMove()
         {
-            _rigidbody.linearVelocity = Vector2.zero;   
+            _rigidbody.linearVelocity = Vector2.down;   
         }
 
         private void SetLockBlock(bool isLock)
