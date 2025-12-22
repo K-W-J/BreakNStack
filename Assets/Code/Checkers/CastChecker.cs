@@ -26,6 +26,8 @@ namespace Code.Checkers
         [Space]
         [SerializeField] private bool showBoxCast;
         [SerializeField] private bool showSphereCast;
+        [Space]
+        //[SerializeField] private GameObject[] exceptObjects;
         
         private RaycastHit2D[] _results;
         
@@ -33,7 +35,6 @@ namespace Code.Checkers
         {
             _results = new RaycastHit2D[maxCount];
         }
-        
         
         public bool CastCheck(CastType castType = CastType.Ray)
         {

@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 628724384727864798}
@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 19c84de69e00dc244abcbcd409f14dd0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 7145198348311737387, guid: 0226d13ac2c90184eae663d30020ff99, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -152,7 +152,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &5277461527263103440
 BoxCollider2D:
@@ -198,7 +198,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.4, y: 0.4}
   m_EdgeRadius: 0
 --- !u!114 &3626163934520273636
 MonoBehaviour:
@@ -212,6 +212,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c555f7e29d1f4549b1f92d5e2759448f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.Block
+  maxHealth: 100
+  currentHealth: 100
+  weight: 20
+  maxHeight: 35
+  minHeight: 25
+  maxDistance: 80
+  minDistance: 60
 --- !u!1001 &3589905673947532236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -270,7 +277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7940307490147045478, guid: 2d5ab5b00e523a748a20ae30805902ee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.661
+      value: -0.215
       objectReference: {fileID: 0}
     - target: {fileID: 7940307490147045478, guid: 2d5ab5b00e523a748a20ae30805902ee, type: 3}
       propertyPath: m_LocalPosition.z
