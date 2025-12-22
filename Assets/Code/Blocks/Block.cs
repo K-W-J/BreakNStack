@@ -1,5 +1,7 @@
+using System;
 using Code.Checkers;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Code.Blocks
 {
@@ -14,7 +16,7 @@ namespace Code.Blocks
     
     public class Block : MonoBehaviour, IDamageable
     {
-        private static readonly int Contrast = Shader.PropertyToID("Contrast");
+        private static readonly int Contrast = Shader.PropertyToID("_Contrast");
         
         private Rigidbody2D _rigidbody;
         private Material _grayMat;
@@ -32,6 +34,8 @@ namespace Code.Blocks
         [SerializeField] private int minDistance;
 
         private BlockState _blockState;
+        
+        private bool IsMoveY => _rigidbody.linearVelocity.y == 0f;
 
         private void Awake()
         {
@@ -48,27 +52,28 @@ namespace Code.Blocks
 
         private void Update()
         {
+            float limitLine = _camera.transform.position.y - (_camera.orthographicSize / 1.2f);
             
-            float height = Camera.main.orthographicSize;
-            print(Camera.main.orthographicSize);
-            print(height * Screen.width / Screen.height);
-            
-            if (_blockState == BlockState.Falling && _castChecker.CastCheck())
+            if (_blockState == BlockState.Land && IsMoveY && limitLine > transform.position.y)
+            {
+                SetLockBlock(true);
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            if (_blockState == BlockState.Falling //&& _castChecker.CastCheck()
+                && IsMoveY)
             {
                 SetBlockStateToLand();
             }
-
-            if (_camera.transform.position.y + Screen.height > transform.position.y
-                && _blockState != BlockState.Lock)
-            {
-                //SetLockBlock(true);
-            }
         }
+
 
         private void SetFreezePosition(bool isFreeze)
         {
             if(isFreeze)
-                _rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;
+                _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
             else
                 _rigidbody.constraints = RigidbodyConstraints2D.None;
         }
@@ -89,11 +94,13 @@ namespace Code.Blocks
             if (isLock)
             {
                 _grayMat.SetFloat(Contrast, 0f);
+                SetFreezePosition(true);
                 _blockState = BlockState.Lock;
             }
             else
             {
                 _grayMat.SetFloat(Contrast, 1f);
+                SetFreezePosition(false);
                 _blockState = BlockState.None;
             }
         }
