@@ -62,8 +62,7 @@ namespace Code.Blocks
 
         private void FixedUpdate()
         {
-            if (_blockState == BlockState.Falling //&& _castChecker.CastCheck()
-                && IsMoveY)
+            if (_blockState == BlockState.Falling && IsMoveY)
             {
                 SetBlockStateToLand();
             }
@@ -118,6 +117,8 @@ namespace Code.Blocks
         public void SetBlockStateToLand()
         {
             _blockState = BlockState.Land;
+            
+            _rigidbody.mass *= 3f;
             
             GameObject[] blocks = _castChecker.GetCastData();
                 

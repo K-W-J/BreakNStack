@@ -6,7 +6,7 @@ namespace Code.Blocks
 {
     internal class BlockSpawner : MonoBehaviour
     {
-        [SerializeField] private GameObject blockPrefab;
+        [SerializeField] private GameObject[] blockPrefab;
         
         private Transform[] _blockSpawnPoint;
         private Transform CurrentSpawnPoint =>
@@ -27,7 +27,7 @@ namespace Code.Blocks
         {
             _currentTime += Time.deltaTime;
             
-            if(_spawnTimer < _currentTime)
+            if(_spawnTimer < _currentTime && _currentBlock == null)
             {
                 SpawnBlock();
                 _currentTime = 0;
@@ -36,7 +36,8 @@ namespace Code.Blocks
         
         public void SpawnBlock()
         {
-            GameObject blockObject = Instantiate(blockPrefab, CurrentSpawnPoint.position, Quaternion.identity);
+            int rand = Random.Range(0, blockPrefab.Length);
+            GameObject blockObject = Instantiate(blockPrefab[rand], CurrentSpawnPoint.position, Quaternion.identity);
             _currentBlock = blockObject.GetComponent<Block>();
             _currentBlock.FireBlock();
         }
@@ -46,6 +47,7 @@ namespace Code.Blocks
             if (_currentBlock != null)
             {
                 _currentBlock.SetBlockStateToFalling();
+                _currentBlock = null;
             }
         }
     }
