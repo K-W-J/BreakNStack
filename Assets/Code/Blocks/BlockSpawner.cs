@@ -33,14 +33,6 @@ namespace Code.Blocks
                 _currentTime = 0;
             }
         }
-        
-        public void SpawnBlock()
-        {
-            int rand = Random.Range(0, blockPrefab.Length);
-            GameObject blockObject = Instantiate(blockPrefab[rand], CurrentSpawnPoint.position, Quaternion.identity);
-            _currentBlock = blockObject.GetComponent<Block>();
-            _currentBlock.FireBlock();
-        }
 
         public void DropBlock()
         {
@@ -49,6 +41,14 @@ namespace Code.Blocks
                 _currentBlock.SetBlockStateToFalling();
                 _currentBlock = null;
             }
+        }
+        
+        private void SpawnBlock()
+        {
+            int rand = Random.Range(0, blockPrefab.Length);
+            GameObject blockObject = Instantiate(blockPrefab[rand], CurrentSpawnPoint.position, Quaternion.identity);
+            _currentBlock = blockObject.GetComponent<Block>();
+            _currentBlock.Initialize();
         }
     }
 }

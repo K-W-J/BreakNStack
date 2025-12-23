@@ -28,14 +28,13 @@ namespace Code.Blocks
         private Camera _camera;
         
         private BlockState _blockState;
-        
         private int _currentHealth;
         
         private bool IsMoveY => _rigidbody.linearVelocity.y == 0f;
         private bool IsLock => _blockState == BlockState.Lock;
         private bool _isGround;
 
-        private void Awake()
+        public void Initialize()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -45,11 +44,16 @@ namespace Code.Blocks
             
             _blockState = BlockState.None;
             
+            _spriteRenderer.sprite = blockSo.default_Sprite;
             _currentHealth = blockSo.maxHealth;
+            
+            FireBlock();
         }
 
         private void Update()
         {
+            if(_blockState == BlockState.Lock) return;
+            
             float limitLine = _camera.transform.position.y - (_camera.orthographicSize / 1.2f);
             
             if (_blockState == BlockState.Land && IsMoveY && limitLine > transform.position.y)
@@ -203,7 +207,7 @@ namespace Code.Blocks
             }*/
         }
 
-        private void DestroyBlock()
+        public void DestroyBlock()
         {
             OnDestroyEvent?.Invoke();
             Destroy(gameObject);
