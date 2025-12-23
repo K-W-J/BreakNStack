@@ -26,5 +26,11 @@ namespace Code.FeedBacks
         {
             _particlePlayer.Stop();
         }
+
+        private void OnDestroy()
+        {
+            if(_particlePlayer != null && _particlePlayer.IsPlaying == false)
+                Destroy(_particlePlayer.gameObject);
+        }
     }
 }

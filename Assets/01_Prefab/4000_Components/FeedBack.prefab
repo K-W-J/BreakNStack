@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7569042901947235590}
   - component: {fileID: 796671353076288408}
+  - component: {fileID: 1269354322719037432}
   m_Layer: 0
   m_Name: FeedBack
   m_TagString: Untagged
@@ -45,3 +46,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.FeedBacks.EffectFeedBack
   particlePlayer: {fileID: 2679153792777887097, guid: 4794c337122d84c489ad7d91ba927529, type: 3}
+--- !u!114 &1269354322719037432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5435444333478840908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503b39fc65894085a7bb7b992a53c95c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Code.FeedBacks.SoundFeedBack

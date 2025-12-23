@@ -7,11 +7,14 @@ namespace Code.Effects
     {
         [SerializeField] private ParticleSystem particle;
 
+        public bool IsPlaying => particle.isPlaying;
+        private bool _isDestroy = false;
+        
         private float _currentTime;
         
         private void Update()
         {
-            if(particle.isPlaying == false) return;
+            if(_isDestroy == false || IsPlaying == false) return;
             
             if(particle.main.startLifetime.constant > _currentTime) 
                 _currentTime += Time.deltaTime;
@@ -27,9 +30,15 @@ namespace Code.Effects
         
         public void Play() => particle.Play(true);
         
-        public void Play(Vector3 startPos)
+        public void Play(bool isDestroy)
         {
-            transform.position = startPos;
+            _isDestroy = isDestroy;
+            particle.Play(true);
+        }
+
+        public void Play(Vector3 startPos)
+        {   
+             transform.position = startPos;
             particle.Play(true);
         }
 

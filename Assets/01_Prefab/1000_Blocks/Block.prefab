@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalScale: {x: 2.55, y: 2.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 628724384727864798}
@@ -142,7 +142,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 10
   m_GravityScale: 3
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 80737ebd4c3b3f848a10b9d443dd810a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -173,6 +173,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6758798046613864087}
         m_TargetAssemblyTypeName: Code.FeedBacks.EffectFeedBack, Assembly-CSharp
+        m_MethodName: CreateFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5143089177550922487}
+        m_TargetAssemblyTypeName: Code.FeedBacks.SoundFeedBack, Assembly-CSharp
         m_MethodName: CreateFeedback
         m_Mode: 1
         m_Arguments:
@@ -246,6 +258,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7569042901947235590, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
   m_PrefabInstance: {fileID: 6251642093128807695}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5143089177550922487 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1269354322719037432, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
+  m_PrefabInstance: {fileID: 6251642093128807695}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503b39fc65894085a7bb7b992a53c95c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Code.FeedBacks.SoundFeedBack
 --- !u!114 &6758798046613864087 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 796671353076288408, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}

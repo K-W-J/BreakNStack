@@ -33,7 +33,8 @@ namespace Code.Blocks
         private BlockState _blockState = BlockState.None;
         private int _currentHealth;
         
-        private bool IsMoveY => _rigidbody.linearVelocity.y == 0f;
+        private bool IsMoveY => Mathf.Abs(_rigidbody.linearVelocity.y) < 0.0001f;
+        //private bool IsMoveY => Mathf.Approximately(_rigidbody.linearVelocity.y, 0f);
         private bool IsLock => _blockState == BlockState.Lock;
         private bool _isGround;
 
@@ -47,13 +48,18 @@ namespace Code.Blocks
             }
             
             gameObject.name = $"{blockData.blockType.ToString()}_{blockData.blockName}_Block";      
-            SetFlip(blockData.isFlip);
+            
+            _spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+            _spriteRenderer.sprite = blockData.default_Sprite;
+            _spriteRenderer.flipX = blockData.isFlip;
             
             if(_collider != null)
                 DestroyImmediate(_collider);
             
             _collider = Instantiate(blockData.colliderPrefab, transform);
-            GetComponentInChildren<SpriteRenderer>().sprite = blockData.default_Sprite;
+            float scaleX = blockData.isFlip ? -transform.localScale.x : transform.localScale.x;
+            Vector2 flipScale = new Vector2(scaleX, transform.localScale.y);
+            _collider.transform.localScale = flipScale;
         }
 
         private void Awake()
@@ -79,7 +85,7 @@ namespace Code.Blocks
             _currentHealth = blockData.maxHealth;
 
             gameObject.name = $"{blockData.blockType.ToString()}_{blockData.blockName}_Block";
-            SetFlip(blockData.isFlip);
+            //SetFlip(blockData.isFlip);
             
             FireBlock();
         }
@@ -110,16 +116,20 @@ namespace Code.Blocks
             
             _isGround = true;
             
-            int impactMagnitude = (int)collision.relativeVelocity.magnitude;
+            int impulseDamage = (int)collision.relativeVelocity.magnitude * 2;
             
-            if(impactMagnitude < 5) return;
-            
-            _rigidbody.linearDamping = 10f;
+            print(gameObject.name + impulseDamage);
+
+            if (impulseDamage < 5)
+            {
+                _rigidbody.linearVelocity /= 2f;
+                return;
+            }
             
             if (collision.gameObject.TryGetComponent<Block>(out var block))
             {
                 block.StopMove();
-                block.TakeDamage(blockData.weight + impactMagnitude);
+                block.TakeDamage(impulseDamage);
             }
             
             StopMove();
@@ -127,7 +137,6 @@ namespace Code.Blocks
 
         private void OnCollisionExit2D(Collision2D collision)
         {
-            _isGround = false;
             _rigidbody.linearDamping = 0f;
         }
 
@@ -141,13 +150,13 @@ namespace Code.Blocks
 
         private void ChangeBreakSprite()
         {
-            int healthQuarter = blockData.maxHealth / 4;
-
-            if (_currentHealth > healthQuarter * 3)
+            float healthRatio = (float)_currentHealth / blockData.maxHealth;
+            
+            if (healthRatio > 0.75f)
                 _spriteRenderer.sprite = blockData.default_Sprite;
-            else if (_currentHealth > healthQuarter * 2)
+            else if (healthRatio > 0.5f)
                 _spriteRenderer.sprite = blockData.break_2_Sprite;
-            else if (_currentHealth > healthQuarter)
+            else if (healthRatio > 0.25f)
                 _spriteRenderer.sprite = blockData.break_3_Sprite;
             else
                 _spriteRenderer.sprite = blockData.break_4_Sprite;

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c9b2a7b801b15534cac74add90ce6bcd
+guid: 94fb6b41de13deb48837d98bebaad6f8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5617176378751413681
-    second: WoodBlock_0
+      213: 7145198348311737387
+    second: Sprite-0002_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,10 +72,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WoodBlock_0
+      name: Sprite-0002_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 192
-        height: 208
+        width: 338
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f429ec738d7cb02b0800000000000000
-      internalID: -5617176378751413681
+      spriteID: b2434d87a08d82360800000000000000
+      internalID: 7145198348311737387
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      WoodBlock_0: -5617176378751413681
+      Sprite-0002_0: 7145198348311737387
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
