@@ -11,7 +11,7 @@ namespace Code.Effects
         
         private void Update()
         {
-            if(particle.isPaused) return;
+            if(particle.isPlaying == false) return;
             
             if(particle.main.startLifetime.constant > _currentTime) 
                 _currentTime += Time.deltaTime;
@@ -26,6 +26,13 @@ namespace Code.Effects
         }
         
         public void Play() => particle.Play(true);
+        
+        public void Play(Vector3 startPos)
+        {
+            transform.position = startPos;
+            particle.Play(true);
+        }
+
         public void Stop() => particle.Stop(true);
         public void Pause() => particle.Pause(true);
 

@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f9c418936fb45b08383c7097b70a039, type: 3}
-  m_Name: BlockSO_1
+  m_Name: BlockData_1
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockSO
   maxHealth: 100
   weight: 20
-  blockType: 0
+  blockName: BlockData_1
+  blockType: 1
   maxHeight: 3
   minHeight: 1
   maxDistance: 5
@@ -23,3 +24,5 @@ MonoBehaviour:
   break_2_Sprite: {fileID: -592933202, guid: cc52042ef9925b4478201e2823676dda, type: 3}
   break_3_Sprite: {fileID: -292389932, guid: cc52042ef9925b4478201e2823676dda, type: 3}
   break_4_Sprite: {fileID: 1231936986, guid: cc52042ef9925b4478201e2823676dda, type: 3}
+  isFlip: 0
+  colliderPrefab: {fileID: 2116649532453592739, guid: a73684c0ec344c84fbc67c5f1b44613f, type: 3}

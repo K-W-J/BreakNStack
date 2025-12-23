@@ -1,5 +1,4 @@
 ﻿
-using System;
 using Code.Effects;
 using UnityEngine;
 
@@ -13,12 +12,14 @@ namespace Code.FeedBacks
 
         private void Awake()
         {
-            _particlePlayer = particlePlayer.GetComponent<ParticlePlayer>();
+            GameObject particleObject = Instantiate(particlePlayer);
+            _particlePlayer = particleObject.GetComponent<ParticlePlayer>();
+            _particlePlayer.transform.SetParent(null);
         }
 
         public override void CreateFeedback()
         {
-            _particlePlayer.Play();
+            _particlePlayer.Play(transform.position);
         }
 
         public override void StopFeedback()

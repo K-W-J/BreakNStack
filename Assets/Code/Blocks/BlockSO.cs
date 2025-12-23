@@ -1,4 +1,5 @@
-﻿using Code.Defines;
+﻿using System;
+using Code.Defines;
 using UnityEngine;
 
 namespace Code.Blocks
@@ -9,6 +10,7 @@ namespace Code.Blocks
         public int maxHealth;
         public int weight;
         [Space]
+        public string blockName;
         public Enums.BlockType blockType;
         [Space] 
         public int maxHeight;
@@ -20,5 +22,8 @@ namespace Code.Blocks
         public Sprite break_2_Sprite;
         public Sprite break_3_Sprite;
         public Sprite break_4_Sprite;
+        public bool isFlip;
+        [Space]
+        public GameObject colliderPrefab;
     }
 }

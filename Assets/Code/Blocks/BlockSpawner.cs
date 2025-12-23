@@ -6,10 +6,12 @@ namespace Code.Blocks
 {
     internal class BlockSpawner : MonoBehaviour
     {
-        [SerializeField] private GameObject[] blockPrefab;
+        [SerializeField] private GameObject blockPrefab;
+        [Space]
+        [SerializeField] private BlockSO[] blockData;
         
         private Transform[] _blockSpawnPoint;
-        private Transform CurrentSpawnPoint =>
+        private Transform RandomSpawnPoint =>
             _blockSpawnPoint[Random.Range(0, _blockSpawnPoint.Length)];
         
         private Block _currentBlock;
@@ -45,10 +47,11 @@ namespace Code.Blocks
         
         private void SpawnBlock()
         {
-            int rand = Random.Range(0, blockPrefab.Length);
-            GameObject blockObject = Instantiate(blockPrefab[rand], CurrentSpawnPoint.position, Quaternion.identity);
+            GameObject blockObject = Instantiate(blockPrefab, RandomSpawnPoint.position, Quaternion.identity);
             _currentBlock = blockObject.GetComponent<Block>();
-            _currentBlock.Initialize();
+            
+            int rand = Random.Range(0, blockData.Length);
+            _currentBlock.Initialize(blockData[rand]);
         }
     }
 }

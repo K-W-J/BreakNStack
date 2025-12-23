@@ -20,32 +20,66 @@ namespace Code.Blocks
         public UnityEvent OnDestroyEvent;
         public UnityEvent OnDamageEvent;
         
-        [SerializeField] private BlockSO blockSo;
+        [Header("ResetBlock")]
+        [SerializeField] private BlockSO blockData;
         
         private Rigidbody2D _rigidbody;
         private SpriteRenderer _spriteRenderer;
         private Material _grayMat;
         private Camera _camera;
+
+        private GameObject _collider;
         
-        private BlockState _blockState;
+        private BlockState _blockState = BlockState.None;
         private int _currentHealth;
         
         private bool IsMoveY => _rigidbody.linearVelocity.y == 0f;
         private bool IsLock => _blockState == BlockState.Lock;
         private bool _isGround;
 
-        public void Initialize()
+        [ContextMenu("ResetBlock")]
+        private void ResetBlock()
         {
+            if (blockData == null)
+            {
+                Debug.Log($"Block SO가 없습니다.");
+                return;
+            }
+            
+            gameObject.name = $"{blockData.blockType.ToString()}_{blockData.blockName}_Block";      
+            SetFlip(blockData.isFlip);
+            
+            if(_collider != null)
+                DestroyImmediate(_collider);
+            
+            _collider = Instantiate(blockData.colliderPrefab, transform);
+            GetComponentInChildren<SpriteRenderer>().sprite = blockData.default_Sprite;
+        }
+
+        private void Awake()
+        {
+            if(blockData != null)
+                Initialize(blockData);
+        }
+
+        public void Initialize(BlockSO blockSo)
+        {
+            if(blockData != null) return;
+            
+            blockData = blockSo;
+            
+            _camera = Camera.main;
             _rigidbody = GetComponent<Rigidbody2D>();
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            
+                
+            _spriteRenderer.sprite = blockData.default_Sprite;
             _grayMat = _spriteRenderer.material;
-            _camera = Camera.main;
             
-            _blockState = BlockState.None;
-            
-            _spriteRenderer.sprite = blockSo.default_Sprite;
-            _currentHealth = blockSo.maxHealth;
+            _collider = Instantiate(blockData.colliderPrefab, transform);
+            _currentHealth = blockData.maxHealth;
+
+            gameObject.name = $"{blockData.blockType.ToString()}_{blockData.blockName}_Block";
+            SetFlip(blockData.isFlip);
             
             FireBlock();
         }
@@ -85,7 +119,7 @@ namespace Code.Blocks
             if (collision.gameObject.TryGetComponent<Block>(out var block))
             {
                 block.StopMove();
-                block.TakeDamage(blockSo.weight + impactMagnitude);
+                block.TakeDamage(blockData.weight + impactMagnitude);
             }
             
             StopMove();
@@ -97,18 +131,26 @@ namespace Code.Blocks
             _rigidbody.linearDamping = 0f;
         }
 
+        private void SetFlip(bool isFlip)
+        {
+            _spriteRenderer.flipX = isFlip;
+            float scaleX = isFlip ? -transform.localScale.x : transform.localScale.x;
+            Vector2 flipScale = new Vector2(scaleX, transform.localScale.y);
+            _collider.transform.localScale = flipScale;
+        }
+
         private void ChangeBreakSprite()
         {
-            int healthQuarter = blockSo.maxHealth / 4;
+            int healthQuarter = blockData.maxHealth / 4;
 
             if (_currentHealth > healthQuarter * 3)
-                _spriteRenderer.sprite = blockSo.default_Sprite;
+                _spriteRenderer.sprite = blockData.default_Sprite;
             else if (_currentHealth > healthQuarter * 2)
-                _spriteRenderer.sprite = blockSo.break_2_Sprite;
+                _spriteRenderer.sprite = blockData.break_2_Sprite;
             else if (_currentHealth > healthQuarter)
-                _spriteRenderer.sprite = blockSo.break_3_Sprite;
+                _spriteRenderer.sprite = blockData.break_3_Sprite;
             else
-                _spriteRenderer.sprite = blockSo.break_4_Sprite;
+                _spriteRenderer.sprite = blockData.break_4_Sprite;
         }
 
         public void TakeDamage(int damage)
@@ -131,8 +173,8 @@ namespace Code.Blocks
 
             ChangeBreakSprite();
             
-            if (blockSo.maxHealth < _currentHealth)
-                _currentHealth = blockSo.maxHealth;
+            if (blockData.maxHealth < _currentHealth)
+                _currentHealth = blockData.maxHealth;
         }
 
         private void SetFreezePosition(bool isFreeze)
@@ -148,8 +190,8 @@ namespace Code.Blocks
             _blockState = BlockState.Fire;
             
             Vector2 direction = (transform.position.x > 0 ? Vector2.left : Vector2.right)
-                                * Random.Range(blockSo.minDistance, blockSo.maxDistance);//방향
-            direction += Vector2.up * Random.Range(blockSo.minHeight, blockSo.maxHeight);//높이
+                                * Random.Range(blockData.minDistance, blockData.maxDistance);//방향
+            direction += Vector2.up * Random.Range(blockData.minHeight, blockData.maxHeight);//높이
             direction *= _rigidbody.mass;//질량 무시
             
             _rigidbody.gravityScale = 0.5f;
@@ -190,21 +232,7 @@ namespace Code.Blocks
         private void SetBlockStateToLand()
         {
             _blockState = BlockState.Land;
-
             StopMove();
-            
-            /*GameObject[] blocks = _castChecker.GetCastData();
-                
-            foreach (GameObject block in blocks)
-            {
-                if (block != gameObject)
-                {
-                    IDamageable damageable = block.GetComponent<IDamageable>();
-                        
-                    if (damageable != null)
-                        damageable.TakeDamage(weight);
-                }
-            }*/
         }
 
         public void DestroyBlock()
