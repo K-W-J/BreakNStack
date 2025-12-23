@@ -33,8 +33,7 @@ namespace Code.Blocks
         private BlockState _blockState = BlockState.None;
         private int _currentHealth;
         
-        private bool IsMoveY => Mathf.Abs(_rigidbody.linearVelocity.y) < 0.0001f;
-        //private bool IsMoveY => Mathf.Approximately(_rigidbody.linearVelocity.y, 0f);
+        private bool IsMoveY => Mathf.Abs(_rigidbody.linearVelocity.y) < 0.0001f; //Approximately은 판정이 너무 작음
         private bool IsLock => _blockState == BlockState.Lock;
         private bool _isGround;
 
@@ -85,7 +84,7 @@ namespace Code.Blocks
             _currentHealth = blockData.maxHealth;
 
             gameObject.name = $"{blockData.blockType.ToString()}_{blockData.blockName}_Block";
-            //SetFlip(blockData.isFlip);
+            SetFlip(blockData.isFlip);
             
             FireBlock();
         }

@@ -16,6 +16,8 @@ MonoBehaviour:
   weight: 20
   blockName: BlockData_6
   blockType: 1
+  sizeX: 1.6
+  sizeY: 0.4
   maxHeight: 3
   minHeight: 1
   maxDistance: 5
