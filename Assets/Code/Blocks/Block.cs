@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using Blade.Core;
+using Code.Events;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
@@ -19,6 +22,9 @@ namespace Code.Blocks
         
         public UnityEvent OnDestroyEvent;
         public UnityEvent OnDamageEvent;
+
+        [SerializeField] private GameEventChannelSO blockEventChannel;
+        [SerializeField] private float intensity;
         
         [Header("ResetBlock")]
         [SerializeField] private BlockSO blockData;
@@ -27,15 +33,18 @@ namespace Code.Blocks
         private SpriteRenderer _spriteRenderer;
         private Material _grayMat;
         private Camera _camera;
+        
+        private List<Block> _adjacencyBlocks = new List<Block>();
 
         private GameObject _collider;
         
         private BlockState _blockState = BlockState.None;
         private int _currentHealth;
         
-        private bool IsMoveY => Mathf.Abs(_rigidbody.linearVelocity.y) < 0.0001f; //Approximately은 판정이 너무 작음
+        private bool IsMove => Mathf.Abs(_rigidbody.linearVelocity.y) > 0.0001f 
+                                || Mathf.Abs(_rigidbody.linearVelocity.x) > 0.0001f; //Approximately은 판정이 너무 작음
+        
         private bool IsLock => _blockState == BlockState.Lock;
-        private bool _isGround;
 
         [ContextMenu("ResetBlock")]
         private void ResetBlock()
@@ -63,8 +72,30 @@ namespace Code.Blocks
 
         private void Awake()
         {
+            blockEventChannel.AddListener<DestroyBlockEvent>(HandleDestroy);
+            
             if(blockData != null)
                 Initialize(blockData);
+        }
+
+        private void OnDestroy()
+        {
+            blockEventChannel.RemoveListener<DestroyBlockEvent>(HandleDestroy);
+        }
+
+        private void HandleDestroy(DestroyBlockEvent evt)
+        {
+            if (_adjacencyBlocks.Contains(evt.block))
+            {
+                _adjacencyBlocks.Remove(evt.block);
+
+                if (IsLock == false)
+                {
+                    print(345345);
+                    SetFreezeAll(false);
+                    StopMove();
+                }
+            }
         }
 
         public void Initialize(BlockSO blockSo)
@@ -91,11 +122,11 @@ namespace Code.Blocks
 
         private void Update()
         {
-            if(_blockState == BlockState.Lock) return;
+            if(IsLock) return;
             
             float limitLine = _camera.transform.position.y - (_camera.orthographicSize / 1.2f);
             
-            if (_blockState == BlockState.Land && IsMoveY && limitLine > transform.position.y)
+            if (_blockState == BlockState.Land && IsMove == false && limitLine > transform.position.y)
             {
                 SetLockBlock(true);
             }
@@ -103,30 +134,37 @@ namespace Code.Blocks
 
         private void FixedUpdate()
         {
-            if (_blockState == BlockState.Falling && IsMoveY)
+            if(IsMove) return;
+            
+            if (_blockState == BlockState.Falling)
             {
                 SetBlockStateToLand();
+            }
+            else if (_blockState == BlockState.Land)
+            {
+                SetFreezeAll(true);
             }
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if(IsLock || _isGround) return;
-            
-            _isGround = true;
+            if(IsLock) return;
             
             int impulseDamage = (int)collision.relativeVelocity.magnitude * 2;
             
-            print(gameObject.name + impulseDamage);
-
-            if (impulseDamage < 5)
-            {
-                _rigidbody.linearVelocity /= 2f;
-                return;
-            }
+            //print(gameObject.name + impulseDamage);
             
             if (collision.gameObject.TryGetComponent<Block>(out var block))
             {
+                if (_adjacencyBlocks.Contains(block) == false)
+                {
+                    _adjacencyBlocks.Add(block);
+                }
+                
+                if (impulseDamage < intensity) return;
+                
+                SetFreezeAll(false);
+                
                 block.StopMove();
                 block.TakeDamage(impulseDamage);
             }
@@ -136,7 +174,15 @@ namespace Code.Blocks
 
         private void OnCollisionExit2D(Collision2D collision)
         {
-            _rigidbody.linearDamping = 0f;
+            if(IsLock) return;
+            
+            if (collision.gameObject.TryGetComponent<Block>(out var block))
+                if (_adjacencyBlocks.Contains(block))
+                {
+                    _adjacencyBlocks.Remove(block);
+                    SetFreezeAll(false);
+                    StopMove();
+                }
         }
 
         private void SetFlip(bool isFlip)
@@ -149,13 +195,13 @@ namespace Code.Blocks
 
         private void ChangeBreakSprite()
         {
-            float healthRatio = (float)_currentHealth / blockData.maxHealth;
+            float healthRatio = ((float)_currentHealth / blockData.maxHealth) * 100;
             
-            if (healthRatio > 0.75f)
+            if (healthRatio > 75f)
                 _spriteRenderer.sprite = blockData.default_Sprite;
-            else if (healthRatio > 0.5f)
+            else if (healthRatio > 50f)
                 _spriteRenderer.sprite = blockData.break_2_Sprite;
-            else if (healthRatio > 0.25f)
+            else if (healthRatio > 25f)
                 _spriteRenderer.sprite = blockData.break_3_Sprite;
             else
                 _spriteRenderer.sprite = blockData.break_4_Sprite;
@@ -185,7 +231,7 @@ namespace Code.Blocks
                 _currentHealth = blockData.maxHealth;
         }
 
-        private void SetFreezePosition(bool isFreeze)
+        private void SetFreezeAll(bool isFreeze)
         {
             if(isFreeze)
                 _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -213,28 +259,23 @@ namespace Code.Blocks
 
         private void SetLockBlock(bool isLock)
         {
-            if (isLock)
-            {
-                _grayMat.SetFloat(Contrast, 0f);
-                SetFreezePosition(true);
-                _blockState = BlockState.Lock;
-            }
-            else
-            {
-                _grayMat.SetFloat(Contrast, 1f);
-                SetFreezePosition(false);
-                _blockState = BlockState.None;
-            }
+            float color = isLock ? 0 : 1f;
+            _blockState = isLock ? BlockState.Lock : BlockState.None;
+            _grayMat.SetFloat(Contrast, color);
+            SetFreezeAll(isLock);
+            
+            if(isLock)
+                blockEventChannel.RaiseEvent(BlockEvent.DestroyBlockEvent.Initialize(this));
         }
 
-        public void SetBlockStateToFalling()
+        [ContextMenu("DropBlock")]
+        public void DropBlock()
         {
             _rigidbody.linearVelocity = Vector2.down;
             _rigidbody.gravityScale = 3f;
             
             _rigidbody.AddForce(Vector2.down * 1.5f, ForceMode2D.Force);
             _blockState = BlockState.Falling;
-            SetFreezePosition(false);
         }
         
         private void SetBlockStateToLand()
@@ -243,8 +284,11 @@ namespace Code.Blocks
             StopMove();
         }
 
+        [ContextMenu("DestroyBlock")]
         public void DestroyBlock()
         {
+            blockEventChannel.RaiseEvent(BlockEvent.DestroyBlockEvent.Initialize(this));
+            
             OnDestroyEvent?.Invoke();
             Destroy(gameObject);
         }

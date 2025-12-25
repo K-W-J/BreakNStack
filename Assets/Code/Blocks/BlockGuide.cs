@@ -6,7 +6,7 @@ namespace Code.Blocks
     {
         public void SetScale(Vector2 scale)
         {
-            transform.localScale = new Vector2(scale.x, scale.y);
+            transform.localScale = new Vector2(scale.x, transform.localScale.y);
         }
     }
 }

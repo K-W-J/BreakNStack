@@ -44,14 +44,13 @@ namespace Code.Blocks
             
             if (_currentBlock != null)
             {
-                _currentBlock.SetBlockStateToFalling();
+                _currentBlock.DropBlock();
                 _currentBlock = null;
             }
         }
         
         private void SpawnBlock()
         {
-            
             GameObject blockObject = Instantiate(blockPrefab, RandomSpawnPoint.position, Quaternion.identity);
             _currentBlock = blockObject.GetComponent<Block>();
             
@@ -60,9 +59,10 @@ namespace Code.Blocks
             
             blockGuide.gameObject.SetActive(true);
             blockGuide.transform.SetParent(_currentBlock.transform);
-
-            blockGuide.transform.position = new Vector3(0, -blockData[rand].size.y, 0);
-            blockGuide.transform.position += _currentBlock.transform.position;
+            blockGuide.transform.position = _currentBlock.transform.position;
+            
+            float scaleY = blockGuide.transform.localScale.y / 2;
+            blockGuide.transform.position += Vector3.down * scaleY;
             blockGuide.SetScale(blockData[rand].size);
         }
     }
