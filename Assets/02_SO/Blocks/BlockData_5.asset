@@ -16,8 +16,7 @@ MonoBehaviour:
   weight: 20
   blockName: BlockData_5
   blockType: 1
-  sizeX: 0.4
-  sizeY: 0.4
+  size: {x: 0.4, y: 0.4}
   maxHeight: 3
   minHeight: 1
   maxDistance: 5

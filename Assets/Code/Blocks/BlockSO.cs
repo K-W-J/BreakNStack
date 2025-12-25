@@ -13,8 +13,7 @@ namespace Code.Blocks
         public string blockName;
         public Enums.BlockType blockType;
         [Space] 
-        public float sizeX;
-        public float sizeY;
+        public Vector2 size;
         [Space] 
         public int maxHeight;
         public int minHeight;
