@@ -24,7 +24,9 @@ namespace Code.Blocks
         public UnityEvent OnDamageEvent;
 
         [SerializeField] private GameEventChannelSO blockEventChannel;
-        [SerializeField] private float intensity;
+        [SerializeField] private float intensityFreeze;
+        [SerializeField] private float intensityDamage;
+        [SerializeField] private bool canDamage;
         
         [Header("ResetBlock")]
         [SerializeField] private BlockSO blockData;
@@ -36,15 +38,17 @@ namespace Code.Blocks
         
         private List<Block> _adjacencyBlocks = new List<Block>();
 
+        private BlockGuide _blockGuide;
         private GameObject _collider;
         
         private BlockState _blockState = BlockState.None;
         private int _currentHealth;
         
-        private bool IsMove => Mathf.Abs(_rigidbody.linearVelocity.y) > 0.0001f 
-                                || Mathf.Abs(_rigidbody.linearVelocity.x) > 0.0001f; //Approximately은 판정이 너무 작음
-        
+        private bool IsMove => Mathf.Abs(_rigidbody.linearVelocity.y) > 0.00001f 
+                                || Mathf.Abs(_rigidbody.linearVelocity.x) > 0.00001f; //Approximately은 판정이 너무 작음
         private bool IsLock => _blockState == BlockState.Lock;
+
+        private bool _isFirstTimeGround;
 
         [ContextMenu("ResetBlock")]
         private void ResetBlock()
@@ -91,9 +95,8 @@ namespace Code.Blocks
 
                 if (IsLock == false)
                 {
-                    print(345345);
                     SetFreezeAll(false);
-                    StopMove();
+                    SetForceDown();
                 }
             }
         }
@@ -108,6 +111,7 @@ namespace Code.Blocks
             _rigidbody = GetComponent<Rigidbody2D>();
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
                 
+            _rigidbody.mass = blockData.weight;
             _spriteRenderer.sprite = blockData.default_Sprite;
             _grayMat = _spriteRenderer.material;
             
@@ -149,10 +153,13 @@ namespace Code.Blocks
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if(IsLock) return;
+
+            if (_isFirstTimeGround == false)
+                _isFirstTimeGround = true;
             
             int impulseDamage = (int)collision.relativeVelocity.magnitude * 2;
             
-            //print(gameObject.name + impulseDamage);
+            print(gameObject.name + " " + impulseDamage);
             
             if (collision.gameObject.TryGetComponent<Block>(out var block))
             {
@@ -160,16 +167,27 @@ namespace Code.Blocks
                 {
                     _adjacencyBlocks.Add(block);
                 }
-                
-                if (impulseDamage < intensity) return;
-                
-                SetFreezeAll(false);
-                
-                block.StopMove();
-                block.TakeDamage(impulseDamage);
+
+                if (impulseDamage > intensityFreeze)
+                {
+                    SetFreezeAll(false);
+                    block.SetFreezeAll(false);
+
+                    if (_isFirstTimeGround)
+                    {
+                        SetForceDown();
+                        block.SetForceDown();
+                    }
+                    else
+                    {
+                        AddForceDown();
+                        block.AddForceDown();
+                    }
+                }
+
+                if (impulseDamage > intensityDamage)
+                    block.TakeDamage(impulseDamage);
             }
-            
-            StopMove();
         }
 
         private void OnCollisionExit2D(Collision2D collision)
@@ -181,7 +199,7 @@ namespace Code.Blocks
                 {
                     _adjacencyBlocks.Remove(block);
                     SetFreezeAll(false);
-                    StopMove();
+                    AddForceDown();
                 }
         }
 
@@ -209,7 +227,7 @@ namespace Code.Blocks
 
         public void TakeDamage(int damage)
         {
-            if(IsLock) return;
+            if(IsLock || canDamage == false) return;
             
             OnDamageEvent?.Invoke();
             
@@ -252,10 +270,10 @@ namespace Code.Blocks
             _rigidbody.AddForce(direction, ForceMode2D.Impulse);
         }
         
-        private void StopMove()
-        {
-            _rigidbody.linearVelocity = Vector2.down;   
-        }
+        private void SetForceDown(float addForce = 1f)
+            => _rigidbody.linearVelocity = Vector2.down * addForce;
+        private void AddForceDown(float addForce = 0.5f)
+            => _rigidbody.AddForce(Vector2.down * addForce, ForceMode2D.Impulse);
 
         private void SetLockBlock(bool isLock)
         {
@@ -271,22 +289,41 @@ namespace Code.Blocks
         [ContextMenu("DropBlock")]
         public void DropBlock()
         {
-            _rigidbody.linearVelocity = Vector2.down;
+            SetForceDown();
             _rigidbody.gravityScale = 3f;
             
             _rigidbody.AddForce(Vector2.down * 1.5f, ForceMode2D.Force);
             _blockState = BlockState.Falling;
+            
+            _blockGuide.SetGuiding(false);
+            _blockGuide = null;
         }
         
         private void SetBlockStateToLand()
         {
             _blockState = BlockState.Land;
-            StopMove();
+            SetForceDown();
         }
 
+        public void SetBlockGuide(BlockGuide blockGuide)
+        {
+            _blockGuide = blockGuide;
+                
+            _blockGuide.SetGuiding(true, transform);
+            
+            float scaleY = _blockGuide.transform.localScale.y / 2;
+            Vector3 blockGuidePos = transform.position + Vector3.down * scaleY;
+            _blockGuide.SetPosition(blockGuidePos);
+            
+            _blockGuide.SetScale(blockData.size);
+        }
+        
         [ContextMenu("DestroyBlock")]
         public void DestroyBlock()
         {
+            if(_blockGuide != null)
+                _blockGuide.SetGuiding(false);
+            
             blockEventChannel.RaiseEvent(BlockEvent.DestroyBlockEvent.Initialize(this));
             
             OnDestroyEvent?.Invoke();

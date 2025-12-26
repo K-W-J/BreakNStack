@@ -39,9 +39,6 @@ namespace Code.Blocks
 
         public void DropBlock()
         {
-            blockGuide.gameObject.SetActive(false);
-            blockGuide.transform.SetParent(transform);
-            
             if (_currentBlock != null)
             {
                 _currentBlock.DropBlock();
@@ -56,14 +53,7 @@ namespace Code.Blocks
             
             int rand = Random.Range(0, blockData.Length);
             _currentBlock.Initialize(blockData[rand]);
-            
-            blockGuide.gameObject.SetActive(true);
-            blockGuide.transform.SetParent(_currentBlock.transform);
-            blockGuide.transform.position = _currentBlock.transform.position;
-            
-            float scaleY = blockGuide.transform.localScale.y / 2;
-            blockGuide.transform.position += Vector3.down * scaleY;
-            blockGuide.SetScale(blockData[rand].size);
+            _currentBlock.SetBlockGuide(blockGuide);
         }
     }
 }
