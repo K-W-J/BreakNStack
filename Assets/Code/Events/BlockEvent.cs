@@ -6,6 +6,8 @@ namespace Code.Events
     public class BlockEvent
     {
         public static DestroyBlockEvent DestroyBlockEvent = new DestroyBlockEvent();
+        public static CoundBlockEvent CoundBlockEvent = new CoundBlockEvent();
+        public static SpawnBlockEvent SpawnBlockEvent = new SpawnBlockEvent();
     }
 
     public class DestroyBlockEvent : GameEvent
@@ -15,6 +17,28 @@ namespace Code.Events
         public DestroyBlockEvent Initialize(Block block)
         {
             this.block = block;
+            return this;
+        }
+    }
+    
+    public class SpawnBlockEvent : GameEvent
+    {
+        public Block block;
+
+        public SpawnBlockEvent Initialize(Block block)
+        {
+            this.block = block;
+            return this;
+        }
+    }
+    
+    public class CoundBlockEvent : GameEvent
+    {
+        public int count;
+
+        public CoundBlockEvent Initialize(int count)
+        {
+            this.count = count;
             return this;
         }
     }

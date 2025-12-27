@@ -24,7 +24,6 @@ namespace Code.Blocks
         public UnityEvent OnDamageEvent;
 
         [SerializeField] private GameEventChannelSO blockEventChannel;
-        [SerializeField] private float intensityFreeze;
         [SerializeField] private float intensityDamage;
         [SerializeField] private bool canDamage;
         
@@ -40,7 +39,7 @@ namespace Code.Blocks
 
         private BlockGuide _blockGuide;
         private GameObject _collider;
-        
+
         private BlockState _blockState = BlockState.None;
         private int _currentHealth;
         
@@ -48,6 +47,7 @@ namespace Code.Blocks
                                 || Mathf.Abs(_rigidbody.linearVelocity.x) > 0.00001f; //Approximately은 판정이 너무 작음
         private bool IsLock => _blockState == BlockState.Lock;
 
+        public bool IsFirstTimeStack { get; private set; }
         private bool _isFirstTimeGround;
 
         [ContextMenu("ResetBlock")]
@@ -89,6 +89,8 @@ namespace Code.Blocks
 
         private void HandleDestroy(DestroyBlockEvent evt)
         {
+            if(IsLock) return;
+            
             if (_adjacencyBlocks.Contains(evt.block))
             {
                 _adjacencyBlocks.Remove(evt.block);
@@ -147,15 +149,18 @@ namespace Code.Blocks
             else if (_blockState == BlockState.Land)
             {
                 SetFreezeAll(true);
+
+                if (IsFirstTimeStack == false)
+                {
+                    blockEventChannel.RaiseEvent(BlockEvent.CoundBlockEvent.Initialize(blockData.stackCount));
+                    IsFirstTimeStack = true;
+                }
             }
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if(IsLock) return;
-
-            if (_isFirstTimeGround == false)
-                _isFirstTimeGround = true;
             
             int impulseDamage = (int)collision.relativeVelocity.magnitude * 2;
             
@@ -167,26 +172,24 @@ namespace Code.Blocks
                 {
                     _adjacencyBlocks.Add(block);
                 }
+                
+                SetFreezeAll(false);
+                block.SetFreezeAll(false);
 
-                if (impulseDamage > intensityFreeze)
+                if (_isFirstTimeGround == false)
                 {
-                    SetFreezeAll(false);
-                    block.SetFreezeAll(false);
-
-                    if (_isFirstTimeGround)
-                    {
-                        SetForceDown();
-                        block.SetForceDown();
-                    }
-                    else
-                    {
-                        AddForceDown();
-                        block.AddForceDown();
-                    }
+                    _isFirstTimeGround = true;
+                    AddForceDown(5f);
+                    block.AddForceDown(5f);
+                }
+                else
+                {
+                    AddForceDown();
+                    block.AddForceDown();
                 }
 
                 if (impulseDamage > intensityDamage)
-                    block.TakeDamage(impulseDamage);
+                    block.TakeDamage(impulseDamage / 2);
             }
         }
 
@@ -236,7 +239,10 @@ namespace Code.Blocks
             ChangeBreakSprite();
 
             if (_currentHealth <= 0)
+            {
+                blockEventChannel.RaiseEvent(BlockEvent.CoundBlockEvent.Initialize(blockData.destroyCount));
                 DestroyBlock();
+            }
         }
 
         public void Heal(int heal)

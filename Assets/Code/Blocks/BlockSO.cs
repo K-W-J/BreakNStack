@@ -9,6 +9,8 @@ namespace Code.Blocks
     {
         public int maxHealth;
         public int weight;
+        public int destroyCount;
+        public int stackCount;
         [Space]
         public string blockName;
         public Enums.BlockType blockType;

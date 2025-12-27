@@ -1,4 +1,6 @@
 using System.Linq;
+using Blade.Core;
+using Code.Events;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -6,10 +8,12 @@ namespace Code.Blocks
 {
     internal class BlockSpawner : MonoBehaviour
     {
+        [SerializeField] private GameEventChannelSO blockEventChannel;
         [SerializeField] private GameObject blockPrefab;
         [Space]
         [SerializeField] private BlockSO[] blockData;
         [SerializeField] private BlockGuide blockGuide;
+        [SerializeField] private ScreenMovement screenMovement;
         
         private Transform[] _blockSpawnPoint;
         private Transform RandomSpawnPoint =>
@@ -23,9 +27,9 @@ namespace Code.Blocks
         private void Awake()
         {
             _blockSpawnPoint = GetComponentsInChildren<Transform>().Where(t => t != transform).ToArray();
+            
             _spawnTimer = 2f;
         }
-
         private void Update()
         {
             _currentTime += Time.deltaTime;
@@ -50,6 +54,8 @@ namespace Code.Blocks
         {
             GameObject blockObject = Instantiate(blockPrefab, RandomSpawnPoint.position, Quaternion.identity);
             _currentBlock = blockObject.GetComponent<Block>();
+            
+            blockEventChannel.RaiseEvent(BlockEvent.SpawnBlockEvent.Initialize(_currentBlock));
             
             int rand = Random.Range(0, blockData.Length);
             _currentBlock.Initialize(blockData[rand]);

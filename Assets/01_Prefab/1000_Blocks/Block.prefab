@@ -140,7 +140,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 20
   m_LinearDamping: 0
-  m_AngularDamping: 0
+  m_AngularDamping: 5
   m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 80737ebd4c3b3f848a10b9d443dd810a, type: 2}
   m_IncludeLayers:
@@ -196,9 +196,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   blockEventChannel: {fileID: 11400000, guid: 9629503fecbbd3042b168eb171ef2ea4, type: 2}
-  intensityFreeze: 5
   intensityDamage: 15
-  canDamage: 0
+  canDamage: 1
   blockData: {fileID: 0}
 --- !u!1001 &6251642093128807695
 PrefabInstance:
