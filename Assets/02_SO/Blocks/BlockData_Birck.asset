@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f9c418936fb45b08383c7097b70a039, type: 3}
+  m_Name: BlockData_Birck
+  m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockSO
+  maxHealth: 100
+  weight: 20
+  destroyCount: 1
+  stackCount: 1
+  blockName: BlockData_7
+  blockType: 1
+  size: {x: 0.8, y: 0.8}
+  maxHeight: 3
+  minHeight: 1
+  maxDistance: 5
+  minDistance: 3
+  default_Sprite: {fileID: -1776813028, guid: 8cbfdace8fb685e46a7685b2ee6f75c7, type: 3}
+  break_2_Sprite: {fileID: 0}
+  break_3_Sprite: {fileID: 0}
+  break_4_Sprite: {fileID: 0}
+  break_Sprites: []
+  isFlip: 0
+  colliderPrefab: {fileID: 2098947443971739465, guid: 3d3109f91ffd56548b8261f19d0fad20, type: 3}

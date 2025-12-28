@@ -43,9 +43,9 @@ namespace Code.Blocks
         private BlockState _blockState = BlockState.None;
         private int _currentHealth;
         
-        private bool IsMove => Mathf.Abs(_rigidbody.linearVelocity.y) > 0.00001f 
-                                || Mathf.Abs(_rigidbody.linearVelocity.x) > 0.00001f; //Approximately은 판정이 너무 작음
-        private bool IsLock => _blockState == BlockState.Lock;
+        private bool IsMove => Mathf.Abs(_rigidbody.linearVelocity.y) > 0.0001f 
+                                || Mathf.Abs(_rigidbody.linearVelocity.x) > 0.0001f; //Approximately은 판정이 너무 작음
+        public bool IsLock => _blockState == BlockState.Lock;
 
         public bool IsFirstTimeStack { get; private set; }
         private bool _isFirstTimeGround;
@@ -69,8 +69,10 @@ namespace Code.Blocks
                 DestroyImmediate(_collider);
             
             _collider = Instantiate(blockData.colliderPrefab, transform);
-            float scaleX = blockData.isFlip ? -transform.localScale.x : transform.localScale.x;
-            Vector2 flipScale = new Vector2(scaleX, transform.localScale.y);
+            _collider.transform.localScale = Vector3.one;
+            
+            float scaleX = _collider.transform.localScale.x * (blockData.isFlip ? -1: 1);
+            Vector2 flipScale = new Vector2(scaleX, _collider.transform.localScale.y);
             _collider.transform.localScale = flipScale;
         }
 
@@ -121,6 +123,7 @@ namespace Code.Blocks
             _currentHealth = blockData.maxHealth;
 
             gameObject.name = $"{blockData.blockType.ToString()}_{blockData.blockName}_Block";
+            _collider.transform.localScale = transform.localScale;
             SetFlip(blockData.isFlip);
             
             FireBlock();
@@ -140,7 +143,7 @@ namespace Code.Blocks
 
         private void FixedUpdate()
         {
-            if(IsMove) return;
+            if(IsLock || IsMove) return;
             
             if (_blockState == BlockState.Falling)
             {
@@ -174,7 +177,9 @@ namespace Code.Blocks
                 }
                 
                 SetFreezeAll(false);
-                block.SetFreezeAll(false);
+                
+                if(block.IsLock == false)
+                    block.SetFreezeAll(false);
 
                 if (_isFirstTimeGround == false)
                 {
@@ -209,8 +214,10 @@ namespace Code.Blocks
         private void SetFlip(bool isFlip)
         {
             _spriteRenderer.flipX = isFlip;
-            float scaleX = isFlip ? -transform.localScale.x : transform.localScale.x;
-            Vector2 flipScale = new Vector2(scaleX, transform.localScale.y);
+            _collider.transform.localScale = Vector3.one;
+            
+            float scaleX = _collider.transform.localScale.x * (blockData.isFlip ? -1: 1);
+            Vector2 flipScale = new Vector2(scaleX, _collider.transform.localScale.y);
             _collider.transform.localScale = flipScale;
         }
 

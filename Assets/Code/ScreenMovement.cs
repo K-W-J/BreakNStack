@@ -45,27 +45,22 @@ namespace Code
         
         private void Update()
         {
-            if (isAutoMove)
-            {
-                transform.position = Vector3.Lerp(transform.position, new Vector3(0, _posY, -10), Time.deltaTime * speed);
-                return;
-            }
-            
             float topScreen = _camera.transform.position.y + _camera.orthographicSize;
             float topLinePosY = topScreen - screenLineHeight;
             
-            transform.position = new Vector3(0, topLinePosY, -10);
-            
             if (_blockList.Count < 1) return;
+            
+            float firstBlockPosY = _blockList.First().transform.position.y;
             
             _blockList.Sort((a, b) =>
                 (b.transform.position.y - topScreen)
                 .CompareTo(a.transform.position.y - topScreen));
             
-            if(topLinePosY < _blockList.First().transform.position.y && _blockList.First().IsFirstTimeStack)
-                SetMoveY(screenLineHeight);
+            if(topLinePosY < firstBlockPosY && _blockList.First().IsFirstTimeStack)
+                SetMoveY(transform.position.y + (firstBlockPosY - topLinePosY));
+            
+            transform.position = Vector3.Lerp(transform.position, new Vector3(0, _posY, -10), Time.deltaTime * speed);
         }
-        
         private void HandleAddBlockList(SpawnBlockEvent evt)
         {
             if (_blockList.Contains(evt.block) == false)
