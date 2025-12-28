@@ -165,7 +165,7 @@ namespace Code.Blocks
         {
             if(IsLock) return;
             
-            int impulseDamage = (int)collision.relativeVelocity.magnitude * 2;
+            int impulseDamage = (int)collision.relativeVelocity.magnitude;
             
             print(gameObject.name + " " + impulseDamage);
             
@@ -184,8 +184,8 @@ namespace Code.Blocks
                 if (_isFirstTimeGround == false)
                 {
                     _isFirstTimeGround = true;
-                    AddForceDown(5f);
-                    block.AddForceDown(5f);
+                    SetForceDown(5f);
+                    block.SetForceDown(5f);
                 }
                 else
                 {
@@ -194,7 +194,7 @@ namespace Code.Blocks
                 }
 
                 if (impulseDamage > intensityDamage)
-                    block.TakeDamage(impulseDamage / 2);
+                    block.TakeDamage(impulseDamage + blockData.weight);
             }
         }
 

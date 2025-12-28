@@ -12,21 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f9c418936fb45b08383c7097b70a039, type: 3}
   m_Name: BlockData_Anvil
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockSO
-  maxHealth: 100
-  weight: 20
+  maxHealth: 600
+  weight: 40
   destroyCount: 1
   stackCount: 1
-  blockName: BlockData_7
-  blockType: 1
-  size: {x: 0.8, y: 0.8}
+  blockName: BlockData_Anvil
+  blockType: 3
+  size: {x: 1.2, y: 0.8}
   maxHeight: 3
   minHeight: 1
   maxDistance: 5
   minDistance: 3
   default_Sprite: {fileID: 21300000, guid: 121a7a38f8220b0499447db128567f70, type: 3}
-  break_2_Sprite: {fileID: 0}
-  break_3_Sprite: {fileID: 0}
-  break_4_Sprite: {fileID: 0}
+  break_2_Sprite: {fileID: 21300000, guid: 121a7a38f8220b0499447db128567f70, type: 3}
+  break_3_Sprite: {fileID: 21300000, guid: 121a7a38f8220b0499447db128567f70, type: 3}
+  break_4_Sprite: {fileID: 21300000, guid: 121a7a38f8220b0499447db128567f70, type: 3}
   break_Sprites: []
   isFlip: 0
   colliderPrefab: {fileID: 2098947443971739465, guid: 474a7e85476ac5841af8599c161c9a7d, type: 3}

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 550760c10de702b43bf516b9ca32b206
+guid: e34ee0c57f52d294ea4d93080be6d4bb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6682738439518977790
-    second: Ground_0
+      213: 5760202260919997367
+    second: BackGround_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ground_0
+      name: BackGround_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 210
-        height: 49
+        width: 320
+        height: 569
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: efe706e343bddbc50800000000000000
-      internalID: 6682738439518977790
+      spriteID: 7b3d98cff6950ff40800000000000000
+      internalID: 5760202260919997367
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ground_0: 6682738439518977790
+      BackGround_0: 5760202260919997367
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

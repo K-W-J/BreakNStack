@@ -1,5 +1,6 @@
 using Blade.Core;
 using Code.Events;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ namespace Code.UI
         private void SetCountText(CoundBlockEvent evt)
         {
             _count += evt.count;
+            transform.DOShakeScale(0.1f);
             text.SetText(_count + "M");
         }
 
