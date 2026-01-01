@@ -55,8 +55,8 @@ namespace Code
             _blockList.Sort((a, b) =>
                 (b.transform.position.y - topScreen)
                 .CompareTo(a.transform.position.y - topScreen));
-            
-            if(topLinePosY < firstBlockPosY && _blockList.First().IsFirstTimeStack)
+
+            if (topLinePosY < firstBlockPosY && _blockList.First().IsFirstTimeStack)
                 SetMoveY(transform.position.y + (firstBlockPosY - topLinePosY));
             
             transform.position = Vector3.Lerp(transform.position, new Vector3(0, _posY, -10), Time.deltaTime * speed);

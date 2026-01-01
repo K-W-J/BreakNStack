@@ -165,39 +165,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c555f7e29d1f4549b1f92d5e2759448f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.Block
-  OnDestroyEvent:
+  <CanDealDamage>k__BackingField: 0
+  OnDeath:
     m_PersistentCalls:
       m_Calls: []
-  OnDamageEvent:
+  OnHit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6758798046613864087}
-        m_TargetAssemblyTypeName: Code.FeedBacks.EffectFeedBack, Assembly-CSharp
-        m_MethodName: CreateFeedback
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5143089177550922487}
-        m_TargetAssemblyTypeName: Code.FeedBacks.SoundFeedBack, Assembly-CSharp
-        m_MethodName: CreateFeedback
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   blockEventChannel: {fileID: 11400000, guid: 9629503fecbbd3042b168eb171ef2ea4, type: 2}
   intensityDamage: 10
-  canDamage: 1
   blockData: {fileID: 0}
 --- !u!1001 &6251642093128807695
 PrefabInstance:
@@ -261,25 +237,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7569042901947235590, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
   m_PrefabInstance: {fileID: 6251642093128807695}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5143089177550922487 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1269354322719037432, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
-  m_PrefabInstance: {fileID: 6251642093128807695}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 503b39fc65894085a7bb7b992a53c95c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Code.FeedBacks.SoundFeedBack
---- !u!114 &6758798046613864087 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 796671353076288408, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
-  m_PrefabInstance: {fileID: 6251642093128807695}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c36b8ab9c9854f9d9c78dfeef2fefde5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Code.FeedBacks.EffectFeedBack

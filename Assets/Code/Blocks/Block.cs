@@ -84,10 +84,6 @@ namespace Code.Blocks
             _rigidbody = GetComponentInChildren<Rigidbody2D>();
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             
-            GameObject particleObject = Instantiate(blockData.effectPrefab);
-            _particlePlayer = particleObject.GetComponent<ParticlePlayer>();
-            _particlePlayer.transform.SetParent(null);
-            
             blockEventChannel.AddListener<DestroyBlockEvent>(HandleDestroy);
             
             if(blockData != null)
