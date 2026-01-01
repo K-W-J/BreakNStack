@@ -30,3 +30,4 @@ MonoBehaviour:
   break_Sprites: []
   isFlip: 0
   colliderPrefab: {fileID: 2098947443971739465, guid: 3d3109f91ffd56548b8261f19d0fad20, type: 3}
+  effectPrefab: {fileID: 2679153792777887097, guid: 4794c337122d84c489ad7d91ba927529, type: 3}

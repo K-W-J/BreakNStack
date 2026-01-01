@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using Blade.Core;
+using Code.Agents;
+using Code.Effects;
 using Code.Events;
 using UnityEngine;
 using UnityEngine.Events;
@@ -16,16 +18,12 @@ namespace Code.Blocks
         Lock,
     }
     
-    public class Block : MonoBehaviour, IDamageable
+    public class Block : Agent, IDamageable
     {
         private static readonly int Contrast = Shader.PropertyToID("_Contrast");
-        
-        public UnityEvent OnDestroyEvent;
-        public UnityEvent OnDamageEvent;
 
         [SerializeField] private GameEventChannelSO blockEventChannel;
         [SerializeField] private float intensityDamage;
-        [SerializeField] private bool canDamage;
         
         [Header("ResetBlock")]
         [SerializeField] private BlockSO blockData;
@@ -37,6 +35,7 @@ namespace Code.Blocks
         
         private List<Block> _adjacencyBlocks = new List<Block>();
 
+        private ParticlePlayer _particlePlayer;
         private BlockGuide _blockGuide;
         private GameObject _collider;
 
@@ -62,8 +61,11 @@ namespace Code.Blocks
             gameObject.name = $"{blockData.blockType.ToString()}_{blockData.blockName}_Block";      
             
             _spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+            _particlePlayer = gameObject.GetComponentInChildren<ParticlePlayer>();
             _spriteRenderer.sprite = blockData.default_Sprite;
             _spriteRenderer.flipX = blockData.isFlip;
+            
+            _particlePlayer.SetParticle(blockData.effectPrefab.GetComponent<ParticleSystem>());
             
             if(_collider != null)
                 DestroyImmediate(_collider);
@@ -76,8 +78,16 @@ namespace Code.Blocks
             _collider.transform.localScale = flipScale;
         }
 
-        private void Awake()
+        protected override void Awake()
         {
+            _camera = Camera.main;
+            _rigidbody = GetComponentInChildren<Rigidbody2D>();
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            
+            GameObject particleObject = Instantiate(blockData.effectPrefab);
+            _particlePlayer = particleObject.GetComponent<ParticlePlayer>();
+            _particlePlayer.transform.SetParent(null);
+            
             blockEventChannel.AddListener<DestroyBlockEvent>(HandleDestroy);
             
             if(blockData != null)
@@ -110,11 +120,7 @@ namespace Code.Blocks
             if(blockData != null) return;
             
             blockData = blockSo;
-            
-            _camera = Camera.main;
-            _rigidbody = GetComponent<Rigidbody2D>();
-            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-                
+
             _rigidbody.mass = blockData.weight;
             _spriteRenderer.sprite = blockData.default_Sprite;
             _grayMat = _spriteRenderer.material;
@@ -237,9 +243,9 @@ namespace Code.Blocks
 
         public void TakeDamage(int damage)
         {
-            if(IsLock || canDamage == false) return;
+            if(IsLock || CanDealDamage == false) return;
             
-            OnDamageEvent?.Invoke();
+            OnHit?.Invoke();
             
             _currentHealth -= damage;
             
@@ -339,7 +345,7 @@ namespace Code.Blocks
             
             blockEventChannel.RaiseEvent(BlockEvent.DestroyBlockEvent.Initialize(this));
             
-            OnDestroyEvent?.Invoke();
+            OnDeath?.Invoke();
             Destroy(gameObject);
         }
     }

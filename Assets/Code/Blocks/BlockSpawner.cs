@@ -60,6 +60,7 @@ namespace Code.Blocks
             int rand = Random.Range(0, blockData.Length);
             _currentBlock.Initialize(blockData[rand]);
             _currentBlock.SetBlockGuide(blockGuide);
+            
         }
     }
 }

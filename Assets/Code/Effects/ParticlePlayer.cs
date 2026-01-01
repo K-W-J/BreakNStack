@@ -22,6 +22,8 @@ namespace Code.Effects
                 DestroyParticle();
         }
         
+        public void SetParticle(ParticleSystem particle) => this.particle = particle;
+        
         public void Restart()
         {
             Stop();

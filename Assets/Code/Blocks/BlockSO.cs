@@ -30,5 +30,6 @@ namespace Code.Blocks
         public bool isFlip;
         [Space]
         public GameObject colliderPrefab;
+        public GameObject effectPrefab;
     }
 }
