@@ -1,27 +1,20 @@
-﻿
-using Code.Effects;
+﻿using Blade.Core;
+using Code.Events;
 using UnityEngine;
 
 namespace Code.FeedBacks
 {
     public class EffectFeedBack : FeedBack
     {
-        [SerializeField] private ParticlePlayer particlePlayer;
+        [SerializeField] private GameEventChannelSO effectChannel;
 
         public override void CreateFeedback()
         {
-            particlePlayer.Play(transform.position);
+            effectChannel.RaiseEvent(EffectEvent.PlayEffectEvent.Initialize(transform.position));
         }
 
         public override void StopFeedback()
         {
-            particlePlayer.Stop();
-        }
-
-        private void OnDestroy()
-        {
-            if(particlePlayer != null && particlePlayer.IsPlaying == false)
-                Destroy(particlePlayer.gameObject);
         }
     }
 }

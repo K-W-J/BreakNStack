@@ -5,62 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce64176-11a5-46cf-a21b-76e18e2f9eec" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Effects/EffectSpriteSO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Effects/EffectSpriteSO.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Etc.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Screens.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Screens/ScreenResolution.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Screens/ScreenResolution.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/BillingMode.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/BillingMode.json.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Settings/InputSystem.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Settings/InputSystem/Controller.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Settings/InputSystem/Controller.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/02_SO/Events/CameraEventChannel.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/02_SO/Events/CameraEventChannel.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/02_SO/Events/EffectEventChannel.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/02_SO/Events/EffectEventChannel.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/02_SO/PoolItem.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/02_SO/PoolItem/BrickEffect[Pool].asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/02_SO/PoolItem/BrickEffect[Pool].asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/02_SO/PoolItem/WoodEffect[Pool].asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/02_SO/PoolItem/WoodEffect[Pool].asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/IPoolable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/IPoolable.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/PoolItemSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/PoolItemSO.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/PoolManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Core/PoolManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Events/EffectEvent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Events/EffectEvent.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_Anvil.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_Anvil.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_3.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_3_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_3_1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_4.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_4_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_4_1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_5.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_5.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_6.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_6.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_7.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_Anvil.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_Anvil.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_Birck.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_Birck.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Background/BackGround.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Background/BackGround.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Background/Ground.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Background/Ground.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Background/Sprite-0002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Background/Sprite-0002.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/05_Scene/SampleScene.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/05_Scene/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/05_Scene/SampleScene.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/05_Scene/SampleScene/Global Volume Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene/Global Volume Profile.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/05_Scene/SampleScene/Global Volume Profile.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene/Global Volume Profile.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/BackgroundMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Screens/BackgroundMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/BackgroundMovement.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Screens/BackgroundMovement.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/BlockDeathZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Etc/BlockDeathZone.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/BlockDeathZone.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Etc/BlockDeathZone.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/4000_Components/FeedBack.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/4000_Components/FeedBack.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Effects/ParticlePlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Effects/ParticlePlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/FeedBacks/EffectFeedBack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/FeedBacks/EffectFeedBack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/IDamageable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Etc/IDamageable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/IDamageable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Etc/IDamageable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/ScreenMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Screens/ScreenMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/ScreenMovement.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Screens/ScreenMovement.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/InputSystem_Actions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/InputSystem/Controller.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/InputSystem_Actions.inputactions.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/InputSystem/Controller.inputactions.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/Scenes.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/C.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/Scenes/URP2DSceneTemplate.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/Scenes/URP2DSceneTemplate.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/Build Profiles.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Modules/IModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Modules/IModule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Modules/ModuleOwner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Modules/ModuleOwner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/InputSystem/Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/InputSystem/Controller.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +137,7 @@
       <workItem from="1767280072051" duration="3877000" />
       <workItem from="1767328774225" duration="9632000" />
       <workItem from="1767445460157" duration="63000" />
-      <workItem from="1767445533690" duration="1049000" />
+      <workItem from="1767445533690" duration="9704000" />
     </task>
     <servers />
   </component>

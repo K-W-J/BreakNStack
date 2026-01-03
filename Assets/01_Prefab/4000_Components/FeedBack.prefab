@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 796671353076288408}
   - component: {fileID: 1269354322719037432}
   m_Layer: 0
-  m_Name: FeedBack
+  m_Name: Feedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36b8ab9c9854f9d9c78dfeef2fefde5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.FeedBacks.EffectFeedBack
-  particlePlayer: {fileID: 2679153792777887097, guid: 4794c337122d84c489ad7d91ba927529, type: 3}
+  particlePlayer: {fileID: 6711060830363231876, guid: 4794c337122d84c489ad7d91ba927529, type: 3}
 --- !u!114 &1269354322719037432
 MonoBehaviour:
   m_ObjectHideFlags: 0

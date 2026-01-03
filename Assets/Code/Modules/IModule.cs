@@ -1,8 +1,9 @@
-﻿
-namespace Code.Agents
+﻿using Code.Agents;
+
+namespace Code.Modules
 {
     public interface IModule
     {
-        void InitializeComponent();
+        void InitializeComponent(ModuleOwner owner);
     }
 }

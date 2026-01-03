@@ -19,7 +19,7 @@ namespace Code.Modules
         private void InitializeComponents()
         {
             foreach (var module in _moduleDict.Values) 
-                module.InitializeComponent();
+                module.InitializeComponent(this);
         }
 
         public T GetModule<T>()

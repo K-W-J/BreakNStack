@@ -1,26 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Code.Core;
 using UnityEngine;
 
 namespace Code.Effects
 {
-    public class ParticlePlayer : MonoBehaviour
+    public class ParticlePlayer : MonoBehaviour, IPoolable
     {
+        [field: SerializeField] public PoolItemSO PoolItem { get; private set; }
         [SerializeField] private ParticleSystem particle;
-
+        public GameObject GameObject => gameObject;
+        private PoolManager _pool;
+        
         public bool IsPlaying => particle.isPlaying;
-        private bool _isDestroy = false;
         
         private float _currentTime;
         
+        public void SetUpPool(PoolManager pool)
+        {
+            _pool = pool;
+        }
+        
+        public void ResetItem()
+        {
+            _currentTime = 0;
+            Restart();
+        }
+        
         private void Update()
         {
-            if(_isDestroy == false || IsPlaying == false) return;
+            if(IsPlaying == false) return;
             
             if(particle.main.startLifetime.constant > _currentTime) 
                 _currentTime += Time.deltaTime;
             else
-                DestroyParticle();
+                _pool.Push(this);
         }
         
         public void SetParticleSprites(List<Sprite> sprites)
@@ -36,13 +49,6 @@ namespace Code.Effects
         }
         
         public void Play() => particle.Play(true);
-        
-        public void Play(bool isDestroy)
-        {
-            _isDestroy = isDestroy;
-            particle.Play(true);
-        }
-
         public void Play(Vector3 startPos)
         {   
              transform.position = startPos;
@@ -51,10 +57,5 @@ namespace Code.Effects
 
         public void Stop() => particle.Stop(true);
         public void Pause() => particle.Pause(true);
-
-        private void DestroyParticle()
-        {
-            Destroy(gameObject);
-        }
     }
 }
