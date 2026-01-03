@@ -117,7 +117,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4912,4 +4912,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a52f061704431d945aacd87f3f82ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Effects.PlayParticle
+  <PoolItem>k__BackingField: {fileID: 11400000, guid: b554dcbe8c0f7d148b0b8e59535f66c6, type: 2}
   particle: {fileID: 5354737291206018135}

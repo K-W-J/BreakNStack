@@ -13,8 +13,6 @@ namespace Code.Effects
         
         public bool IsPlaying => particle.isPlaying;
         
-        private float _currentTime;
-        
         public void SetUpPool(PoolManager pool)
         {
             _pool = pool;
@@ -22,24 +20,13 @@ namespace Code.Effects
         
         public void ResetItem()
         {
-            _currentTime = 0;
             Restart();
         }
         
         private void Update()
         {
-            if(IsPlaying == false) return;
-            
-            if(particle.main.startLifetime.constant > _currentTime) 
-                _currentTime += Time.deltaTime;
-            else
+            if (IsPlaying == false)
                 _pool.Push(this);
-        }
-        
-        public void SetParticleSprites(List<Sprite> sprites)
-        {
-            foreach (var sprite in sprites)
-                particle.textureSheetAnimation.AddSprite(sprite);
         }
         
         public void Restart()

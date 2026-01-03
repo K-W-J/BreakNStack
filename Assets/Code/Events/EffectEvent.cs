@@ -1,4 +1,5 @@
 ﻿using Blade.Core;
+using Code.Core;
 using UnityEngine;
 
 namespace Code.Events
@@ -10,10 +11,12 @@ namespace Code.Events
     
     public class PlayEffectEvent : GameEvent
     {
+        public PoolItemSO effectItem;
         public Vector2 position;
 
-        public PlayEffectEvent Initialize(Vector2 position)
+        public PlayEffectEvent Initialize(PoolItemSO effectItem, Vector2 position)
         {
+            this.effectItem = effectItem;
             this.position = position;
             return this;
         }

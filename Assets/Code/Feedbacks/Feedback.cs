@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Code.FeedBacks
+namespace Code.Feedbacks
 {
-    public abstract class FeedBack : MonoBehaviour
+    public abstract class Feedback : MonoBehaviour
     {
         public abstract void CreateFeedback();
         public abstract void StopFeedback();

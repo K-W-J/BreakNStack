@@ -19,9 +19,11 @@ namespace Code.Core
                 for (int i = 0; i < poolItem.initCount; i++)
                 {
                     GameObject poolObject = Instantiate(poolItem.prefab, transform);
-                    poolObject.SetActive(false);
+                    IPoolable item = poolObject.GetComponent<IPoolable>();
+                    item.SetUpPool(this);
                     
-                    _poolIDict[poolItem].Push(poolObject.GetComponent<IPoolable>());
+                    _poolIDict[poolItem].Push(item);
+                    poolObject.SetActive(false);
                 }
             }
         }
@@ -29,16 +31,23 @@ namespace Code.Core
         public T Pop<T>(PoolItemSO poolItem) where T : IPoolable
         {
             IPoolable item;
-            if (_poolIDict[poolItem].Count == 0)
+            if (_poolIDict.TryGetValue(poolItem, out Stack<IPoolable> stack))
             {
-                GameObject poolObject = Instantiate(poolItem.prefab, transform);
-                item = poolObject.GetComponent<IPoolable>();
-                item.SetUpPool(this);
+                if (stack.Count == 0)
+                {
+                    GameObject poolObject = Instantiate(poolItem.prefab, transform);
+                    item = poolObject.GetComponent<IPoolable>();
+                    item.SetUpPool(this);
+                }
+                else
+                {
+                    item = _poolIDict[poolItem].Pop();
+                    item.GameObject.SetActive(true);
+                }
             }
             else
             {
-                item = _poolIDict[poolItem].Pop();
-                item.GameObject.SetActive(true);
+                return default;
             }
             
             item.ResetItem();
@@ -47,11 +56,14 @@ namespace Code.Core
         
         public void Push(IPoolable poolable)
         {
-            poolable.GameObject.SetActive(false);
-
             if (_poolIDict.TryGetValue(poolable.PoolItem, out Stack<IPoolable> stack))
             {
                 stack.Push(poolable);
+                poolable.GameObject.SetActive(false);
+            }
+            else
+            {
+                Debug.LogWarning("PoolItem not found");
             }
         }
     }

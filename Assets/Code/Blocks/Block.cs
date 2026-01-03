@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Blade.Core;
 using Code.Agents;
-using Code.Effects;
 using Code.Events;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -23,18 +22,17 @@ namespace Code.Blocks
 
         [SerializeField] private GameEventChannelSO blockEventChannel;
         [SerializeField] private float intensityDamage;
-        
+
         [Header("ResetBlock")]
-        [SerializeField] private BlockSO blockData;
-        
+        [field:SerializeField] public BlockSO BlockData { get; private set; }
+
         private Rigidbody2D _rigidbody;
         private SpriteRenderer _spriteRenderer;
         private Material _grayMat;
         private Camera _camera;
         
-        private List<Block> _adjacencyBlocks = new List<Block>();
+        private List<Block> _adjacencyBlocks;
 
-        private ParticlePlayer _particlePlayer;
         private BlockGuide _blockGuide;
         private GameObject _collider;
 
@@ -51,44 +49,43 @@ namespace Code.Blocks
         [ContextMenu("ResetBlock")]
         private void ResetBlock()
         {
-            if (blockData == null)
+            if (BlockData == null)
             {
                 Debug.Log($"Block SO가 없습니다.");
                 return;
             }
             
-            gameObject.name = $"{blockData.blockType.ToString()}_{blockData.blockName}_Block";      
+            gameObject.name = $"{BlockData.blockType.ToString()}_{BlockData.blockName}_Block";      
             
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            _particlePlayer = GetComponentInChildren<ParticlePlayer>();
-            _spriteRenderer.sprite = blockData.default_Sprite;
-            _spriteRenderer.flipX = blockData.isFlip;
+            _spriteRenderer.sprite = BlockData.default_Sprite;
+            _spriteRenderer.flipX = BlockData.isFlip;
 
-            if (blockData.effectSpriteData != null)
-                _particlePlayer.SetParticleSprites(blockData.effectSpriteData.effectSprites);
-            
             if(_collider != null)
                 DestroyImmediate(_collider);
             
-            _collider = Instantiate(blockData.colliderPrefab, transform);
+            _collider = Instantiate(BlockData.colliderPrefab, transform);
             _collider.transform.localScale = Vector3.one;
             
-            float scaleX = _collider.transform.localScale.x * (blockData.isFlip ? -1: 1);
+            float scaleX = _collider.transform.localScale.x * (BlockData.isFlip ? -1: 1);
             Vector2 flipScale = new Vector2(scaleX, _collider.transform.localScale.y);
             _collider.transform.localScale = flipScale;
         }
 
         protected override void Awake()
         {
+            base.Awake();
+            
             _camera = Camera.main;
             _rigidbody = GetComponentInChildren<Rigidbody2D>();
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            _particlePlayer = GetComponentInChildren<ParticlePlayer>();
+            
+            _adjacencyBlocks = new List<Block>();
             
             blockEventChannel.AddListener<DestroyBlockEvent>(HandleDestroy);
             
-            if(blockData != null)
-                Initialize(blockData);
+            if(BlockData != null)
+                Initialize(BlockData);
         }
 
         private void OnDestroy()
@@ -114,23 +111,20 @@ namespace Code.Blocks
 
         public void Initialize(BlockSO blockSo)
         {
-            if(blockData != null) return;
+            if(BlockData != null) return;
             
-            blockData = blockSo;
+            BlockData = blockSo;
 
-            _rigidbody.mass = blockData.weight;
-            _spriteRenderer.sprite = blockData.default_Sprite;
+            _rigidbody.mass = BlockData.weight;
+            _spriteRenderer.sprite = BlockData.default_Sprite;
             _grayMat = _spriteRenderer.material;
             
-            if (blockData.effectSpriteData != null)
-                _particlePlayer.SetParticleSprites(blockData.effectSpriteData.effectSprites);
-            
-            _collider = Instantiate(blockData.colliderPrefab, transform);
-            _currentHealth = blockData.maxHealth;
+            _collider = Instantiate(BlockData.colliderPrefab, transform);
+            _currentHealth = BlockData.maxHealth;
 
-            gameObject.name = $"{blockData.blockType.ToString()}_{blockData.blockName}_Block";
+            gameObject.name = $"{BlockData.blockType.ToString()}_{BlockData.blockName}_Block";
             _collider.transform.localScale = transform.localScale;
-            SetFlip(blockData.isFlip);
+            SetFlip(BlockData.isFlip);
             
             FireBlock();
         }
@@ -161,7 +155,7 @@ namespace Code.Blocks
 
                 if (IsFirstTimeStack == false)
                 {
-                    blockEventChannel.RaiseEvent(BlockEvent.CoundBlockEvent.Initialize(blockData.stackCount));
+                    blockEventChannel.RaiseEvent(BlockEvent.CoundBlockEvent.Initialize(BlockData.stackCount));
                     IsFirstTimeStack = true;
                 }
             }
@@ -200,7 +194,7 @@ namespace Code.Blocks
                 }
 
                 if (impulseDamage > intensityDamage)
-                    block.TakeDamage(impulseDamage + blockData.attack);
+                    block.TakeDamage(impulseDamage + BlockData.attack);
             }
         }
 
@@ -222,23 +216,23 @@ namespace Code.Blocks
             _spriteRenderer.flipX = isFlip;
             _collider.transform.localScale = Vector3.one;
             
-            float scaleX = _collider.transform.localScale.x * (blockData.isFlip ? -1: 1);
+            float scaleX = _collider.transform.localScale.x * (BlockData.isFlip ? -1: 1);
             Vector2 flipScale = new Vector2(scaleX, _collider.transform.localScale.y);
             _collider.transform.localScale = flipScale;
         }
 
         private void ChangeBreakSprite()
         {
-            float healthRatio = ((float)_currentHealth / blockData.maxHealth) * 100;
+            float healthRatio = ((float)_currentHealth / BlockData.maxHealth) * 100;
             
             if (healthRatio > 75f)
-                _spriteRenderer.sprite = blockData.default_Sprite;
+                _spriteRenderer.sprite = BlockData.default_Sprite;
             else if (healthRatio > 50f)
-                _spriteRenderer.sprite = blockData.break_2_Sprite;
+                _spriteRenderer.sprite = BlockData.break_2_Sprite;
             else if (healthRatio > 25f)
-                _spriteRenderer.sprite = blockData.break_3_Sprite;
+                _spriteRenderer.sprite = BlockData.break_3_Sprite;
             else
-                _spriteRenderer.sprite = blockData.break_4_Sprite;
+                _spriteRenderer.sprite = BlockData.break_4_Sprite;
         }
 
         public void TakeDamage(int damage)
@@ -253,7 +247,7 @@ namespace Code.Blocks
 
             if (_currentHealth <= 0)
             {
-                blockEventChannel.RaiseEvent(BlockEvent.CoundBlockEvent.Initialize(blockData.destroyCount));
+                blockEventChannel.RaiseEvent(BlockEvent.CoundBlockEvent.Initialize(BlockData.destroyCount));
                 DestroyBlock();
             }
         }
@@ -264,8 +258,8 @@ namespace Code.Blocks
 
             ChangeBreakSprite();
             
-            if (blockData.maxHealth < _currentHealth)
-                _currentHealth = blockData.maxHealth;
+            if (BlockData.maxHealth < _currentHealth)
+                _currentHealth = BlockData.maxHealth;
         }
 
         private void SetFreezeAll(bool isFreeze)
@@ -281,8 +275,8 @@ namespace Code.Blocks
             _blockState = BlockState.Fire;
             
             Vector2 direction = (transform.position.x > 0 ? Vector2.left : Vector2.right)
-                                * Random.Range(blockData.minDistance, blockData.maxDistance);//방향
-            direction += Vector2.up * Random.Range(blockData.minHeight, blockData.maxHeight);//높이
+                                * Random.Range(BlockData.minDistance, BlockData.maxDistance);//방향
+            direction += Vector2.up * Random.Range(BlockData.minHeight, BlockData.maxHeight);//높이
             direction *= _rigidbody.mass;//질량 무시
             
             _rigidbody.gravityScale = 0.5f;
@@ -334,7 +328,7 @@ namespace Code.Blocks
             Vector3 blockGuidePos = transform.position + Vector3.down * scaleY;
             _blockGuide.SetPosition(blockGuidePos);
             
-            _blockGuide.SetScale(blockData.size);
+            _blockGuide.SetScale(BlockData.size);
         }
         
         [ContextMenu("DestroyBlock")]

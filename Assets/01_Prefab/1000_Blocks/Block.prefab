@@ -210,7 +210,7 @@ MonoBehaviour:
         m_CallState: 2
   blockEventChannel: {fileID: 11400000, guid: 9629503fecbbd3042b168eb171ef2ea4, type: 2}
   intensityDamage: 10
-  blockData: {fileID: 0}
+  <BlockData>k__BackingField: {fileID: 0}
 --- !u!1001 &6251642093128807695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -219,6 +219,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 628724384727864798}
     m_Modifications:
+    - target: {fileID: 796671353076288408, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
+      propertyPath: effectChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 25272de0628fad24ea520b901da83a08, type: 2}
     - target: {fileID: 796671353076288408, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
       propertyPath: particlePlayer
       value: 
@@ -229,11 +233,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7569042901947235590, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.39018
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7569042901947235590, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.05336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7569042901947235590, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -270,69 +274,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5435444333478840908, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3601220499361623378}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
---- !u!1 &2138322031160655683 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5435444333478840908, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
-  m_PrefabInstance: {fileID: 6251642093128807695}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3601220499361623378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2138322031160655683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineImpulseSource
-  ImpulseDefinition:
-    ImpulseChannel: 1
-    ImpulseShape: 2
-    CustomImpulseShape:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    ImpulseDuration: 0.2
-    ImpulseType: 0
-    DissipationRate: 0.25
-    RawSignal: {fileID: 0}
-    AmplitudeGain: 1
-    FrequencyGain: 1
-    RepeatMode: 0
-    Randomize: 1
-    TimeEnvelope:
-      AttackShape:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      DecayShape:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      AttackTime: 0
-      SustainTime: 0.2
-      DecayTime: 0.7
-      ScaleWithImpact: 1
-      HoldForever: 0
-    ImpactRadius: 100
-    DirectionMode: 0
-    DissipationMode: 2
-    DissipationDistance: 100
-    PropagationSpeed: 343
-  DefaultVelocity: {x: 0, y: -1, z: 0}
 --- !u!4 &4596186438622758921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7569042901947235590, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
@@ -343,7 +286,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1269354322719037432, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
   m_PrefabInstance: {fileID: 6251642093128807695}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2138322031160655683}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 503b39fc65894085a7bb7b992a53c95c, type: 3}
@@ -354,7 +297,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 796671353076288408, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
   m_PrefabInstance: {fileID: 6251642093128807695}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2138322031160655683}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c36b8ab9c9854f9d9c78dfeef2fefde5, type: 3}

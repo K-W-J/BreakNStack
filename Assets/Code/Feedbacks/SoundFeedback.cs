@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Code.FeedBacks
+namespace Code.Feedbacks
 {
-    public class SoundFeedBack : FeedBack
+    public class SoundFeedback : Feedback
     {
         
         public override void CreateFeedback()

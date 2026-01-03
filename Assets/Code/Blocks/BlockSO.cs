@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Code.Core;
 using Code.Defines;
 using Code.Effects;
 using UnityEngine;
@@ -32,7 +33,7 @@ namespace Code.Blocks
         public List<Sprite> break_Sprites; //첫번째 인덱스부터 마지막 인덱스까지 부서지는 순서대로 스프라이트 넣기
         public bool isFlip;
         [Space]
-        public EffectSpriteSO effectSpriteData;
+        public PoolItemSO effectPoolItem;
         [Space]
         public GameObject colliderPrefab;
     }

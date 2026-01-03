@@ -30,5 +30,5 @@ MonoBehaviour:
   break_4_Sprite: {fileID: -1851508598, guid: a0d5a6089873d314fadc9a3d11dacf58, type: 3}
   break_Sprites: []
   isFlip: 0
-  effectSpriteData: {fileID: 11400000, guid: e9f42ab47027bff4588ecb2493795e52, type: 2}
+  effectPoolItem: {fileID: 11400000, guid: b554dcbe8c0f7d148b0b8e59535f66c6, type: 2}
   colliderPrefab: {fileID: 1837418507850121487, guid: 75925ea9cbb84af4da45ccfc89c7819c, type: 3}
