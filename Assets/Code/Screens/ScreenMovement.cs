@@ -5,7 +5,7 @@ using Code.Blocks;
 using Code.Events;
 using UnityEngine;
 
-namespace Code
+namespace Code.Screens
 {
     public class ScreenMovement : MonoBehaviour
     {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Code.Defines;
+using Code.Effects;
 using UnityEngine;
 
 namespace Code.Blocks
@@ -9,6 +10,8 @@ namespace Code.Blocks
     {
         public int maxHealth;
         public int weight;
+        public int attack;
+        [Space]
         public int destroyCount;
         public int stackCount;
         [Space]
@@ -29,7 +32,8 @@ namespace Code.Blocks
         public List<Sprite> break_Sprites; //첫번째 인덱스부터 마지막 인덱스까지 부서지는 순서대로 스프라이트 넣기
         public bool isFlip;
         [Space]
+        public EffectSpriteSO effectSpriteData;
+        [Space]
         public GameObject colliderPrefab;
-        public GameObject effectPrefab;
     }
 }

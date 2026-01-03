@@ -6,22 +6,22 @@ namespace Code.FeedBacks
 {
     public class EffectFeedBack : FeedBack
     {
-        private ParticlePlayer _particlePlayer;
+        [SerializeField] private ParticlePlayer particlePlayer;
 
         public override void CreateFeedback()
         {
-            _particlePlayer.Play(transform.position);
+            particlePlayer.Play(transform.position);
         }
 
         public override void StopFeedback()
         {
-            _particlePlayer.Stop();
+            particlePlayer.Stop();
         }
 
         private void OnDestroy()
         {
-            if(_particlePlayer != null && _particlePlayer.IsPlaying == false)
-                Destroy(_particlePlayer.gameObject);
+            if(particlePlayer != null && particlePlayer.IsPlaying == false)
+                Destroy(particlePlayer.gameObject);
         }
     }
 }

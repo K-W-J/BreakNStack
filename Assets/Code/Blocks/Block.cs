@@ -4,7 +4,6 @@ using Code.Agents;
 using Code.Effects;
 using Code.Events;
 using UnityEngine;
-using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace Code.Blocks
@@ -60,12 +59,13 @@ namespace Code.Blocks
             
             gameObject.name = $"{blockData.blockType.ToString()}_{blockData.blockName}_Block";      
             
-            _spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
-            _particlePlayer = gameObject.GetComponentInChildren<ParticlePlayer>();
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _particlePlayer = GetComponentInChildren<ParticlePlayer>();
             _spriteRenderer.sprite = blockData.default_Sprite;
             _spriteRenderer.flipX = blockData.isFlip;
-            
-            _particlePlayer.SetParticle(blockData.effectPrefab.GetComponent<ParticleSystem>());
+
+            if (blockData.effectSpriteData != null)
+                _particlePlayer.SetParticleSprites(blockData.effectSpriteData.effectSprites);
             
             if(_collider != null)
                 DestroyImmediate(_collider);
@@ -83,6 +83,7 @@ namespace Code.Blocks
             _camera = Camera.main;
             _rigidbody = GetComponentInChildren<Rigidbody2D>();
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _particlePlayer = GetComponentInChildren<ParticlePlayer>();
             
             blockEventChannel.AddListener<DestroyBlockEvent>(HandleDestroy);
             
@@ -120,6 +121,9 @@ namespace Code.Blocks
             _rigidbody.mass = blockData.weight;
             _spriteRenderer.sprite = blockData.default_Sprite;
             _grayMat = _spriteRenderer.material;
+            
+            if (blockData.effectSpriteData != null)
+                _particlePlayer.SetParticleSprites(blockData.effectSpriteData.effectSprites);
             
             _collider = Instantiate(blockData.colliderPrefab, transform);
             _currentHealth = blockData.maxHealth;
@@ -196,7 +200,7 @@ namespace Code.Blocks
                 }
 
                 if (impulseDamage > intensityDamage)
-                    block.TakeDamage(impulseDamage + blockData.weight);
+                    block.TakeDamage(impulseDamage + blockData.attack);
             }
         }
 

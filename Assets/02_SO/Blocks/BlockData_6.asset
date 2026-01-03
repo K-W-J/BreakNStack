@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockSO
   maxHealth: 100
   weight: 20
+  attack: 10
   destroyCount: 1
   stackCount: 1
   blockName: BlockData_6
@@ -27,5 +28,7 @@ MonoBehaviour:
   break_2_Sprite: {fileID: 369496361, guid: 867625a3e24b96748b1b875b6c710027, type: 3}
   break_3_Sprite: {fileID: -16576044, guid: 867625a3e24b96748b1b875b6c710027, type: 3}
   break_4_Sprite: {fileID: -679134301, guid: 867625a3e24b96748b1b875b6c710027, type: 3}
+  break_Sprites: []
   isFlip: 0
+  effectSpriteData: {fileID: 11400000, guid: e9f42ab47027bff4588ecb2493795e52, type: 2}
   colliderPrefab: {fileID: 1308292072255226590, guid: 18beb83702d43354e89e15c44787dcb4, type: 3}

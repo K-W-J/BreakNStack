@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Code.Effects
@@ -22,7 +23,11 @@ namespace Code.Effects
                 DestroyParticle();
         }
         
-        public void SetParticle(ParticleSystem particle) => this.particle = particle;
+        public void SetParticleSprites(List<Sprite> sprites)
+        {
+            foreach (var sprite in sprites)
+                particle.textureSheetAnimation.AddSprite(sprite);
+        }
         
         public void Restart()
         {

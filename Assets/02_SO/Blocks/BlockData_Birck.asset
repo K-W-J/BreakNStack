@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockSO
   maxHealth: 50
   weight: 30
+  attack: 20
   destroyCount: 1
   stackCount: 1
   blockName: BlockData_Birck
@@ -29,5 +30,5 @@ MonoBehaviour:
   break_4_Sprite: {fileID: 750244045, guid: 8cbfdace8fb685e46a7685b2ee6f75c7, type: 3}
   break_Sprites: []
   isFlip: 0
+  effectSpriteData: {fileID: 11400000, guid: 611047797eaa1d2459e71481f27a194b, type: 2}
   colliderPrefab: {fileID: 2098947443971739465, guid: 3d3109f91ffd56548b8261f19d0fad20, type: 3}
-  effectPrefab: {fileID: 2679153792777887097, guid: 4794c337122d84c489ad7d91ba927529, type: 3}

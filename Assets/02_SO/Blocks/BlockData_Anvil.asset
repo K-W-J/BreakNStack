@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockSO
   maxHealth: 600
   weight: 40
+  attack: 20
   destroyCount: 1
   stackCount: 1
   blockName: BlockData_Anvil
@@ -30,3 +31,4 @@ MonoBehaviour:
   break_Sprites: []
   isFlip: 0
   colliderPrefab: {fileID: 2098947443971739465, guid: 474a7e85476ac5841af8599c161c9a7d, type: 3}
+  effectPrefab: {fileID: 0}

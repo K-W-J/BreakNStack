@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile
   components:
   - {fileID: 1856324164234766249}
+  - {fileID: 5088041010129677451}
 --- !u!114 &1856324164234766249
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -29,10 +30,38 @@ MonoBehaviour:
   active: 1
   lift:
     m_OverrideState: 0
-    m_Value: {x: 0.83026683, y: 0.97504246, z: 1, w: 0.000000097760996}
+    m_Value: {x: 1, y: 0.9767583, z: 0.97374684, w: -0.0077220076}
   gamma:
     m_OverrideState: 0
-    m_Value: {x: 0.73192996, y: 0.90977407, z: 1, w: -0.013003902}
+    m_Value: {x: 0.8888957, y: 0.90493125, z: 1, w: 0.052015606}
   gain:
     m_OverrideState: 0
-    m_Value: {x: 0.4045272, y: 0.8633763, z: 1, w: 0.2990895}
+    m_Value: {x: 0.8098881, y: 0.9170616, z: 1, w: 0.1170349}
+--- !u!114 &5088041010129677451
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
+  m_Name: ColorAdjustments
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.ColorAdjustments
+  active: 0
+  postExposure:
+    m_OverrideState: 0
+    m_Value: 0.19
+  contrast:
+    m_OverrideState: 0
+    m_Value: 29.5
+  colorFilter:
+    m_OverrideState: 0
+    m_Value: {r: 0.75, g: 0.8702787, b: 1, a: 1}
+  hueShift:
+    m_OverrideState: 0
+    m_Value: -180
+  saturation:
+    m_OverrideState: 0
+    m_Value: -31.8
