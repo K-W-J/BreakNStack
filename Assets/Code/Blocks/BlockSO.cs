@@ -11,7 +11,9 @@ namespace Code.Blocks
     {
         public int maxHealth;
         public int weight;
+        [Space]
         public int attack;
+        public int intensityDamage;
         [Space]
         public int destroyCount;
         public int stackCount;

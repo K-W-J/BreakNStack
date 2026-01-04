@@ -5,49 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce64176-11a5-46cf-a21b-76e18e2f9eec" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/01_Prefab/2000_System.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/01_Prefab/2000_System/EffectManager.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/01_Prefab/2000_System/EffectManager.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/01_Prefab/2000_System/PoolManager.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/01_Prefab/2000_System/PoolManager.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Effects/EffectManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Effects/EffectManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Feedbacks.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Feedbacks/EffectFeedback.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Feedbacks/EffectFeedback.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Feedbacks/Feedback.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Feedbacks/SoundFeedback.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/02_SO/PoolItem/Block[Pool].asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/02_SO/PoolItem/Block[Pool].asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockRenderer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockRenderer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Blocks/IInitializeSpawn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Blocks/IInitializeSpawn.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/4000_Components/FeedBack.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/4000_Components/FeedBack.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/5000_Effects/Brick_Particle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/5000_Effects/Brick_Particle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/5000_Effects/Wood_Particle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/5000_Effects/Wood_Particle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_3.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_3_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_3_1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_4.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_4_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_4_1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_5.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_5.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_6.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_6.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_7.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_Anvil.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_Anvil.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_Birck.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_Birck.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/2000_System/PoolManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/2000_System/PoolManager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Core/PoolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Core/PoolManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Effects/EffectSpriteSO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Effects/EffectSpriteSO.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Effects/ParticlePlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Effects/ParticlePlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Events/EffectEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Events/EffectEvent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/FeedBacks.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/FeedBacks/EffectFeedBack.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/FeedBacks/EffectFeedBack.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/FeedBacks/FeedBack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Feedbacks/Feedback.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/FeedBacks/FeedBack.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/FeedBacks/SoundFeedBack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Feedbacks/SoundFeedback.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/FeedBacks/SoundFeedBack.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Etc/BlockDeathZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Etc/BlockDeathZone.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Events/BlockEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Events/BlockEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Screens/ScreenMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Screens/ScreenMovement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,11 +32,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/07c12a9d8ce247d18a35c5e3e7bb065f212200/48/6e8e73ad/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/149e17736657436184c79013edbc09368b000/07/3f2fcf13/Rigidbody2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/149e17736657436184c79013edbc09368b000/63/5cd31735/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d303c2bf72cd4cec95665b89c457d265d2b8ef3ed6da17cd4f85587c2f9de7/System.Linq.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Checkers/CastChecker.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/Effects/EffectSpriteSO.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -88,7 +62,7 @@
 }</component>
   <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1-x86_64\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\USER\Desktop\UnityProject\TappyStackers -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\USER\Desktop\UnityProject\TappyStackers" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -99,7 +73,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unity 시작" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1-x86_64\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\USER\Desktop\UnityProject\TappyStackers -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\USER\Desktop\UnityProject\TappyStackers" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -153,6 +127,7 @@
       <workItem from="1767328774225" duration="9632000" />
       <workItem from="1767445460157" duration="63000" />
       <workItem from="1767445533690" duration="9704000" />
+      <workItem from="1767497366559" duration="5268000" />
     </task>
     <servers />
   </component>
@@ -184,6 +159,19 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Code/Core/PoolManager.cs</url>
+          <line>74</line>
+          <properties documentPath="C:\Users\USER\Desktop\UnityProject\TappyStackers\Assets\Code\Core\PoolManager.cs" containingFunctionPresentation="메서드 'Push'">
+            <startOffsets>
+              <option value="2433" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2434" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

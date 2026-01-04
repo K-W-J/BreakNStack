@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9218599689477770743}
   - component: {fileID: 7865928370409095561}
+  - component: {fileID: 8998351073657005599}
   m_Layer: 3
   m_Name: Visual
   m_TagString: Untagged
@@ -91,6 +92,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &8998351073657005599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447083509833230433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb2100a5172d4e82ba44ae3f26e87982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockRenderer
 --- !u!1 &2606105986370208402
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,8 +221,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  <PoolItem>k__BackingField: {fileID: 11400000, guid: edb817538925f14458152555c3f62a6f, type: 2}
   blockEventChannel: {fileID: 11400000, guid: 9629503fecbbd3042b168eb171ef2ea4, type: 2}
-  intensityDamage: 10
   <BlockData>k__BackingField: {fileID: 0}
 --- !u!1001 &6251642093128807695
 PrefabInstance:

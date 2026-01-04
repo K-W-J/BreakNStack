@@ -7,7 +7,7 @@ namespace Code
     {
         private void OnTriggerEnter2D(Collider2D other)
         {
-            other.GetComponentInParent<Block>()?.DestroyBlock();
+            other.GetComponentInParent<Block>()?.PushBlock();
         }
     }
 }

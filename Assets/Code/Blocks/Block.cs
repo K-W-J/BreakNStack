@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Blade.Core;
 using Code.Agents;
+using Code.Core;
 using Code.Events;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -16,31 +17,35 @@ namespace Code.Blocks
         Lock,
     }
     
-    public class Block : Agent, IDamageable
+    public class Block : Agent, IDamageable, IPoolable
     {
-        private static readonly int Contrast = Shader.PropertyToID("_Contrast");
-
+        [field:SerializeField] public PoolItemSO PoolItem { get; private set; }
+        public GameObject GameObject => gameObject;
+        
         [SerializeField] private GameEventChannelSO blockEventChannel;
-        [SerializeField] private float intensityDamage;
 
-        [Header("ResetBlock")]
+        [field:Header("ResetBlock")]
         [field:SerializeField] public BlockSO BlockData { get; private set; }
 
+        private List<Block> _adjacencyBlocks;
+        private IInitializeSpawn[] _initSpawns;
+
+        public GameObject BlockCollider { get; private set; }
+        public int CurrentHealth { get; private set; }
+        
         private Rigidbody2D _rigidbody;
-        private SpriteRenderer _spriteRenderer;
-        private Material _grayMat;
         private Camera _camera;
         
-        private List<Block> _adjacencyBlocks;
-
+        private BlockRenderer _blockRenderer;
         private BlockGuide _blockGuide;
-        private GameObject _collider;
+        private PoolManager _pool;
 
         private BlockState _blockState = BlockState.None;
-        private int _currentHealth;
+        
         
         private bool IsMove => Mathf.Abs(_rigidbody.linearVelocity.y) > 0.0001f 
-                                || Mathf.Abs(_rigidbody.linearVelocity.x) > 0.0001f; //Approximately은 판정이 너무 작음
+                               || Mathf.Abs(_rigidbody.linearVelocity.x) > 0.0001f; //Approximately은 판정이 너무 작음
+        
         public bool IsLock => _blockState == BlockState.Lock;
 
         public bool IsFirstTimeStack { get; private set; }
@@ -49,89 +54,65 @@ namespace Code.Blocks
         [ContextMenu("ResetBlock")]
         private void ResetBlock()
         {
-            if (BlockData == null)
-            {
-                Debug.Log($"Block SO가 없습니다.");
-                return;
-            }
+            Debug.Assert(BlockData != null, "not found BlockData.");
             
             gameObject.name = $"{BlockData.blockType.ToString()}_{BlockData.blockName}_Block";      
             
-            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            _spriteRenderer.sprite = BlockData.default_Sprite;
-            _spriteRenderer.flipX = BlockData.isFlip;
+            BlockRenderer blockRenderer = GetComponentInChildren<BlockRenderer>();
+            blockRenderer.InitializeSpawn();
 
-            if(_collider != null)
-                DestroyImmediate(_collider);
+            if(BlockCollider != null)
+                DestroyImmediate(BlockCollider);
             
-            _collider = Instantiate(BlockData.colliderPrefab, transform);
-            _collider.transform.localScale = Vector3.one;
+            BlockCollider = Instantiate(BlockData.colliderPrefab, transform);
+            BlockCollider.transform.localScale = Vector3.one;
             
-            float scaleX = _collider.transform.localScale.x * (BlockData.isFlip ? -1: 1);
-            Vector2 flipScale = new Vector2(scaleX, _collider.transform.localScale.y);
-            _collider.transform.localScale = flipScale;
+            float scaleX = BlockCollider.transform.localScale.x * (BlockData.isFlip ? -1: 1);
+            Vector2 flipScale = new Vector2(scaleX, BlockCollider.transform.localScale.y);
+            BlockCollider.transform.localScale = flipScale;
         }
-
-        protected override void Awake()
+        
+        public void SetUpPool(PoolManager pool)
         {
-            base.Awake();
+            _pool = pool;
             
             _camera = Camera.main;
             _rigidbody = GetComponentInChildren<Rigidbody2D>();
-            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _initSpawns = GetComponentsInChildren<IInitializeSpawn>();
             
+            _blockRenderer = GetModule<BlockRenderer>();
+ 
             _adjacencyBlocks = new List<Block>();
             
-            blockEventChannel.AddListener<DestroyBlockEvent>(HandleDestroy);
-            
             if(BlockData != null)
-                Initialize(BlockData);
+                InitializeBlockData(BlockData);
         }
-
-        private void OnDestroy()
+        
+        public void InitializeBlockData(BlockSO blockSo)
         {
-            blockEventChannel.RemoveListener<DestroyBlockEvent>(HandleDestroy);
-        }
-
-        private void HandleDestroy(DestroyBlockEvent evt)
-        {
-            if(IsLock) return;
-            
-            if (_adjacencyBlocks.Contains(evt.block))
-            {
-                _adjacencyBlocks.Remove(evt.block);
-
-                if (IsLock == false)
-                {
-                    SetFreezeAll(false);
-                    SetForceDown();
-                }
-            }
-        }
-
-        public void Initialize(BlockSO blockSo)
-        {
-            if(BlockData != null) return;
+            Debug.Assert(blockSo != null, "not found BlockData.");
             
             BlockData = blockSo;
 
+            foreach (var initSpawn in _initSpawns)
+                initSpawn.InitializeSpawn();
+
             _rigidbody.mass = BlockData.weight;
-            _spriteRenderer.sprite = BlockData.default_Sprite;
-            _grayMat = _spriteRenderer.material;
             
-            _collider = Instantiate(BlockData.colliderPrefab, transform);
-            _currentHealth = BlockData.maxHealth;
+            BlockCollider = Instantiate(BlockData.colliderPrefab, transform);
+            BlockCollider.transform.localScale = transform.localScale;
+            
+            CurrentHealth = BlockData.maxHealth;
 
             gameObject.name = $"{BlockData.blockType.ToString()}_{BlockData.blockName}_Block";
-            _collider.transform.localScale = transform.localScale;
-            SetFlip(BlockData.isFlip);
+            _blockRenderer.SetFlip(BlockData.isFlip);
             
             FireBlock();
         }
 
         private void Update()
         {
-            if(IsLock) return;
+            if(IsLock || IsDead) return;
             
             float limitLine = _camera.transform.position.y - (_camera.orthographicSize / 1.2f);
             
@@ -143,7 +124,7 @@ namespace Code.Blocks
 
         private void FixedUpdate()
         {
-            if(IsLock || IsMove) return;
+            if(IsLock || IsDead || IsMove) return;
             
             if (_blockState == BlockState.Falling)
             {
@@ -163,7 +144,7 @@ namespace Code.Blocks
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if(IsLock) return;
+            if(IsLock || IsDead) return;
             
             int impulseDamage = (int)collision.relativeVelocity.magnitude;
             
@@ -193,14 +174,14 @@ namespace Code.Blocks
                     block.AddForceDown();
                 }
 
-                if (impulseDamage > intensityDamage)
+                if (impulseDamage > BlockData.intensityDamage)
                     block.TakeDamage(impulseDamage + BlockData.attack);
             }
         }
 
         private void OnCollisionExit2D(Collision2D collision)
         {
-            if(IsLock) return;
+            if(IsLock || IsDead) return;
             
             if (collision.gameObject.TryGetComponent<Block>(out var block))
                 if (_adjacencyBlocks.Contains(block))
@@ -211,55 +192,31 @@ namespace Code.Blocks
                 }
         }
 
-        private void SetFlip(bool isFlip)
-        {
-            _spriteRenderer.flipX = isFlip;
-            _collider.transform.localScale = Vector3.one;
-            
-            float scaleX = _collider.transform.localScale.x * (BlockData.isFlip ? -1: 1);
-            Vector2 flipScale = new Vector2(scaleX, _collider.transform.localScale.y);
-            _collider.transform.localScale = flipScale;
-        }
-
-        private void ChangeBreakSprite()
-        {
-            float healthRatio = ((float)_currentHealth / BlockData.maxHealth) * 100;
-            
-            if (healthRatio > 75f)
-                _spriteRenderer.sprite = BlockData.default_Sprite;
-            else if (healthRatio > 50f)
-                _spriteRenderer.sprite = BlockData.break_2_Sprite;
-            else if (healthRatio > 25f)
-                _spriteRenderer.sprite = BlockData.break_3_Sprite;
-            else
-                _spriteRenderer.sprite = BlockData.break_4_Sprite;
-        }
-
         public void TakeDamage(int damage)
         {
-            if(IsLock || CanDealDamage == false) return;
+            if(IsLock || IsDead || CanDealDamage == false) return;
             
             OnHit?.Invoke();
             
-            _currentHealth -= damage;
+            CurrentHealth -= damage;
             
-            ChangeBreakSprite();
+            _blockRenderer.ChangeBreakSprite();
 
-            if (_currentHealth <= 0)
+            if (CurrentHealth <= 0)
             {
                 blockEventChannel.RaiseEvent(BlockEvent.CoundBlockEvent.Initialize(BlockData.destroyCount));
-                DestroyBlock();
+                PushBlock();
             }
         }
 
         public void Heal(int heal)
         {
-            _currentHealth += heal;
+            CurrentHealth += heal;
 
-            ChangeBreakSprite();
+            _blockRenderer.ChangeBreakSprite();
             
-            if (BlockData.maxHealth < _currentHealth)
-                _currentHealth = BlockData.maxHealth;
+            if (BlockData.maxHealth < CurrentHealth)
+                CurrentHealth = BlockData.maxHealth;
         }
 
         private void SetFreezeAll(bool isFreeze)
@@ -290,13 +247,14 @@ namespace Code.Blocks
 
         private void SetLockBlock(bool isLock)
         {
-            float color = isLock ? 0 : 1f;
+            float intensity = isLock ? 0 : 1f;
+            _blockRenderer.SetGrayScale(intensity);
+            
             _blockState = isLock ? BlockState.Lock : BlockState.None;
-            _grayMat.SetFloat(Contrast, color);
             SetFreezeAll(isLock);
             
             if(isLock)
-                blockEventChannel.RaiseEvent(BlockEvent.DestroyBlockEvent.Initialize(this));
+                blockEventChannel.RaiseEvent(BlockEvent.PushBlockEvent.Initialize(this));
         }
 
         [ContextMenu("DropBlock")]
@@ -331,16 +289,49 @@ namespace Code.Blocks
             _blockGuide.SetScale(BlockData.size);
         }
         
-        [ContextMenu("DestroyBlock")]
-        public void DestroyBlock()
+        [ContextMenu("PushBlocks")]
+        public void PushBlock()
         {
             if(_blockGuide != null)
                 _blockGuide.SetGuiding(false);
             
-            blockEventChannel.RaiseEvent(BlockEvent.DestroyBlockEvent.Initialize(this));
+            IsDead = true;
+            gameObject.name = "Block[Pool]";
+            _adjacencyBlocks.Clear();
+            blockEventChannel.RaiseEvent(BlockEvent.PushBlockEvent.Initialize(this));
+            blockEventChannel.RemoveListener<PushBlockEvent>(HandleTouchingBlockPush);
             
             OnDeath?.Invoke();
-            Destroy(gameObject);
+            _pool.Push(this);
+        }
+        
+        public void ResetItem()
+        {
+            blockEventChannel.AddListener<PushBlockEvent>(HandleTouchingBlockPush);
+
+            SetLockBlock(false);
+            Destroy(BlockCollider);
+
+            CurrentHealth = 0;
+            IsDead = false;
+            _isFirstTimeGround = false;
+            IsFirstTimeStack = false;
+        }
+
+        private void HandleTouchingBlockPush(PushBlockEvent evt)
+        {
+            if(IsLock) return;
+            
+            if (_adjacencyBlocks.Contains(evt.block))
+            {
+                _adjacencyBlocks.Remove(evt.block);
+
+                if (IsLock == false)
+                {
+                    SetFreezeAll(false);
+                    SetForceDown();
+                }
+            }
         }
     }
 }

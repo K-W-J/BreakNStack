@@ -34,12 +34,12 @@ namespace Code.Screens
             _blockList = new List<Block>();
             _camera = Camera.main;
             
-            blockEventChannel.AddListener<DestroyBlockEvent>(HandleRemoveBlockList);
+            blockEventChannel.AddListener<PushBlockEvent>(HandleRemoveBlockList);
             blockEventChannel.AddListener<SpawnBlockEvent>(HandleAddBlockList);
         }
         private void OnDestroy()
         {
-            blockEventChannel.RemoveListener<DestroyBlockEvent>(HandleRemoveBlockList);
+            blockEventChannel.RemoveListener<PushBlockEvent>(HandleRemoveBlockList);
             blockEventChannel.RemoveListener<SpawnBlockEvent>(HandleAddBlockList);
         }
         
@@ -67,7 +67,7 @@ namespace Code.Screens
                 _blockList.Add(evt.block);
         }
 
-        private void HandleRemoveBlockList(DestroyBlockEvent evt)
+        private void HandleRemoveBlockList(PushBlockEvent evt)
         {
             if (_blockList.Contains(evt.block))
                 _blockList.Remove(evt.block);
