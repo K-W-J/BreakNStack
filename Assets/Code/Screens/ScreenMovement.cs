@@ -36,46 +36,48 @@ namespace Code.Screens
             
             blockEventChannel.AddListener<PushBlockEvent>(HandleRemoveBlockList);
             blockEventChannel.AddListener<SpawnBlockEvent>(HandleAddBlockList);
+            blockEventChannel.AddListener<LandBlockEvent>(HandleLandBlock);
         }
+
         private void OnDestroy()
         {
             blockEventChannel.RemoveListener<PushBlockEvent>(HandleRemoveBlockList);
             blockEventChannel.RemoveListener<SpawnBlockEvent>(HandleAddBlockList);
+            blockEventChannel.RemoveListener<LandBlockEvent>(HandleLandBlock);
         }
         
         private void Update()
         {
+            transform.position = Vector3.Lerp(transform.position, new Vector3(0, _posY, -10), Time.deltaTime * speed);
+        }
+        
+        private void HandleAddBlockList(SpawnBlockEvent evt)
+        {
+            if (_blockList.Contains(evt.block) == false)
+                _blockList.Add(evt.block);
+        }
+        
+        private void HandleLandBlock(LandBlockEvent evt)
+        {
+            if (_blockList.Count < 1) return;
+            
             float topScreen = _camera.transform.position.y + _camera.orthographicSize;
             float topLinePosY = topScreen - screenLineHeight;
-            
-            if (_blockList.Count < 1) return;
             
             float firstBlockPosY = _blockList.First().transform.position.y;
             
             _blockList.Sort((a, b) =>
                 (b.transform.position.y - topScreen)
                 .CompareTo(a.transform.position.y - topScreen));
-
-            if (topLinePosY < firstBlockPosY && _blockList.First().IsFirstTimeStack)
-                SetMoveY(transform.position.y + (firstBlockPosY - topLinePosY));
             
-            transform.position = Vector3.Lerp(transform.position, new Vector3(0, _posY, -10), Time.deltaTime * speed);
-        }
-        private void HandleAddBlockList(SpawnBlockEvent evt)
-        {
-            if (_blockList.Contains(evt.block) == false)
-                _blockList.Add(evt.block);
+            if (topLinePosY < firstBlockPosY)
+                _posY = transform.position.y + (firstBlockPosY - topLinePosY);
         }
 
         private void HandleRemoveBlockList(PushBlockEvent evt)
         {
             if (_blockList.Contains(evt.block))
                 _blockList.Remove(evt.block);
-        }
-
-        private void SetMoveY(float posY)
-        {
-            _posY = posY;
         }
     }
 }

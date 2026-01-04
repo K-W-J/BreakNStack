@@ -5,23 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce64176-11a5-46cf-a21b-76e18e2f9eec" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/02_SO/PoolItem/Block[Pool].asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/02_SO/PoolItem/Block[Pool].asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockRenderer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockRenderer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Blocks/IInitializeSpawn.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Blocks/IInitializeSpawn.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/01_Prefab/2000_System/BlockSpawner.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/01_Prefab/2000_System/BlockSpawner.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/2000_System/PoolManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/2000_System/PoolManager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Core/PoolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Core/PoolManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Etc/BlockDeathZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Etc/BlockDeathZone.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Events/BlockEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Events/BlockEvent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Screens/ScreenMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Screens/ScreenMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/CountText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/CountText.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +119,7 @@
       <workItem from="1767328774225" duration="9632000" />
       <workItem from="1767445460157" duration="63000" />
       <workItem from="1767445533690" duration="9704000" />
-      <workItem from="1767497366559" duration="5268000" />
+      <workItem from="1767497366559" duration="12929000" />
     </task>
     <servers />
   </component>

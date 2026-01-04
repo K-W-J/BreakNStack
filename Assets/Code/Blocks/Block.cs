@@ -48,7 +48,7 @@ namespace Code.Blocks
         
         public bool IsLock => _blockState == BlockState.Lock;
 
-        public bool IsFirstTimeStack { get; private set; }
+        private bool _isFirstLand;
         private bool _isFirstTimeGround;
 
         [ContextMenu("ResetBlock")]
@@ -134,10 +134,11 @@ namespace Code.Blocks
             {
                 SetFreezeAll(true);
 
-                if (IsFirstTimeStack == false)
+                if (_isFirstLand == false)
                 {
-                    blockEventChannel.RaiseEvent(BlockEvent.CoundBlockEvent.Initialize(BlockData.stackCount));
-                    IsFirstTimeStack = true;
+                    blockEventChannel.RaiseEvent(BlockEvent.LandBlockEvent.Initialize());
+                    blockEventChannel.RaiseEvent(BlockEvent.CountBlockEvent.Initialize(BlockData.stackCount));
+                    _isFirstLand = true;
                 }
             }
         }
@@ -157,6 +158,14 @@ namespace Code.Blocks
                     _adjacencyBlocks.Add(block);
                 }
                 
+                if (impulseDamage > BlockData.intensityDamage)
+                {
+                    if(block.IsMove == false)
+                        block.TakeDamage(impulseDamage + BlockData.attack);
+                    else
+                        block.TakeDamage((impulseDamage + BlockData.attack) / 2);
+                }
+                
                 SetFreezeAll(false);
                 
                 if(block.IsLock == false)
@@ -165,17 +174,14 @@ namespace Code.Blocks
                 if (_isFirstTimeGround == false)
                 {
                     _isFirstTimeGround = true;
-                    SetForceDown(5f);
-                    block.SetForceDown(5f);
+                    AddForceDown(5f);
+                    block.AddForceDown(5f);
                 }
                 else
                 {
                     AddForceDown();
                     block.AddForceDown();
                 }
-
-                if (impulseDamage > BlockData.intensityDamage)
-                    block.TakeDamage(impulseDamage + BlockData.attack);
             }
         }
 
@@ -204,7 +210,7 @@ namespace Code.Blocks
 
             if (CurrentHealth <= 0)
             {
-                blockEventChannel.RaiseEvent(BlockEvent.CoundBlockEvent.Initialize(BlockData.destroyCount));
+                blockEventChannel.RaiseEvent(BlockEvent.CountBlockEvent.Initialize(BlockData.destroyCount));
                 PushBlock();
             }
         }
@@ -315,7 +321,7 @@ namespace Code.Blocks
             CurrentHealth = 0;
             IsDead = false;
             _isFirstTimeGround = false;
-            IsFirstTimeStack = false;
+            _isFirstLand = false;
         }
 
         private void HandleTouchingBlockPush(PushBlockEvent evt)

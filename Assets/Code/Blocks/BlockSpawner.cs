@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Blade.Core;
 using Code.Core;
@@ -17,39 +18,59 @@ namespace Code.Blocks
         [SerializeField] private BlockSO[] blockData;
         [SerializeField] private BlockGuide blockGuide;
         [SerializeField] private ScreenMovement screenMovement;
+        [Space]
+        [SerializeField] private float spawnTimer;
         
         private Transform[] _blockSpawnPoint;
         private Transform RandomSpawnPoint =>
             _blockSpawnPoint[Random.Range(0, _blockSpawnPoint.Length)];
         
         private Block _currentBlock;
-
-        private float _spawnTimer;
         private float _currentTime;
+        private bool _isFallingCurrentBlock;
+        private bool _isCurrentBlockLand;
 
         private void Awake()
         {
+            blockEventChannel.AddListener<LandBlockEvent>(HandleLandBlock);
             _blockSpawnPoint = GetComponentsInChildren<Transform>().Where(t => t != transform).ToArray();
-            
-            _spawnTimer = 2f;
         }
+
+        private void OnDestroy()
+        {
+            blockEventChannel.RemoveListener<LandBlockEvent>(HandleLandBlock);
+        }
+
+        private void HandleLandBlock(LandBlockEvent evt)
+        {
+            _isCurrentBlockLand = true;
+        }
+
         private void Update()
         {
             _currentTime += Time.deltaTime;
             
-            if(_spawnTimer < _currentTime && _currentBlock == null)
+            if(_currentTime > spawnTimer && (_isCurrentBlockLand || _currentBlock == null))
             {
                 SpawnBlock();
+                _isCurrentBlockLand = false;
+                _isFallingCurrentBlock = false;
                 _currentTime = 0;
+            }
+
+            if (_currentBlock != null && _currentBlock.IsDead)
+            {
+                _currentBlock = null;
+                _isFallingCurrentBlock = false;
             }
         }
 
         public void DropBlock()
         {
-            if (_currentBlock != null)
+            if (_currentBlock != null && _isFallingCurrentBlock == false)
             {
                 _currentBlock.DropBlock();
-                _currentBlock = null;
+                _isFallingCurrentBlock = true;
             }
         }
         
@@ -63,7 +84,6 @@ namespace Code.Blocks
             int rand = Random.Range(0, blockData.Length);
             _currentBlock.InitializeBlockData(blockData[rand]);
             _currentBlock.SetBlockGuide(blockGuide);
-            
         }
     }
 }

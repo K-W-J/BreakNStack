@@ -6,7 +6,8 @@ namespace Code.Events
     public class BlockEvent
     {
         public static PushBlockEvent PushBlockEvent = new PushBlockEvent();
-        public static CoundBlockEvent CoundBlockEvent = new CoundBlockEvent();
+        public static CountBlockEvent CountBlockEvent = new CountBlockEvent();
+        public static LandBlockEvent LandBlockEvent = new LandBlockEvent();
         public static SpawnBlockEvent SpawnBlockEvent = new SpawnBlockEvent();
     }
 
@@ -32,11 +33,19 @@ namespace Code.Events
         }
     }
     
-    public class CoundBlockEvent : GameEvent
+    public class LandBlockEvent : GameEvent
+    {
+        public LandBlockEvent Initialize()
+        {
+            return this;
+        }
+    }
+    
+    public class CountBlockEvent : GameEvent
     {
         public int count;
 
-        public CoundBlockEvent Initialize(int count)
+        public CountBlockEvent Initialize(int count)
         {
             this.count = count;
             return this;
