@@ -60,6 +60,7 @@ namespace Code.Blocks
         }
 
         public bool IsLock => _blockState == BlockState.Lock;
+        public bool IsLand => _blockState == BlockState.Land;
 
         private bool _isFirstLand;
         private bool _isFirstTimeGround;
@@ -120,7 +121,7 @@ namespace Code.Blocks
             gameObject.name = $"{BlockData.blockType.ToString()}_{BlockData.blockName}_Block";
             _blockRenderer.SetFlip(BlockData.isFlip);
             
-            FireBlock();
+            SetFreezeAll(true);
         }
 
         private void Update()
@@ -296,6 +297,8 @@ namespace Code.Blocks
         [ContextMenu("DropBlock")]
         public void DropBlock()
         {
+            SetFreezeAll(false);
+            
             SetForceDown();
             _rigidbody.gravityScale = 3f;
             
@@ -355,7 +358,15 @@ namespace Code.Blocks
 
         private void HandleTouchingBlockMove(BlockMoveEvent evt)
         {
+            if(IsLock) return;
             
+            if (_adjacencyBlocks.Contains(evt.block))
+            {
+                _adjacencyBlocks.Remove(evt.block);
+                
+                SetFreezeAll(false);
+                AddForceDown();
+            }
         }
 
         private void HandleTouchingBlockPush(BlockPushEvent evt)
@@ -366,11 +377,8 @@ namespace Code.Blocks
             {
                 _adjacencyBlocks.Remove(evt.block);
 
-                if (IsLock == false)
-                {
-                    SetFreezeAll(false);
-                    SetForceDown();
-                }
+                SetFreezeAll(false);
+                SetForceDown();
             }
         }
     }

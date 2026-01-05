@@ -15,6 +15,7 @@ MonoBehaviour:
   maxHealth: 100
   weight: 20
   attack: 10
+  intensityDamage: 8
   destroyCount: 1
   stackCount: 1
   blockName: BlockData_7

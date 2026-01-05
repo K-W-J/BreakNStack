@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "name": "Controller",
+    "name": "Controls",
     "maps": [
         {
             "name": "Player",
@@ -23,7 +23,7 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Touch;Keyboard&Mouse",
+                    "groups": "",
                     "action": "Drop",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -47,7 +47,7 @@
                     "name": "Submit",
                     "type": "Button",
                     "id": "7607c7b6-cd76-4816-beef-bd0341cfe950",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false

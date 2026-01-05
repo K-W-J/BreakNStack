@@ -5,32 +5,45 @@ using UnityEngine.InputSystem;
 namespace Settings.InputSystem
 {
     [CreateAssetMenu(fileName = "PlayerInputSO", menuName = "SO/PlayerInput", order = 0)]
-    public class PlayerInputSO : ScriptableObject, Controller.IPlayerActions
+    public class PlayerInputSO : ScriptableObject, Controls.IPlayerActions
     {
-        public event Action OnDropPressed;
+        public event Action<bool> OnDropPressed;
         
-        private Controller _controller;
+        private Camera _camera;
+        private Controls _controls;
         
         private void OnEnable()
         {
-            if (_controller == null)
+            _camera = Camera.main;
+            
+            Debug.Assert(_camera != null, "No main camera in this scene.");
+            
+            if (_controls == null)
             {
-                _controller = new Controller();
-                _controller.Player.SetCallbacks(this);
+                _controls = new Controls();
+                _controls.Player.SetCallbacks(this);
             }
             
-            _controller.Player.Enable();
+            _controls.Player.Enable();
         }
 
         private void OnDisable()
         {
-            _controller.Player.Disable();
+            _controls.Player.Disable();
         }
 
         public void OnDrop(InputAction.CallbackContext context)
         {
-            if(context.performed)
-                OnDropPressed?.Invoke();
+            if(context.started)
+                OnDropPressed?.Invoke(true);
+            else if(context.canceled)
+                OnDropPressed?.Invoke(false);
+        }
+        
+        public Vector2 GetWorldMousePosition()
+        {
+            Vector2 mousePosition = Mouse.current.position.ReadValue();
+            return _camera.ScreenToWorldPoint(new Vector2(mousePosition.x, mousePosition.y));
         }
     }
 }

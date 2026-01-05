@@ -10,6 +10,7 @@ namespace Code.Events
         public static BlockLandEvent BlockLandEvent = new BlockLandEvent();
         public static BlockSpawnEvent BlockSpawnEvent = new BlockSpawnEvent();
         public static BlockMoveEvent BlockMoveEvent = new BlockMoveEvent();
+        public static BlockDropEvent BlockDropEvent = new BlockDropEvent();
     }
     
     public class BlockMoveEvent : GameEvent
@@ -48,6 +49,14 @@ namespace Code.Events
     public class BlockLandEvent : GameEvent
     {
         public BlockLandEvent Initialize()
+        {
+            return this;
+        }
+    }
+    
+    public class BlockDropEvent : GameEvent
+    {
+        public BlockDropEvent Initialize()
         {
             return this;
         }

@@ -11,32 +11,49 @@ namespace Code.Blocks
         [SerializeField] private GameEventChannelSO blockEventChannel;
         [SerializeField] private PlayerInputSO playerInput;
         
+        private Camera _camera;
         private Block _currentBlock;
+        private bool _isClicking;
         
         private void Awake()
         {
-            playerInput.OnDropPressed += OnDrop;
+            _camera = Camera.main;
+            playerInput.OnDropPressed += OnDropBlock;
             blockEventChannel.AddListener<BlockSpawnEvent>(HandleCurrentBlock);
         }
-
-        private void HandleCurrentBlock(BlockSpawnEvent evt)
-        {
-            _currentBlock = evt.block;
-        }
-
+        
         private void OnDestroy()
         {
-            playerInput.OnDropPressed -= OnDrop;
-        }
-
-        private void OnDrop()
-        {
-            _currentBlock.DropBlock();
+            playerInput.OnDropPressed -= OnDropBlock;
+            blockEventChannel.RemoveListener<BlockSpawnEvent>(HandleCurrentBlock);
         }
 
         private void Update()
         {
+            if (_isClicking && _currentBlock != null)
+            {
+                if (Mathf.Abs(playerInput.GetWorldMousePosition().x) < _camera.orthographicSize * _camera.aspect * 2)
+                {
+                    _currentBlock.transform.position = new Vector3(playerInput.GetWorldMousePosition().x, _currentBlock.transform.position.y);
+                }
+            }
+        }
+
+        private void OnDropBlock(bool isClicking)
+        {
+            _isClicking = isClicking;
             
+            if(_currentBlock == null || isClicking) return;
+            
+            _currentBlock.DropBlock();
+            _currentBlock = null;
+            
+            blockEventChannel.RaiseEvent(BlockEvent.BlockDropEvent.Initialize());
+        }
+        
+        private void HandleCurrentBlock(BlockSpawnEvent evt)
+        {
+            _currentBlock = evt.block;
         }
     }
 }

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockSO
   maxHealth: 600
   weight: 40
-  attack: 20
+  attack: 40
+  intensityDamage: 8
   destroyCount: 1
   stackCount: 1
   blockName: BlockData_Anvil
