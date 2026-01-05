@@ -23,7 +23,9 @@ namespace Code.Blocks
         public GameObject GameObject => gameObject;
         
         [SerializeField] private GameEventChannelSO blockEventChannel;
-
+        [SerializeField] private float damageDelay;
+        private float _currentDamageDelay;
+        
         [field:Header("ResetBlock")]
         [field:SerializeField] public BlockSO BlockData { get; private set; }
 
@@ -42,10 +44,21 @@ namespace Code.Blocks
 
         private BlockState _blockState = BlockState.None;
         
-        
-        private bool IsMove => Mathf.Abs(_rigidbody.linearVelocity.y) > 0.0001f 
-                               || Mathf.Abs(_rigidbody.linearVelocity.x) > 0.0001f; //Approximately은 판정이 너무 작음
-        
+        private bool IsMove
+        {
+            get
+            {
+                bool isMove = Mathf.Abs(_rigidbody.linearVelocity.y) > 0.00001f
+                       || Mathf.Abs(_rigidbody.linearVelocity.x) > 0.00001f;
+                
+                if(isMove && _blockState == BlockState.Land)
+                    blockEventChannel.RaiseEvent(BlockEvent.BlockMoveEvent.Initialize(this));
+                
+                return isMove;
+                //Approximately은 판정이 너무 작음
+            }
+        }
+
         public bool IsLock => _blockState == BlockState.Lock;
 
         private bool _isFirstLand;
@@ -85,10 +98,10 @@ namespace Code.Blocks
             _adjacencyBlocks = new List<Block>();
             
             if(BlockData != null)
-                InitializeBlockData(BlockData);
+                InitializeSpawn(BlockData);
         }
         
-        public void InitializeBlockData(BlockSO blockSo)
+        public void InitializeSpawn(BlockSO blockSo)
         {
             Debug.Assert(blockSo != null, "not found BlockData.");
             
@@ -113,6 +126,9 @@ namespace Code.Blocks
         private void Update()
         {
             if(IsLock || IsDead) return;
+
+            if (damageDelay > _currentDamageDelay)
+                _currentDamageDelay += Time.deltaTime;
             
             float limitLine = _camera.transform.position.y - (_camera.orthographicSize / 1.2f);
             
@@ -136,8 +152,8 @@ namespace Code.Blocks
 
                 if (_isFirstLand == false)
                 {
-                    blockEventChannel.RaiseEvent(BlockEvent.LandBlockEvent.Initialize());
-                    blockEventChannel.RaiseEvent(BlockEvent.CountBlockEvent.Initialize(BlockData.stackCount));
+                    blockEventChannel.RaiseEvent(BlockEvent.BlockLandEvent.Initialize());
+                    blockEventChannel.RaiseEvent(BlockEvent.BlockCountEvent.Initialize(BlockData.stackCount));
                     _isFirstLand = true;
                 }
             }
@@ -145,7 +161,7 @@ namespace Code.Blocks
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if(IsLock || IsDead) return;
+            if(IsLock || IsDead || damageDelay > _currentDamageDelay) return;
             
             int impulseDamage = (int)collision.relativeVelocity.magnitude;
             
@@ -171,7 +187,12 @@ namespace Code.Blocks
                 if(block.IsLock == false)
                     block.SetFreezeAll(false);
 
-                if (_isFirstTimeGround == false)
+                AddForceDown();
+                block.AddForceDown();
+
+                _currentDamageDelay = 0;
+
+                /*if (_isFirstTimeGround == false)
                 {
                     _isFirstTimeGround = true;
                     AddForceDown(5f);
@@ -181,7 +202,7 @@ namespace Code.Blocks
                 {
                     AddForceDown();
                     block.AddForceDown();
-                }
+                }*/
             }
         }
 
@@ -210,7 +231,7 @@ namespace Code.Blocks
 
             if (CurrentHealth <= 0)
             {
-                blockEventChannel.RaiseEvent(BlockEvent.CountBlockEvent.Initialize(BlockData.destroyCount));
+                blockEventChannel.RaiseEvent(BlockEvent.BlockCountEvent.Initialize(BlockData.destroyCount));
                 PushBlock();
             }
         }
@@ -258,9 +279,18 @@ namespace Code.Blocks
             
             _blockState = isLock ? BlockState.Lock : BlockState.None;
             SetFreezeAll(isLock);
-            
-            if(isLock)
-                blockEventChannel.RaiseEvent(BlockEvent.PushBlockEvent.Initialize(this));
+
+            if (isLock)
+            {               
+                blockEventChannel.RaiseEvent(BlockEvent.BlockPushEvent.Initialize(this));
+                blockEventChannel.RemoveListener<BlockPushEvent>(HandleTouchingBlockPush);
+                blockEventChannel.RemoveListener<BlockMoveEvent>(HandleTouchingBlockMove);
+            }
+            else
+            {
+                blockEventChannel.AddListener<BlockPushEvent>(HandleTouchingBlockPush);
+                blockEventChannel.AddListener<BlockMoveEvent>(HandleTouchingBlockMove);
+            }
         }
 
         [ContextMenu("DropBlock")]
@@ -304,8 +334,9 @@ namespace Code.Blocks
             IsDead = true;
             gameObject.name = "Block[Pool]";
             _adjacencyBlocks.Clear();
-            blockEventChannel.RaiseEvent(BlockEvent.PushBlockEvent.Initialize(this));
-            blockEventChannel.RemoveListener<PushBlockEvent>(HandleTouchingBlockPush);
+            blockEventChannel.RaiseEvent(BlockEvent.BlockPushEvent.Initialize(this));
+            blockEventChannel.RemoveListener<BlockPushEvent>(HandleTouchingBlockPush);
+            blockEventChannel.RemoveListener<BlockMoveEvent>(HandleTouchingBlockMove);
             
             OnDeath?.Invoke();
             _pool.Push(this);
@@ -313,8 +344,6 @@ namespace Code.Blocks
         
         public void ResetItem()
         {
-            blockEventChannel.AddListener<PushBlockEvent>(HandleTouchingBlockPush);
-
             SetLockBlock(false);
             Destroy(BlockCollider);
 
@@ -324,7 +353,12 @@ namespace Code.Blocks
             _isFirstLand = false;
         }
 
-        private void HandleTouchingBlockPush(PushBlockEvent evt)
+        private void HandleTouchingBlockMove(BlockMoveEvent evt)
+        {
+            
+        }
+
+        private void HandleTouchingBlockPush(BlockPushEvent evt)
         {
             if(IsLock) return;
             

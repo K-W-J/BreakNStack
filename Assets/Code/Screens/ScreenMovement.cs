@@ -34,16 +34,16 @@ namespace Code.Screens
             _blockList = new List<Block>();
             _camera = Camera.main;
             
-            blockEventChannel.AddListener<PushBlockEvent>(HandleRemoveBlockList);
-            blockEventChannel.AddListener<SpawnBlockEvent>(HandleAddBlockList);
-            blockEventChannel.AddListener<LandBlockEvent>(HandleLandBlock);
+            blockEventChannel.AddListener<BlockPushEvent>(HandleRemoveBlockList);
+            blockEventChannel.AddListener<BlockSpawnEvent>(HandleAddBlockList);
+            blockEventChannel.AddListener<BlockLandEvent>(HandleLandBlock);
         }
 
         private void OnDestroy()
         {
-            blockEventChannel.RemoveListener<PushBlockEvent>(HandleRemoveBlockList);
-            blockEventChannel.RemoveListener<SpawnBlockEvent>(HandleAddBlockList);
-            blockEventChannel.RemoveListener<LandBlockEvent>(HandleLandBlock);
+            blockEventChannel.RemoveListener<BlockPushEvent>(HandleRemoveBlockList);
+            blockEventChannel.RemoveListener<BlockSpawnEvent>(HandleAddBlockList);
+            blockEventChannel.RemoveListener<BlockLandEvent>(HandleLandBlock);
         }
         
         private void Update()
@@ -51,13 +51,13 @@ namespace Code.Screens
             transform.position = Vector3.Lerp(transform.position, new Vector3(0, _posY, -10), Time.deltaTime * speed);
         }
         
-        private void HandleAddBlockList(SpawnBlockEvent evt)
+        private void HandleAddBlockList(BlockSpawnEvent evt)
         {
             if (_blockList.Contains(evt.block) == false)
                 _blockList.Add(evt.block);
         }
         
-        private void HandleLandBlock(LandBlockEvent evt)
+        private void HandleLandBlock(BlockLandEvent evt)
         {
             if (_blockList.Count < 1) return;
             
@@ -74,7 +74,7 @@ namespace Code.Screens
                 _posY = transform.position.y + (firstBlockPosY - topLinePosY);
         }
 
-        private void HandleRemoveBlockList(PushBlockEvent evt)
+        private void HandleRemoveBlockList(BlockPushEvent evt)
         {
             if (_blockList.Contains(evt.block))
                 _blockList.Remove(evt.block);

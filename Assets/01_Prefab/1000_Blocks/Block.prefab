@@ -153,7 +153,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 20
   m_LinearDamping: 0
-  m_AngularDamping: 5
+  m_AngularDamping: 6
   m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 80737ebd4c3b3f848a10b9d443dd810a, type: 2}
   m_IncludeLayers:
@@ -223,6 +223,7 @@ MonoBehaviour:
         m_CallState: 2
   <PoolItem>k__BackingField: {fileID: 11400000, guid: edb817538925f14458152555c3f62a6f, type: 2}
   blockEventChannel: {fileID: 11400000, guid: 9629503fecbbd3042b168eb171ef2ea4, type: 2}
+  damageDelay: 0.1
   <BlockData>k__BackingField: {fileID: 0}
 --- !u!1001 &6251642093128807695
 PrefabInstance:

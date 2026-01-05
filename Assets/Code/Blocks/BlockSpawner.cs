@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using Blade.Core;
 using Code.Core;
@@ -11,7 +10,6 @@ namespace Code.Blocks
 {
     internal class BlockSpawner : MonoBehaviour
     {
-        [SerializeField] private PoolManager pool;
         [SerializeField] private PoolItemSO blockItem;
         [SerializeField] private GameEventChannelSO blockEventChannel;
         [Space]
@@ -26,38 +24,41 @@ namespace Code.Blocks
             _blockSpawnPoint[Random.Range(0, _blockSpawnPoint.Length)];
         
         private Block _currentBlock;
+        
         private float _currentTime;
         private bool _isFallingCurrentBlock;
         private bool _isCurrentBlockLand;
 
         private void Awake()
         {
-            blockEventChannel.AddListener<LandBlockEvent>(HandleLandBlock);
+            blockEventChannel.AddListener<BlockLandEvent>(HandleLandBlock);
             _blockSpawnPoint = GetComponentsInChildren<Transform>().Where(t => t != transform).ToArray();
         }
 
         private void OnDestroy()
         {
-            blockEventChannel.RemoveListener<LandBlockEvent>(HandleLandBlock);
+            blockEventChannel.RemoveListener<BlockLandEvent>(HandleLandBlock);
         }
 
-        private void HandleLandBlock(LandBlockEvent evt)
+        private void HandleLandBlock(BlockLandEvent evt)
         {
             _isCurrentBlockLand = true;
         }
 
         private void Update()
         {
-            _currentTime += Time.deltaTime;
-            
-            if(_currentTime > spawnTimer && (_isCurrentBlockLand || _currentBlock == null))
+            if (_currentTime > spawnTimer && (_isCurrentBlockLand || _currentBlock == null))
             {
                 SpawnBlock();
                 _isCurrentBlockLand = false;
                 _isFallingCurrentBlock = false;
                 _currentTime = 0;
             }
-
+            else
+            {
+                _currentTime += Time.deltaTime;
+            }
+            
             if (_currentBlock != null && _currentBlock.IsDead)
             {
                 _currentBlock = null;
@@ -76,13 +77,13 @@ namespace Code.Blocks
         
         private void SpawnBlock()
         {
-            _currentBlock = pool.Pop<Block>(blockItem);
+            _currentBlock = PoolManager.Instance.Pop<Block>(blockItem);
             _currentBlock.transform.SetPositionAndRotation(RandomSpawnPoint.position, Quaternion.identity);
             
-            blockEventChannel.RaiseEvent(BlockEvent.SpawnBlockEvent.Initialize(_currentBlock));
+            blockEventChannel.RaiseEvent(BlockEvent.BlockSpawnEvent.Initialize(_currentBlock));
             
             int rand = Random.Range(0, blockData.Length);
-            _currentBlock.InitializeBlockData(blockData[rand]);
+            _currentBlock.InitializeSpawn(blockData[rand]);
             _currentBlock.SetBlockGuide(blockGuide);
         }
     }

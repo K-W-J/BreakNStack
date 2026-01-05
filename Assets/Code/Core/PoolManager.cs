@@ -3,14 +3,22 @@ using UnityEngine;
 
 namespace Code.Core
 {
+    [DefaultExecutionOrder(-10)]
     public class PoolManager : MonoBehaviour
     {
+        private static PoolManager _instance;
+        public static PoolManager Instance => _instance;
+
         [SerializeField] private List<PoolItemSO> poolItems;
         private Dictionary<PoolItemSO, (Stack<IPoolable> poolStack, Transform parent)> _poolIDict;
-        
 
         private void Awake()
         {
+            if (_instance != null)
+                Debug.LogWarning("Poolmanager is already existing");
+            else
+                _instance = this;
+            
             _poolIDict = new Dictionary<PoolItemSO, (Stack<IPoolable>, Transform)>();
             
             foreach (var poolItem in poolItems)
