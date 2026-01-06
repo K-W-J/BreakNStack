@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Blade.Core;
 using Code.Agents;
 using Code.Core;
 using Code.Events;
@@ -224,7 +223,7 @@ namespace Code.Blocks
         {
             if(IsLock || IsDead || CanDealDamage == false) return;
             
-            OnHit?.Invoke();
+            OnHitEvent?.Invoke();
             
             CurrentHealth -= damage;
             
@@ -341,7 +340,7 @@ namespace Code.Blocks
             blockEventChannel.RemoveListener<BlockPushEvent>(HandleTouchingBlockPush);
             blockEventChannel.RemoveListener<BlockMoveEvent>(HandleTouchingBlockMove);
             
-            OnDeath?.Invoke();
+            OnDeathEvent?.Invoke();
             _pool.Push(this);
         }
         
@@ -358,6 +357,7 @@ namespace Code.Blocks
 
         private void HandleTouchingBlockMove(BlockMoveEvent evt)
         {
+            return;
             if(IsLock) return;
             
             if (_adjacencyBlocks.Contains(evt.block))
@@ -365,7 +365,7 @@ namespace Code.Blocks
                 _adjacencyBlocks.Remove(evt.block);
                 
                 SetFreezeAll(false);
-                AddForceDown();
+                SetForceDown();
             }
         }
 

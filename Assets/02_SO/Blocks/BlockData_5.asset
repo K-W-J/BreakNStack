@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f9c418936fb45b08383c7097b70a039, type: 3}
   m_Name: BlockData_5
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockSO
-  maxHealth: 100
+  maxHealth: 40
   weight: 20
   attack: 5
   intensityDamage: 8

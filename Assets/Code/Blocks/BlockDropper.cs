@@ -1,5 +1,5 @@
 ﻿using System;
-using Blade.Core;
+using Code.Core;
 using Code.Events;
 using Settings.InputSystem;
 using UnityEngine;
@@ -18,13 +18,13 @@ namespace Code.Blocks
         private void Awake()
         {
             _camera = Camera.main;
-            playerInput.OnDropPressed += OnDropBlock;
+            playerInput.OnDropPressed += HandleDropBlock;
             blockEventChannel.AddListener<BlockSpawnEvent>(HandleCurrentBlock);
         }
         
         private void OnDestroy()
         {
-            playerInput.OnDropPressed -= OnDropBlock;
+            playerInput.OnDropPressed -= HandleDropBlock;
             blockEventChannel.RemoveListener<BlockSpawnEvent>(HandleCurrentBlock);
         }
 
@@ -32,14 +32,16 @@ namespace Code.Blocks
         {
             if (_isClicking && _currentBlock != null)
             {
-                if (Mathf.Abs(playerInput.GetWorldMousePosition().x) < _camera.orthographicSize * _camera.aspect * 2)
+                float limitWidth = _camera.orthographicSize * _camera.aspect * 2;
+                
+                if (Mathf.Abs(playerInput.GetWorldMousePosition().x) < limitWidth)
                 {
                     _currentBlock.transform.position = new Vector3(playerInput.GetWorldMousePosition().x, _currentBlock.transform.position.y);
                 }
             }
         }
 
-        private void OnDropBlock(bool isClicking)
+        private void HandleDropBlock(bool isClicking)
         {
             _isClicking = isClicking;
             

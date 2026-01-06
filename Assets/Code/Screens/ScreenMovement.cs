@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Blade.Core;
 using Code.Blocks;
+using Code.Core;
 using Code.Events;
 using UnityEngine;
 
@@ -33,6 +33,7 @@ namespace Code.Screens
         {
             _blockList = new List<Block>();
             _camera = Camera.main;
+            _posY = transform.position.y;
             
             blockEventChannel.AddListener<BlockPushEvent>(HandleRemoveBlockList);
             blockEventChannel.AddListener<BlockSpawnEvent>(HandleAddBlockList);

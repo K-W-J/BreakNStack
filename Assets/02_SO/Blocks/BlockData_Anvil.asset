@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f9c418936fb45b08383c7097b70a039, type: 3}
   m_Name: BlockData_Anvil
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockSO
-  maxHealth: 600
-  weight: 40
+  maxHealth: 200
+  weight: 50
   attack: 40
   intensityDamage: 8
   destroyCount: 1

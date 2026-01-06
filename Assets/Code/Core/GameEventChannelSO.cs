@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Blade.Core
+namespace Code.Core
 {
     public class GameEvent { }
     

@@ -9,6 +9,8 @@ namespace Settings.InputSystem
     {
         public event Action<bool> OnDropPressed;
         
+        private Vector2 _touchPosition;
+        
         private Camera _camera;
         private Controls _controls;
         
@@ -39,11 +41,22 @@ namespace Settings.InputSystem
             else if(context.canceled)
                 OnDropPressed?.Invoke(false);
         }
-        
+
+        public void OnTouch(InputAction.CallbackContext context)
+        {
+            _touchPosition = context.ReadValue<Vector2>();
+        }
+
         public Vector2 GetWorldMousePosition()
         {
+            return _camera.ScreenToWorldPoint(_touchPosition);
             Vector2 mousePosition = Mouse.current.position.ReadValue();
             return _camera.ScreenToWorldPoint(new Vector2(mousePosition.x, mousePosition.y));
+        }
+        
+        public Vector2 GetWorldTouchPosition()
+        {
+            return _camera.ScreenToWorldPoint(_touchPosition);
         }
     }
 }

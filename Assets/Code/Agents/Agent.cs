@@ -9,7 +9,7 @@ namespace Code.Agents
         [field:SerializeField] public bool CanDealDamage { get; private set; }
         public bool IsDead { get; set; }
         
-        public UnityEvent OnDeath;
-        public UnityEvent OnHit;
+        public UnityEvent OnDeathEvent;
+        public UnityEvent OnHitEvent;
     }
 }
