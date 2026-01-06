@@ -36,14 +36,12 @@ namespace Code.Screens
             _posY = transform.position.y;
             
             blockEventChannel.AddListener<BlockPushEvent>(HandleRemoveBlockList);
-            blockEventChannel.AddListener<BlockSpawnEvent>(HandleAddBlockList);
             blockEventChannel.AddListener<BlockLandEvent>(HandleLandBlock);
         }
 
         private void OnDestroy()
         {
             blockEventChannel.RemoveListener<BlockPushEvent>(HandleRemoveBlockList);
-            blockEventChannel.RemoveListener<BlockSpawnEvent>(HandleAddBlockList);
             blockEventChannel.RemoveListener<BlockLandEvent>(HandleLandBlock);
         }
         
@@ -51,28 +49,26 @@ namespace Code.Screens
         {
             transform.position = Vector3.Lerp(transform.position, new Vector3(0, _posY, -10), Time.deltaTime * speed);
         }
-        
-        private void HandleAddBlockList(BlockSpawnEvent evt)
+
+        private void HandleLandBlock(BlockLandEvent evt)
         {
             if (_blockList.Contains(evt.block) == false)
                 _blockList.Add(evt.block);
-        }
         
-        private void HandleLandBlock(BlockLandEvent evt)
-        {
             if (_blockList.Count < 1) return;
             
             float topScreen = _camera.transform.position.y + _camera.orthographicSize;
             float topLinePosY = topScreen - screenLineHeight;
             
-            float firstBlockPosY = _blockList.First().transform.position.y;
-            
             _blockList.Sort((a, b) =>
                 (b.transform.position.y - topScreen)
                 .CompareTo(a.transform.position.y - topScreen));
             
-            if (topLinePosY < firstBlockPosY)
-                _posY = transform.position.y + (firstBlockPosY - topLinePosY);
+            float firstBlockPosY = _blockList.First().transform.position.y;
+            
+            //if (topLinePosY < firstBlockPosY)
+                //_posY = transform.position.y + (firstBlockPosY - topLinePosY);
+                _posY = firstBlockPosY;
         }
 
         private void HandleRemoveBlockList(BlockPushEvent evt)

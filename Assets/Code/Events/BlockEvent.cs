@@ -48,8 +48,11 @@ namespace Code.Events
     
     public class BlockLandEvent : GameEvent
     {
-        public BlockLandEvent Initialize()
+        public Block block;
+        
+        public BlockLandEvent Initialize(Block block)
         {
+            this.block = block;
             return this;
         }
     }

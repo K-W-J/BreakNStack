@@ -52,8 +52,8 @@ namespace Code.Blocks
             {
                 if(stopMoveDelay > _currentStopMoveDelay) return true;
                 
-                bool isMove = Mathf.Abs(_rigidbody.linearVelocity.y) > 0.00001f
-                       || Mathf.Abs(_rigidbody.linearVelocity.x) > 0.00001f;
+                bool isMove = Mathf.Abs(_rigidbody.linearVelocity.y) > 0.000001f
+                       || Mathf.Abs(_rigidbody.linearVelocity.x) > 0.000001f;
                 
                 if(isMove && _blockState == BlockState.Land)
                     blockEventChannel.RaiseEvent(BlockEvent.BlockMoveEvent.Initialize(this));
@@ -159,7 +159,7 @@ namespace Code.Blocks
 
                 if (_isFirstLand == false)
                 {
-                    blockEventChannel.RaiseEvent(BlockEvent.BlockLandEvent.Initialize());
+                    blockEventChannel.RaiseEvent(BlockEvent.BlockLandEvent.Initialize(this));
                     blockEventChannel.RaiseEvent(BlockEvent.BlockCountEvent.Initialize(BlockData.stackCount));
                     _isFirstLand = true;
                 }
