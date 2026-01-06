@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 namespace Settings.InputSystem
 {
@@ -9,7 +10,7 @@ namespace Settings.InputSystem
     {
         public event Action<bool> OnDropPressed;
         
-        private Vector2 _touchPosition;
+        private Vector2 _pointPosition;
         
         private Camera _camera;
         private Controls _controls;
@@ -17,7 +18,7 @@ namespace Settings.InputSystem
         private void OnEnable()
         {
             _camera = Camera.main;
-            
+
             Debug.Assert(_camera != null, "No main camera in this scene.");
             
             if (_controls == null)
@@ -42,21 +43,14 @@ namespace Settings.InputSystem
                 OnDropPressed?.Invoke(false);
         }
 
-        public void OnTouch(InputAction.CallbackContext context)
+        public void OnPointPosition(InputAction.CallbackContext context)
         {
-            _touchPosition = context.ReadValue<Vector2>();
-        }
-
-        public Vector2 GetWorldMousePosition()
-        {
-            return _camera.ScreenToWorldPoint(_touchPosition);
-            Vector2 mousePosition = Mouse.current.position.ReadValue();
-            return _camera.ScreenToWorldPoint(new Vector2(mousePosition.x, mousePosition.y));
+            _pointPosition = context.ReadValue<Vector2>();
         }
         
-        public Vector2 GetWorldTouchPosition()
+        public Vector2 GetWorldPointPosition()
         {
-            return _camera.ScreenToWorldPoint(_touchPosition);
+            return _camera.ScreenToWorldPoint(_pointPosition);
         }
     }
 }

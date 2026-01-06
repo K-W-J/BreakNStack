@@ -34,9 +34,9 @@ namespace Code.Blocks
             {
                 float limitWidth = _camera.orthographicSize * _camera.aspect * 2;
                 
-                if (Mathf.Abs(playerInput.GetWorldMousePosition().x) < limitWidth)
+                if (Mathf.Abs(playerInput.GetWorldPointPosition().x) < limitWidth)
                 {
-                    _currentBlock.transform.position = new Vector3(playerInput.GetWorldMousePosition().x, _currentBlock.transform.position.y);
+                    _currentBlock.transform.position = new Vector3(playerInput.GetWorldPointPosition().x, _currentBlock.transform.position.y);
                 }
             }
         }
