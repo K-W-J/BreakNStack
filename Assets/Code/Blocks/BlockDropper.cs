@@ -1,5 +1,4 @@
-﻿using System;
-using Code.Core;
+﻿using Code.Core;
 using Code.Events;
 using Settings.InputSystem;
 using UnityEngine;

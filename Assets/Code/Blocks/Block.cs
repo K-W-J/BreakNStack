@@ -39,7 +39,6 @@ namespace Code.Blocks
         public int CurrentHealth { get; private set; }
         
         private Rigidbody2D _rigidbody;
-        private Camera _camera;
         
         private BlockRenderer _blockRenderer;
         private BlockGuide _blockGuide;
@@ -51,6 +50,8 @@ namespace Code.Blocks
         {
             get
             {
+                if(stopMoveDelay > _currentStopMoveDelay) return true;
+                
                 bool isMove = Mathf.Abs(_rigidbody.linearVelocity.y) > 0.00001f
                        || Mathf.Abs(_rigidbody.linearVelocity.x) > 0.00001f;
                 
@@ -93,7 +94,6 @@ namespace Code.Blocks
         {
             _pool = pool;
             
-            _camera = Camera.main;
             _rigidbody = GetComponentInChildren<Rigidbody2D>();
             _initSpawns = GetComponentsInChildren<IInitializeSpawn>();
             
@@ -134,12 +134,15 @@ namespace Code.Blocks
             if (damageDelay > _currentDamageDelay)
                 _currentDamageDelay += Time.deltaTime;
             
-            float limitLine = _camera.transform.position.y - (_camera.orthographicSize / 1.2f);
+            if (stopMoveDelay > _currentStopMoveDelay)
+                _currentStopMoveDelay += Time.deltaTime;
+            
+            /*float limitLine = _camera.transform.position.y - (_camera.orthographicSize / 1.2f);
             
             if (_blockState == BlockState.Land && IsMove == false && limitLine > transform.position.y)
             {
                 SetLockBlock(true);
-            }
+            }*/
         }
 
         private void FixedUpdate()
@@ -191,22 +194,7 @@ namespace Code.Blocks
                 if(block.IsLock == false)
                     block.SetFreezeAll(false);
 
-                AddForceDown();
-                block.AddForceDown();
-
                 _currentDamageDelay = 0;
-
-                /*if (_isFirstTimeGround == false)
-                {
-                    _isFirstTimeGround = true;
-                    AddForceDown(5f);
-                    block.AddForceDown(5f);
-                }
-                else
-                {
-                    AddForceDown();
-                    block.AddForceDown();
-                }*/
             }
         }
 
@@ -219,7 +207,6 @@ namespace Code.Blocks
                 {
                     _adjacencyBlocks.Remove(block);
                     SetFreezeAll(false);
-                    AddForceDown();
                 }
         }
 
@@ -255,7 +242,10 @@ namespace Code.Blocks
             if(isFreeze)
                 _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
             else
+            {
+                _currentStopMoveDelay = 0;
                 _rigidbody.constraints = RigidbodyConstraints2D.None;
+            }
         }
         
         public void FireBlock()
@@ -270,11 +260,6 @@ namespace Code.Blocks
             _rigidbody.gravityScale = 0.5f;
             _rigidbody.AddForce(direction, ForceMode2D.Impulse);
         }
-        
-        private void SetForceDown(float addForce = 1f)
-            => _rigidbody.linearVelocity = Vector2.down * addForce;
-        private void AddForceDown(float addForce = 0.5f)
-            => _rigidbody.AddForce(Vector2.down * addForce, ForceMode2D.Impulse);
 
         private void SetLockBlock(bool isLock)
         {
@@ -302,7 +287,6 @@ namespace Code.Blocks
         {
             SetFreezeAll(false);
             
-            SetForceDown();
             _rigidbody.gravityScale = 3f;
             
             _rigidbody.AddForce(Vector2.down * 1.5f, ForceMode2D.Force);
@@ -315,7 +299,7 @@ namespace Code.Blocks
         private void SetBlockStateToLand()
         {
             _blockState = BlockState.Land;
-            SetForceDown();
+            //SetForceDown();
         }
 
         public void SetBlockGuide(BlockGuide blockGuide)
@@ -340,6 +324,7 @@ namespace Code.Blocks
             IsDead = true;
             gameObject.name = "Block[Pool]";
             _adjacencyBlocks.Clear();
+            
             blockEventChannel.RaiseEvent(BlockEvent.BlockPushEvent.Initialize(this));
             blockEventChannel.RemoveListener<BlockPushEvent>(HandleTouchingBlockPush);
             blockEventChannel.RemoveListener<BlockMoveEvent>(HandleTouchingBlockMove);
@@ -369,7 +354,6 @@ namespace Code.Blocks
                 _adjacencyBlocks.Remove(evt.block);
                 
                 SetFreezeAll(false);
-                SetForceDown();
             }
         }
 
@@ -382,7 +366,6 @@ namespace Code.Blocks
                 _adjacencyBlocks.Remove(evt.block);
 
                 SetFreezeAll(false);
-                SetForceDown();
             }
         }
     }
