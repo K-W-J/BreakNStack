@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.EnhancedTouch;
 
 namespace Settings.InputSystem
 {
@@ -12,15 +11,10 @@ namespace Settings.InputSystem
         
         private Vector2 _pointPosition;
         
-        private Camera _camera;
         private Controls _controls;
         
         private void OnEnable()
         {
-            _camera = Camera.main;
-
-            Debug.Assert(_camera != null, "No main camera in this scene.");
-            
             if (_controls == null)
             {
                 _controls = new Controls();
@@ -50,7 +44,9 @@ namespace Settings.InputSystem
         
         public Vector2 GetWorldPointPosition()
         {
-            return _camera.ScreenToWorldPoint(_pointPosition);
+            Camera mainCamera = Camera.main;
+            Debug.Assert(mainCamera != null, "No main camera in this scene.");
+            return mainCamera.ScreenToWorldPoint(_pointPosition);
         }
     }
 }

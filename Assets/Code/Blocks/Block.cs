@@ -22,8 +22,12 @@ namespace Code.Blocks
         public GameObject GameObject => gameObject;
         
         [SerializeField] private GameEventChannelSO blockEventChannel;
+        
         [SerializeField] private float damageDelay;
         private float _currentDamageDelay;
+        
+        [SerializeField] private float stopMoveDelay;
+        private float _currentStopMoveDelay;
         
         [field:Header("ResetBlock")]
         [field:SerializeField] public BlockSO BlockData { get; private set; }
