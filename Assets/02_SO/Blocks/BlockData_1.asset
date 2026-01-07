@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlockData_1
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockSO
   maxHealth: 100
-  weight: 25
+  weight: 20
   attack: 13
   intensityDamage: 8
   destroyCount: 1
@@ -21,10 +21,6 @@ MonoBehaviour:
   blockName: BlockData_1
   blockType: 1
   size: {x: 1.2, y: 1.2}
-  maxHeight: 3
-  minHeight: 1
-  maxDistance: 5
-  minDistance: 3
   default_Sprite: {fileID: -3997992993972219536, guid: cc52042ef9925b4478201e2823676dda, type: 3}
   break_2_Sprite: {fileID: -592933202, guid: cc52042ef9925b4478201e2823676dda, type: 3}
   break_3_Sprite: {fileID: -292389932, guid: cc52042ef9925b4478201e2823676dda, type: 3}

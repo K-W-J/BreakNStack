@@ -29,6 +29,7 @@ namespace Code.Screens
             float posY = Camera.main.transform.position.y + Camera.main.orthographicSize;
             screenLine.position = new Vector3(0, posY - screenLineHeight, -10);
         }
+        
         private void Awake()
         {
             _blockList = new List<Block>();
@@ -50,11 +51,8 @@ namespace Code.Screens
             transform.position = Vector3.Lerp(transform.position, new Vector3(0, _posY, -10), Time.deltaTime * speed);
         }
 
-        private void HandleLandBlock(BlockLandEvent evt)
+        private void MoveScreen()
         {
-            if (_blockList.Contains(evt.block) == false)
-                _blockList.Add(evt.block);
-        
             if (_blockList.Count < 1) return;
             
             float topScreen = _camera.transform.position.y + _camera.orthographicSize;
@@ -64,17 +62,28 @@ namespace Code.Screens
                 (b.transform.position.y - topScreen)
                 .CompareTo(a.transform.position.y - topScreen));
             
+                        
+            //if (topLinePosY < firstBlockPosY)
+            //_posY = transform.position.y + (firstBlockPosY - topLinePosY);
             float firstBlockPosY = _blockList.First().transform.position.y;
             
-            //if (topLinePosY < firstBlockPosY)
-                //_posY = transform.position.y + (firstBlockPosY - topLinePosY);
-                _posY = firstBlockPosY;
+            _posY = firstBlockPosY - screenLineHeight;
+        }
+
+        private void HandleLandBlock(BlockLandEvent evt)
+        {
+            if (_blockList.Contains(evt.block) == false)
+                _blockList.Add(evt.block);
+
+            MoveScreen();
         }
 
         private void HandleRemoveBlockList(BlockPushEvent evt)
         {
             if (_blockList.Contains(evt.block))
                 _blockList.Remove(evt.block);
+
+            MoveScreen();
         }
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlockData_Birck
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockSO
   maxHealth: 50
-  weight: 30
+  weight: 20
   attack: 20
   intensityDamage: 8
   destroyCount: 1
@@ -21,10 +21,6 @@ MonoBehaviour:
   blockName: BlockData_Birck
   blockType: 4
   size: {x: 0.8, y: 0.4}
-  maxHeight: 3
-  minHeight: 1
-  maxDistance: 5
-  minDistance: 3
   default_Sprite: {fileID: -1776813028, guid: 8cbfdace8fb685e46a7685b2ee6f75c7, type: 3}
   break_2_Sprite: {fileID: -2067552723, guid: 8cbfdace8fb685e46a7685b2ee6f75c7, type: 3}
   break_3_Sprite: {fileID: -2067552723, guid: 8cbfdace8fb685e46a7685b2ee6f75c7, type: 3}

@@ -9,6 +9,7 @@ namespace Code.Blocks
     {
         [SerializeField] private GameEventChannelSO blockEventChannel;
         [SerializeField] private PlayerInputSO playerInput;
+        [SerializeField] private float dropBlockHeight;
         
         private Camera _camera;
         private Block _currentBlock;
@@ -29,14 +30,22 @@ namespace Code.Blocks
 
         private void Update()
         {
-            if (_isClicking && _currentBlock != null)
+            if(_currentBlock == null) return;
+            
+            float bottom = _camera.transform.position.y - _camera.orthographicSize;
+            
+            if (_isClicking)
             {
                 float limitWidth = _camera.orthographicSize * _camera.aspect * 2;
                 
                 if (Mathf.Abs(playerInput.GetWorldPointPosition().x) < limitWidth)
                 {
-                    _currentBlock.transform.position = new Vector3(playerInput.GetWorldPointPosition().x, _currentBlock.transform.position.y);
+                    _currentBlock.transform.position = new Vector3(playerInput.GetWorldPointPosition().x, bottom + dropBlockHeight);
                 }
+            }
+            else
+            {
+                _currentBlock.transform.position = new Vector3(_currentBlock.transform.position.x, bottom + dropBlockHeight);
             }
         }
 

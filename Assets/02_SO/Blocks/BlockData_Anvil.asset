@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlockData_Anvil
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockSO
   maxHealth: 200
-  weight: 50
+  weight: 20
   attack: 40
   intensityDamage: 8
   destroyCount: 1
@@ -21,10 +21,6 @@ MonoBehaviour:
   blockName: BlockData_Anvil
   blockType: 3
   size: {x: 1.2, y: 0.8}
-  maxHeight: 3
-  minHeight: 1
-  maxDistance: 5
-  minDistance: 3
   default_Sprite: {fileID: 21300000, guid: 121a7a38f8220b0499447db128567f70, type: 3}
   break_2_Sprite: {fileID: 21300000, guid: 121a7a38f8220b0499447db128567f70, type: 3}
   break_3_Sprite: {fileID: 21300000, guid: 121a7a38f8220b0499447db128567f70, type: 3}

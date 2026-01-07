@@ -3,7 +3,6 @@ using Code.Agents;
 using Code.Core;
 using Code.Events;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Code.Blocks
 {
@@ -52,14 +51,14 @@ namespace Code.Blocks
             {
                 if(stopMoveDelay > _currentStopMoveDelay) return true;
                 
-                bool isMove = Mathf.Abs(_rigidbody.linearVelocity.y) > 0.000001f
-                       || Mathf.Abs(_rigidbody.linearVelocity.x) > 0.000001f;
+                bool isMove = Mathf.Abs(_rigidbody.linearVelocity.y) > 0.00001f
+                       || Mathf.Abs(_rigidbody.linearVelocity.x) > 0.00001f;
+                //Approximately은 판정이 너무 타이트함
                 
-                if(isMove && _blockState == BlockState.Land)
+                if(isMove)
                     blockEventChannel.RaiseEvent(BlockEvent.BlockMoveEvent.Initialize(this));
                 
                 return isMove;
-                //Approximately은 판정이 너무 작음
             }
         }
 
@@ -148,7 +147,7 @@ namespace Code.Blocks
         private void FixedUpdate()
         {
             if(IsLock || IsDead || IsMove) return;
-            
+
             if (_blockState == BlockState.Falling)
             {
                 SetBlockStateToLand();
@@ -172,8 +171,6 @@ namespace Code.Blocks
             
             int impulseDamage = (int)collision.relativeVelocity.magnitude;
             
-            print(gameObject.name + " " + impulseDamage);
-            
             if (collision.gameObject.TryGetComponent<Block>(out var block))
             {
                 if (_adjacencyBlocks.Contains(block) == false)
@@ -183,6 +180,8 @@ namespace Code.Blocks
                 
                 if (impulseDamage > BlockData.intensityDamage)
                 {
+                    print(gameObject.name + " " + impulseDamage);
+                    
                     if(block.IsMove == false)
                         block.TakeDamage(impulseDamage + BlockData.attack);
                     else
@@ -247,19 +246,6 @@ namespace Code.Blocks
                 _rigidbody.constraints = RigidbodyConstraints2D.None;
             }
         }
-        
-        public void FireBlock()
-        {
-            _blockState = BlockState.Fire;
-            
-            Vector2 direction = (transform.position.x > 0 ? Vector2.left : Vector2.right)
-                                * Random.Range(BlockData.minDistance, BlockData.maxDistance);//방향
-            direction += Vector2.up * Random.Range(BlockData.minHeight, BlockData.maxHeight);//높이
-            direction *= _rigidbody.mass;//질량 무시
-            
-            _rigidbody.gravityScale = 0.5f;
-            _rigidbody.AddForce(direction, ForceMode2D.Impulse);
-        }
 
         private void SetLockBlock(bool isLock)
         {
@@ -299,7 +285,6 @@ namespace Code.Blocks
         private void SetBlockStateToLand()
         {
             _blockState = BlockState.Land;
-            //SetForceDown();
         }
 
         public void SetBlockGuide(BlockGuide blockGuide)
@@ -335,6 +320,8 @@ namespace Code.Blocks
         
         public void ResetItem()
         {
+            transform.rotation = Quaternion.identity;
+            
             SetLockBlock(false);
             Destroy(BlockCollider);
 
@@ -346,15 +333,10 @@ namespace Code.Blocks
 
         private void HandleTouchingBlockMove(BlockMoveEvent evt)
         {
-            return;
             if(IsLock) return;
             
             if (_adjacencyBlocks.Contains(evt.block))
-            {
-                _adjacencyBlocks.Remove(evt.block);
-                
                 SetFreezeAll(false);
-            }
         }
 
         private void HandleTouchingBlockPush(BlockPushEvent evt)
@@ -364,7 +346,6 @@ namespace Code.Blocks
             if (_adjacencyBlocks.Contains(evt.block))
             {
                 _adjacencyBlocks.Remove(evt.block);
-
                 SetFreezeAll(false);
             }
         }

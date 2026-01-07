@@ -22,11 +22,6 @@ namespace Code.Blocks
         public Enums.BlockType blockType;
         [Space] 
         public Vector2 size;
-        [Space] 
-        public int maxHeight;
-        public int minHeight;
-        public int maxDistance;
-        public int minDistance;
         [Space]
         public Sprite default_Sprite;
         public Sprite break_2_Sprite;

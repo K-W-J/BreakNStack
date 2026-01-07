@@ -21,10 +21,6 @@ MonoBehaviour:
   blockName: BlockData_3_1
   blockType: 1
   size: {x: 1.2, y: 0.8}
-  maxHeight: 3
-  minHeight: 1
-  maxDistance: 5
-  minDistance: 3
   default_Sprite: {fileID: 6748000783257419107, guid: 1605dc5a92cec8d49bc5c4f451c28dd0, type: 3}
   break_2_Sprite: {fileID: 2067391842, guid: 1605dc5a92cec8d49bc5c4f451c28dd0, type: 3}
   break_3_Sprite: {fileID: 600118957, guid: 1605dc5a92cec8d49bc5c4f451c28dd0, type: 3}

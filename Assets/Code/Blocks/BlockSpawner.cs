@@ -3,6 +3,7 @@ using System.Linq;
 using Code.Core;
 using Code.Events;
 using Code.Screens;
+using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -18,11 +19,11 @@ namespace Code.Blocks
         [SerializeField] private ScreenMovement screenMovement;
         [SerializeField] private Transform blockSpawnPoint;
         [Space]
-        [SerializeField] private float spawnTimer;
+        [SerializeField] private float spawnDelay;
         
         private Block _currentBlock;
         
-        private float _currentTime;
+        private float _currentSpawnDelay;
 
         private void Start()
         {
@@ -31,21 +32,21 @@ namespace Code.Blocks
 
         private void Update()
         {
-            if (_currentTime > spawnTimer && (_currentBlock.IsLand || _currentBlock.IsDead))
+            if (_currentSpawnDelay > spawnDelay && (_currentBlock.IsLand || _currentBlock.IsDead))
             {
                 SpawnBlock();
-                _currentTime = 0;
+                _currentSpawnDelay = 0;
             }
             else
             {
-                _currentTime += Time.deltaTime;
+                _currentSpawnDelay += Time.deltaTime;
             }
         }
         
         private void SpawnBlock()
         {
             _currentBlock = PoolManager.Instance.Pop<Block>(blockItem);
-            _currentBlock.transform.SetPositionAndRotation(blockSpawnPoint.position, Quaternion.identity);
+            _currentBlock.transform.DOPunchScale(Vector3.one * 0.2f, 0.2f);
             
             blockEventChannel.RaiseEvent(BlockEvent.BlockSpawnEvent.Initialize(_currentBlock));
             

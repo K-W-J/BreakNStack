@@ -200,7 +200,7 @@ MonoBehaviour:
   <PoolItem>k__BackingField: {fileID: 11400000, guid: edb817538925f14458152555c3f62a6f, type: 2}
   blockEventChannel: {fileID: 11400000, guid: 9629503fecbbd3042b168eb171ef2ea4, type: 2}
   damageDelay: 0.1
-  stopMoveDelay: 0.4
+  stopMoveDelay: 0.05
   <BlockData>k__BackingField: {fileID: 0}
 --- !u!1001 &6251642093128807695
 PrefabInstance:
