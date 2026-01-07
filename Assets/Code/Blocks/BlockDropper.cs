@@ -45,7 +45,7 @@ namespace Code.Blocks
             }
             else
             {
-                _currentBlock.transform.position = new Vector3(_currentBlock.transform.position.x, bottom + dropBlockHeight);
+                _currentBlock.transform.position = new Vector3(0, bottom + dropBlockHeight);
             }
         }
 

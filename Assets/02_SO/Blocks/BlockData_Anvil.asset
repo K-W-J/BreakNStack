@@ -15,7 +15,7 @@ MonoBehaviour:
   maxHealth: 200
   weight: 20
   attack: 40
-  intensityDamage: 8
+  intensityDamage: 4
   destroyCount: 1
   stackCount: 1
   blockName: BlockData_Anvil
