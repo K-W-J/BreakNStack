@@ -6,7 +6,7 @@ Physics2DSettings:
   serializedVersion: 11
   m_Gravity: {x: 0, y: -9.81}
   m_DefaultMaterial: {fileID: 0}
-  m_VelocityIterations: 8
+  m_VelocityIterations: 32
   m_PositionIterations: 3
   m_BounceThreshold: 1
   m_MaxLinearCorrection: 0.2
@@ -33,12 +33,12 @@ Physics2DSettings:
     m_SyncContinuousFixturesPerJob: 50
     m_FindNearestContactsPerJob: 100
     m_UpdateTriggerContactsPerJob: 100
-    m_IslandSolverCostThreshold: 5000
-    m_IslandSolverBodyCostScale: 2
-    m_IslandSolverContactCostScale: 20
-    m_IslandSolverJointCostScale: 100
-    m_IslandSolverBodiesPerJob: 100
-    m_IslandSolverContactsPerJob: 100
+    m_IslandSolverCostThreshold: 100
+    m_IslandSolverBodyCostScale: 1
+    m_IslandSolverContactCostScale: 10
+    m_IslandSolverJointCostScale: 10
+    m_IslandSolverBodiesPerJob: 50
+    m_IslandSolverContactsPerJob: 50
   m_SimulationMode: 0
   m_SimulationLayers:
     serializedVersion: 2
