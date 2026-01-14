@@ -190,6 +190,7 @@ namespace Code.Blocks
                         block.TakeDamage((impulseDamage + BlockData.attack) / 2);
                     
                     _currentDamageDelay = 0;
+                    
                     effectEventChannel.RaiseEvent(EffectEvent.PlayEffectEvent.Initialize(landEffectItem, collision.contacts[0].point));
                 }
                 
@@ -291,7 +292,6 @@ namespace Code.Blocks
         
         private void SetBlockStateToLand()
         {
-            effectEventChannel.RaiseEvent(EffectEvent.PlayEffectEvent.Initialize(landEffectItem,transform.position));
             _blockState = BlockState.Land;
         }
 

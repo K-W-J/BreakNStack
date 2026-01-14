@@ -202,7 +202,7 @@ MonoBehaviour:
   effectEventChannel: {fileID: 11400000, guid: 25272de0628fad24ea520b901da83a08, type: 2}
   landEffectItem: {fileID: 11400000, guid: ae0e191782250f6428734c12b39fabaf, type: 2}
   damageDelay: 0.05
-  stopMoveDelay: 0.1
+  stopMoveDelay: 0.2
   <BlockData>k__BackingField: {fileID: 0}
 --- !u!1001 &6251642093128807695
 PrefabInstance:
