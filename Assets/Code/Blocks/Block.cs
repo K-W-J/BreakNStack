@@ -21,6 +21,8 @@ namespace Code.Blocks
         public GameObject GameObject => gameObject;
         
         [SerializeField] private GameEventChannelSO blockEventChannel;
+        [SerializeField] private GameEventChannelSO effectEventChannel;
+        [SerializeField] private PoolItemSO landEffectItem;
         
         [SerializeField] private float damageDelay;
         private float _currentDamageDelay;
@@ -51,7 +53,7 @@ namespace Code.Blocks
             {
                 if(stopMoveDelay > _currentStopMoveDelay) return true;
                 
-                bool isMove = _rigidbody.linearVelocity.sqrMagnitude > 0.00001f || 
+                bool isMove = _rigidbody.linearVelocity.sqrMagnitude > 0.000001f || 
                               Mathf.Abs(_rigidbody.angularVelocity) > 10f;
                 //Approximately은 판정이 너무 타이트함
                 
@@ -66,9 +68,7 @@ namespace Code.Blocks
         public bool IsLand => _blockState == BlockState.Land;
 
         private bool _isFirstLand;
-        private bool _isFirstTimeGround;
-        
-        
+        private bool _isFirstGround;
 
         [ContextMenu("ResetBlock")]
         private void ResetBlock()
@@ -190,6 +190,7 @@ namespace Code.Blocks
                         block.TakeDamage((impulseDamage + BlockData.attack) / 2);
                     
                     _currentDamageDelay = 0;
+                    effectEventChannel.RaiseEvent(EffectEvent.PlayEffectEvent.Initialize(landEffectItem, collision.contacts[0].point));
                 }
                 
                 SetFreezeAll(false);
@@ -198,9 +199,7 @@ namespace Code.Blocks
                 {
                     adjacencyBlock.SetFreezeAll(false);
                 }
-                    
-                /*if(block.IsLock == false)
-                    block.SetFreezeAll(false);*/
+                
             }
         }
 
@@ -292,6 +291,7 @@ namespace Code.Blocks
         
         private void SetBlockStateToLand()
         {
+            effectEventChannel.RaiseEvent(EffectEvent.PlayEffectEvent.Initialize(landEffectItem,transform.position));
             _blockState = BlockState.Land;
         }
 
@@ -335,10 +335,10 @@ namespace Code.Blocks
             
             SetLockBlock(false);
             Destroy(BlockCollider);
-
+            
             CurrentHealth = 0;
             IsDead = false;
-            _isFirstTimeGround = false;
+            _isFirstGround = false;
             _isFirstLand = false;
         }
 

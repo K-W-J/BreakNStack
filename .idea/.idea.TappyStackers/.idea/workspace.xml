@@ -5,15 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce64176-11a5-46cf-a21b-76e18e2f9eec" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/01_Prefab/2000_System/BlockSpawner.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/01_Prefab/2000_System/BlockSpawner.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/01_Prefab/5000_Effects/Collision_Particle.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/01_Prefab/5000_Effects/Collision_Particle.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/02_SO/PoolItem/CollisionEffect[Pool].asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/02_SO/PoolItem/CollisionEffect[Pool].asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/DungGeunMo.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri11-Bold.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri11-Bold.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri11-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri11-Bold.ttf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri11.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri11.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri11.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri11.ttf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri14.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri14.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri14.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri14.ttf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri9.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri9.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri9.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri9.ttf.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Icon/Title.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Icon/Title.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/DungGeunMo SDF.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/DungGeunMo SDF.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/DungGeunMo.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Events/BlockEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Events/BlockEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Effects/ParticlePlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Effects/ParticlePlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Screens/ScreenMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Screens/ScreenMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/CountText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/CountText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,6 +142,8 @@
       <workItem from="1767445460157" duration="63000" />
       <workItem from="1767445533690" duration="9704000" />
       <workItem from="1767497366559" duration="12929000" />
+      <workItem from="1768293076407" duration="3915000" />
+      <workItem from="1768394254462" duration="3428000" />
     </task>
     <servers />
   </component>
@@ -153,13 +177,13 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Code/Core/PoolManager.cs</url>
-          <line>74</line>
+          <line>82</line>
           <properties documentPath="C:\Users\USER\Desktop\UnityProject\TappyStackers\Assets\Code\Core\PoolManager.cs" containingFunctionPresentation="메서드 'Push'">
             <startOffsets>
-              <option value="2433" />
+              <option value="2729" />
             </startOffsets>
             <endOffsets>
-              <option value="2434" />
+              <option value="2730" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />

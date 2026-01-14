@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Code.Core;
+﻿using Code.Core;
 using UnityEngine;
 
 namespace Code.Effects
@@ -8,6 +7,7 @@ namespace Code.Effects
     {
         [field: SerializeField] public PoolItemSO PoolItem { get; private set; }
         [SerializeField] private ParticleSystem particle;
+        
         public GameObject GameObject => gameObject;
         private PoolManager _pool;
         

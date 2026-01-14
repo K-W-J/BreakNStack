@@ -11,7 +11,6 @@ namespace Code.Screens
     {
         [SerializeField] private GameEventChannelSO blockEventChannel;
         [Space]
-        [SerializeField] private Transform screenLine;
         [SerializeField] private float screenLineHeight;
         [Space]
         [SerializeField] private float speed;
@@ -21,14 +20,6 @@ namespace Code.Screens
         private Camera _camera;
         
         private float _posY;
-        
-        private void OnValidate()
-        {
-            if(screenLine == null) return;
-            
-            float posY = Camera.main.transform.position.y + Camera.main.orthographicSize;
-            screenLine.position = new Vector3(0, posY - screenLineHeight, -10);
-        }
         
         private void Awake()
         {
@@ -56,18 +47,14 @@ namespace Code.Screens
             if (_blockList.Count < 1) return;
             
             float topScreen = _camera.transform.position.y + _camera.orthographicSize;
-            float topLinePosY = topScreen - screenLineHeight;
             
             _blockList.Sort((a, b) =>
                 (b.transform.position.y - topScreen)
                 .CompareTo(a.transform.position.y - topScreen));
             
-                        
-            //if (topLinePosY < firstBlockPosY)
-            //_posY = transform.position.y + (firstBlockPosY - topLinePosY);
             float firstBlockPosY = _blockList.First().transform.position.y;
             
-            _posY = firstBlockPosY - screenLineHeight;
+            _posY = firstBlockPosY + screenLineHeight;
         }
 
         private void HandleLandBlock(BlockLandEvent evt)
