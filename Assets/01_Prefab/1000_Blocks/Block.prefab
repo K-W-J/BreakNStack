@@ -197,6 +197,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4441664467405885217}
+        m_TargetAssemblyTypeName: Code.Feedbacks.ImpulseFeedback, Assembly-CSharp
+        m_MethodName: CreateFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   <PoolItem>k__BackingField: {fileID: 11400000, guid: edb817538925f14458152555c3f62a6f, type: 2}
   blockEventChannel: {fileID: 11400000, guid: 9629503fecbbd3042b168eb171ef2ea4, type: 2}
   effectEventChannel: {fileID: 11400000, guid: 25272de0628fad24ea520b901da83a08, type: 2}
@@ -269,6 +281,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
+--- !u!114 &4441664467405885217 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7737673514318150190, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
+  m_PrefabInstance: {fileID: 6251642093128807695}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7de0b0feb640c2ad692780170919f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Code.Feedbacks.ImpulseFeedback
 --- !u!4 &4596186438622758921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7569042901947235590, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}

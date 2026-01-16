@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3267235189166584457}
   - component: {fileID: 6711060830363231876}
   m_Layer: 0
-  m_Name: Collision_Particle
+  m_Name: Smoke_Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

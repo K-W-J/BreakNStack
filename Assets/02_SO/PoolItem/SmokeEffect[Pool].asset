@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 565e163f6c3c14045b0725a38c1b2fde, type: 3}
-  m_Name: 'CollisionEffect[Pool]'
+  m_Name: 'SmokeEffect[Pool]'
   m_EditorClassIdentifier: Assembly-CSharp::Code.Core.PoolItemSO
   initCount: 5
   prefab: {fileID: 2679153792777887097, guid: b6a8ebd85889aef47ab53763cc512e64, type: 3}
