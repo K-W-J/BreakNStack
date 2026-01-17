@@ -6,7 +6,6 @@ namespace Code.Events
     public class BlockEvent
     {
         public static BlockPushEvent BlockPushEvent = new BlockPushEvent();
-        public static BlockCountEvent BlockCountEvent = new BlockCountEvent();
         public static BlockLandEvent BlockLandEvent = new BlockLandEvent();
         public static BlockSpawnEvent BlockSpawnEvent = new BlockSpawnEvent();
         public static BlockMoveEvent BlockMoveEvent = new BlockMoveEvent();
@@ -61,17 +60,6 @@ namespace Code.Events
     {
         public BlockDropEvent Initialize()
         {
-            return this;
-        }
-    }
-    
-    public class BlockCountEvent : GameEvent
-    {
-        public int count;
-
-        public BlockCountEvent Initialize(int count)
-        {
-            this.count = count;
             return this;
         }
     }

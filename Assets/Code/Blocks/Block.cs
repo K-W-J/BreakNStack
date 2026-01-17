@@ -22,6 +22,7 @@ namespace Code.Blocks
         
         [SerializeField] private GameEventChannelSO blockEventChannel;
         [SerializeField] private GameEventChannelSO effectEventChannel;
+        [SerializeField] private GameEventChannelSO uiEventChannel;
         [SerializeField] private PoolItemSO landEffectItem;
         
         [SerializeField] private float damageDelay;
@@ -161,7 +162,7 @@ namespace Code.Blocks
                 if (_isFirstLand == false)
                 {
                     blockEventChannel.RaiseEvent(BlockEvent.BlockLandEvent.Initialize(this));
-                    blockEventChannel.RaiseEvent(BlockEvent.BlockCountEvent.Initialize(BlockData.stackCount));
+                    uiEventChannel.RaiseEvent(UIEvent.CountTextEvent.Initialize(BlockData.stackCount));
                     _isFirstLand = true;
                 }
             }
@@ -228,7 +229,7 @@ namespace Code.Blocks
 
             if (CurrentHealth <= 0)
             {
-                blockEventChannel.RaiseEvent(BlockEvent.BlockCountEvent.Initialize(BlockData.destroyCount));
+                uiEventChannel.RaiseEvent(UIEvent.CountTextEvent.Initialize(BlockData.destroyCount));
                 PushBlock();
             }
         }

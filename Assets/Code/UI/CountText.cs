@@ -13,10 +13,10 @@ namespace Code.UI
         private int _count;
         private void Awake()
         {
-            blockEventChannel.AddListener<BlockCountEvent>(SetCountText);
+            blockEventChannel.AddListener<CountTextEvent>(SetCountText);
         }
 
-        private void SetCountText(BlockCountEvent evt)
+        private void SetCountText(CountTextEvent evt)
         {
             _count += evt.count;
             transform.DOShakeScale(0.1f);
@@ -25,7 +25,7 @@ namespace Code.UI
 
         private void OnDestroy()
         {
-            blockEventChannel.RemoveListener<BlockCountEvent>(SetCountText);
+            blockEventChannel.RemoveListener<CountTextEvent>(SetCountText);
         }
     }
 }

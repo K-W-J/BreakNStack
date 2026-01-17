@@ -5,17 +5,95 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce64176-11a5-46cf-a21b-76e18e2f9eec" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Feedbacks/ImpulseFeedback.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Feedbacks/ImpulseFeedback.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/01_Prefab/UI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/01_Prefab/UI/CountBar.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/01_Prefab/UI/CountBar.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/02_SO/Events/UIEventChannel.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/02_SO/Events/UIEventChannel.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Ad_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Ad_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Announcement_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Announcement_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Boss_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Boss_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Count_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Count_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Empty_Boss_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Empty_Boss_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Empty_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Empty_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Empty_Mode_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Empty_Mode_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Empty_Play_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Empty_Play_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Exit_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Exit_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Letter_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Letter_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Menu_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Menu_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Mode_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Mode_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Off_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Off_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Play_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Play_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Setting_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Setting_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/CountBars.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/CountBars/Coin_CountBar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/CountBars/Coin_CountBar.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/Challenge_Icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/Challenge_Icon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/Coin_Icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/Coin_Icon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/DailyCheckIn_Icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/DailyCheckIn_Icon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/Energy_Icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/Energy_Icon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/Gem_Icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/Gem_Icon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/Health_Icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/Health_Icon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/Quest_Icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/Quest_Icon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/Ranking_Icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/Ranking_Icon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/Shop_Icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/Shop_Icon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/Star_Icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Icons/Star_Icon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/TextImages.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/TextImages/Achievements_TextImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/TextImages/Achievements_TextImage.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/TextImages/DailyCheckIn_TextImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/TextImages/DailyCheckIn_TextImage.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/TextImages/Quest_TextImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/TextImages/Quest_TextImage.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/TextImages/Randkig_TextImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/TextImages/Randkig_TextImage.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/TextImages/Shop_TextImage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/TextImages/Shop_TextImage.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Windows.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Windows/Translucent_Window.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Windows/Translucent_Window.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Windows/Window.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Windows/Window.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Events/UIEvent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Events/UIEvent.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/4000_Components/FeedBack.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/4000_Components/FeedBack.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/5000_Effects/Collision_Particle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/5000_Effects/Smoke_Particle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/5000_Effects/Collision_Particle.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/5000_Effects/Smoke_Particle.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/PoolItem/CollisionEffect[Pool].asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/PoolItem/SmokeEffect[Pool].asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/PoolItem/CollisionEffect[Pool].asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/PoolItem/SmokeEffect[Pool].asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Icon/Title.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Icon/Title.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Icon/Title.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Icon/Title.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/StartScreenUI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/StartScreenUI.png.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Screens/ScreenMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Screens/ScreenMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Events/BlockEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Events/BlockEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/CountText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/CountText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +134,7 @@
 }</component>
   <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1-x86_64\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\USER\Desktop\UnityProject\TappyStackers -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\USER\Desktop\UnityProject\TappyStackers" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -67,7 +145,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unity 시작" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1-x86_64\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\USER\Desktop\UnityProject\TappyStackers -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\USER\Desktop\UnityProject\TappyStackers" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -125,7 +203,8 @@
       <workItem from="1768293076407" duration="3915000" />
       <workItem from="1768394254462" duration="3428000" />
       <workItem from="1768403375650" duration="761000" />
-      <workItem from="1768543075282" duration="6268000" />
+      <workItem from="1768543075282" duration="7763000" />
+      <workItem from="1768663253780" duration="332000" />
     </task>
     <servers />
   </component>
