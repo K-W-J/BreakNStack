@@ -8,9 +8,12 @@ namespace Code.UI
 {
     public class CountText : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI text;
         [SerializeField] private GameEventChannelSO blockEventChannel;
+        [SerializeField] private TextMeshProUGUI text;
+        
         private int _count;
+        private bool _canShake = true;
+        
         private void Awake()
         {
             blockEventChannel.AddListener<CountTextEvent>(SetCountText);
@@ -19,7 +22,13 @@ namespace Code.UI
         private void SetCountText(CountTextEvent evt)
         {
             _count += evt.count;
-            transform.DOShakeScale(0.1f);
+            
+            if (_canShake)
+            {
+                _canShake = false;
+                transform.DOShakeScale(0.1f).Complete(_canShake = true);
+            }
+            
             text.SetText(_count + "M");
         }
 

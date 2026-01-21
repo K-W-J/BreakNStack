@@ -269,7 +269,6 @@ namespace Code.Blocks
 
             if (isLock)
             {               
-                blockEventChannel.RaiseEvent(BlockEvents.BlockPushEvent.Initialize(this));
                 blockEventChannel.RemoveListener<BlockMoveEvent>(HandleTouchingBlockMove);
             }
             else

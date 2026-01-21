@@ -6,6 +6,7 @@ namespace Code.Events
     {
         public static CountTextEvent CountTextEvent = new CountTextEvent();
         public static PlayGameEvent PlayGameEvent = new PlayGameEvent();
+        public static QuitGameEvent QuitGameEvent = new QuitGameEvent();
         public static StopGameEvent StopGameEvent = new StopGameEvent();
         public static ResetGameEvent ResetGameEvent = new ResetGameEvent();
     }
@@ -22,6 +23,9 @@ namespace Code.Events
     }
     
     public class PlayGameEvent : GameEvent
+    { }    
+    
+    public class QuitGameEvent : GameEvent
     { }
     
     public class StopGameEvent : GameEvent

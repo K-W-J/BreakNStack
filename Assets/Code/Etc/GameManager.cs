@@ -35,6 +35,7 @@ namespace Code.Etc
         private void Awake()
         {
             uiEventChannel.AddListener<PlayGameEvent>(HandleStartGame);
+            uiEventChannel.AddListener<QuitGameEvent>(HandleQuitGame);
             
             if (_instance == null)
             {
@@ -50,11 +51,17 @@ namespace Code.Etc
         private void OnDestroy()
         {
             uiEventChannel.RemoveListener<PlayGameEvent>(HandleStartGame);
+            uiEventChannel.RemoveListener<QuitGameEvent>(HandleQuitGame);
         }
 
         private void HandleStartGame(PlayGameEvent evt)
         {
             IsStartGame = true;
+        }
+        
+        private void HandleQuitGame(QuitGameEvent evt)
+        {
+            IsStartGame = false;
         }
     }
 }

@@ -5,33 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce64176-11a5-46cf-a21b-76e18e2f9eec" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Etc/GameManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Etc/GameManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/MainCanvas.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/MainCanvas.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/PlayButton.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/PlayButton.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindow.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/QuitButton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/QuitButton.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Background/Ground.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Background/Ground.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Windows/Translucent_Window.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Windows/Translucent_Window.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Windows/Window.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Windows/Window.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockDropper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockDropper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Etc/BlockDeathZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Etc/BlockDeathZone.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Etc/IDamageable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Etc/IDamageable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Events/BlockEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Events/BlockEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Events/BlockEvent.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Events/BlockEvents.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Events/EffectEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Events/EffectEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Events/EffectEvent.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Events/EffectEvents.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Events/UIEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Events/UIEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Events/UIEvent.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Events/UIEvents.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Feedbacks/EffectFeedbacks.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Feedbacks/EffectFeedbacks.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Screens/BackgroundMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Screens/BackgroundMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Etc/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Etc/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Events/UIEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Events/UIEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/CountText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/CountText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainCanvas.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +127,7 @@
       <workItem from="1768403375650" duration="761000" />
       <workItem from="1768543075282" duration="7763000" />
       <workItem from="1768663253780" duration="469000" />
-      <workItem from="1768967743730" duration="12156000" />
+      <workItem from="1768967743730" duration="15526000" />
     </task>
     <servers />
   </component>

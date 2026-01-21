@@ -14,17 +14,29 @@ namespace Code.UI
         private void Awake()
         {
             uiEventChannel.AddListener<PlayGameEvent>(HandlePlayGame);
+            uiEventChannel.AddListener<QuitGameEvent>(HandleQuitGame);
         }
 
         private void OnDestroy()
         {
             uiEventChannel.RemoveListener<PlayGameEvent>(HandlePlayGame);
+            uiEventChannel.RemoveListener<QuitGameEvent>(HandleQuitGame);
         }
-        
+
+        private void HandleQuitGame(QuitGameEvent evt)
+        {
+            ChangeCanvas(false);
+        }
+
         private void HandlePlayGame(PlayGameEvent evt)
         {
-            menuCanvas.gameObject.SetActive(false);
-            inGameCanvas.gameObject.SetActive(true);
+            ChangeCanvas(true);
+        }
+
+        private void ChangeCanvas(bool isPlay)
+        {
+            menuCanvas.gameObject.SetActive(!isPlay);
+            inGameCanvas.gameObject.SetActive(isPlay);
         }
     }
 }
