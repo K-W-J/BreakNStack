@@ -1,4 +1,4 @@
-namespace Code
+namespace Code.Etc
 {
     public interface IDamageable
     {

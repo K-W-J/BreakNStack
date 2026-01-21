@@ -6,6 +6,7 @@ namespace Code.Screens
     {
         [SerializeField] private float movementScale;
         private Camera _camera;
+        
         private void Awake()
         {
             _camera = Camera.main;

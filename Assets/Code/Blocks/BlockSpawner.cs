@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Code.Core;
+using Code.Etc;
 using Code.Events;
 using Code.Screens;
 using DG.Tweening;
@@ -13,6 +14,7 @@ namespace Code.Blocks
     {
         [SerializeField] private PoolItemSO blockItem;
         [SerializeField] private GameEventChannelSO blockEventChannel;
+        [SerializeField] private GameEventChannelSO uiEventChannel;
         [Space]
         [SerializeField] private BlockSO[] blockData;
         [SerializeField] private BlockGuide blockGuide;
@@ -25,13 +27,25 @@ namespace Code.Blocks
         
         private float _currentSpawnDelay;
 
-        private void Start()
+        private void Awake()
+        {
+            uiEventChannel.AddListener<PlayGameEvent>(HandlePlayGame);
+        }
+
+        private void OnDestroy()
+        {
+            uiEventChannel.RemoveListener<PlayGameEvent>(HandlePlayGame);
+        }
+        
+        private void HandlePlayGame(PlayGameEvent evt)
         {
             SpawnBlock();
         }
-
+        
         private void Update()
         {
+            if (GameManager.Instance.IsStartGame == false) return;
+            
             if (_currentSpawnDelay > spawnDelay && (_currentBlock.IsLand || _currentBlock.IsDead))
             {
                 SpawnBlock();
@@ -48,7 +62,7 @@ namespace Code.Blocks
             _currentBlock = PoolManager.Instance.Pop<Block>(blockItem);
             _currentBlock.transform.DOPunchScale(Vector3.one * 0.2f, 0.2f);
             
-            blockEventChannel.RaiseEvent(BlockEvent.BlockSpawnEvent.Initialize(_currentBlock));
+            blockEventChannel.RaiseEvent(BlockEvents.BlockSpawnEvent.Initialize(_currentBlock));
             
             int rand = Random.Range(0, blockData.Length);
             _currentBlock.InitializeSpawn(blockData[rand]);

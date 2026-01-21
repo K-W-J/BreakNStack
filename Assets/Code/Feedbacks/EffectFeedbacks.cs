@@ -18,7 +18,7 @@ namespace Code.Feedbacks
         
         public override void CreateFeedback()
         {
-            effectChannel.RaiseEvent(EffectEvent.PlayEffectEvent.Initialize(_block.BlockData.effectPoolItem,transform.position));
+            effectChannel.RaiseEvent(EffectEvents.PlayEffectEvent.Initialize(_block.BlockData.effectPoolItem,transform.position));
         }
 
         public override void StopFeedback()

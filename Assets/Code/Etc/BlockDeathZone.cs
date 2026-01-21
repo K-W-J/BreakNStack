@@ -1,7 +1,7 @@
 ﻿using Code.Blocks;
 using UnityEngine;
 
-namespace Code
+namespace Code.Etc
 {
     public class BlockDeathZone : MonoBehaviour
     {

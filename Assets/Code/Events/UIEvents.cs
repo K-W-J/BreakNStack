@@ -2,18 +2,12 @@
 
 namespace Code.Events
 {
-    public class UIEvent
+    public class UIEvents
     {
         public static CountTextEvent CountTextEvent = new CountTextEvent();
         public static PlayGameEvent PlayGameEvent = new PlayGameEvent();
-    }
-    
-    public class PlayGameEvent : GameEvent
-    {
-        public PlayGameEvent Initialize()
-        {
-            return this;
-        }
+        public static StopGameEvent StopGameEvent = new StopGameEvent();
+        public static ResetGameEvent ResetGameEvent = new ResetGameEvent();
     }
     
     public class CountTextEvent : GameEvent
@@ -26,4 +20,13 @@ namespace Code.Events
             return this;
         }
     }
+    
+    public class PlayGameEvent : GameEvent
+    { }
+    
+    public class StopGameEvent : GameEvent
+    { }
+    
+    public class ResetGameEvent : GameEvent
+    { }
 }

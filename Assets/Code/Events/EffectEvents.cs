@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Code.Events
 {
-    public class EffectEvent
+    public class EffectEvents
     {
         public static PlayEffectEvent PlayEffectEvent = new PlayEffectEvent();
     }

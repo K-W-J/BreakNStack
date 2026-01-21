@@ -3,7 +3,7 @@ using Code.Core;
 
 namespace Code.Events
 {
-    public class BlockEvent
+    public class BlockEvents
     {
         public static BlockPushEvent BlockPushEvent = new BlockPushEvent();
         public static BlockLandEvent BlockLandEvent = new BlockLandEvent();

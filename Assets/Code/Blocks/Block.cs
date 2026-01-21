@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Code.Agents;
 using Code.Core;
+using Code.Etc;
 using Code.Events;
 using UnityEngine;
 
@@ -59,7 +60,7 @@ namespace Code.Blocks
                 //Approximately은 판정이 너무 타이트함
                 
                 if(isMove)
-                    blockEventChannel.RaiseEvent(BlockEvent.BlockMoveEvent.Initialize(this));
+                    blockEventChannel.RaiseEvent(BlockEvents.BlockMoveEvent.Initialize(this));
                 
                 return isMove;
             }
@@ -161,8 +162,8 @@ namespace Code.Blocks
 
                 if (_isFirstLand == false)
                 {
-                    blockEventChannel.RaiseEvent(BlockEvent.BlockLandEvent.Initialize(this));
-                    uiEventChannel.RaiseEvent(UIEvent.CountTextEvent.Initialize(BlockData.stackCount));
+                    blockEventChannel.RaiseEvent(BlockEvents.BlockLandEvent.Initialize(this));
+                    uiEventChannel.RaiseEvent(UIEvents.CountTextEvent.Initialize(BlockData.stackCount));
                     _isFirstLand = true;
                 }
             }
@@ -192,7 +193,7 @@ namespace Code.Blocks
                     
                     _currentDamageDelay = 0;
                     
-                    effectEventChannel.RaiseEvent(EffectEvent.PlayEffectEvent.Initialize(landEffectItem, collision.contacts[0].point));
+                    effectEventChannel.RaiseEvent(EffectEvents.PlayEffectEvent.Initialize(landEffectItem, collision.contacts[0].point));
                 }
                 
                 SetFreezeAll(false);
@@ -229,7 +230,7 @@ namespace Code.Blocks
 
             if (CurrentHealth <= 0)
             {
-                uiEventChannel.RaiseEvent(UIEvent.CountTextEvent.Initialize(BlockData.destroyCount));
+                uiEventChannel.RaiseEvent(UIEvents.CountTextEvent.Initialize(BlockData.destroyCount));
                 PushBlock();
             }
         }
@@ -268,7 +269,7 @@ namespace Code.Blocks
 
             if (isLock)
             {               
-                blockEventChannel.RaiseEvent(BlockEvent.BlockPushEvent.Initialize(this));
+                blockEventChannel.RaiseEvent(BlockEvents.BlockPushEvent.Initialize(this));
                 blockEventChannel.RemoveListener<BlockMoveEvent>(HandleTouchingBlockMove);
             }
             else
@@ -323,7 +324,7 @@ namespace Code.Blocks
             
             _adjacencyBlocks.Clear();
             
-            blockEventChannel.RaiseEvent(BlockEvent.BlockPushEvent.Initialize(this));
+            blockEventChannel.RaiseEvent(BlockEvents.BlockPushEvent.Initialize(this));
             blockEventChannel.RemoveListener<BlockMoveEvent>(HandleTouchingBlockMove);
             
             OnDeathEvent?.Invoke();

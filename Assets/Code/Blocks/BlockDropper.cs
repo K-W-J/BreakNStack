@@ -1,4 +1,5 @@
 ﻿using Code.Core;
+using Code.Etc;
 using Code.Events;
 using Settings.InputSystem;
 using UnityEngine;
@@ -21,7 +22,7 @@ namespace Code.Blocks
             playerInput.OnDropPressed += HandleDropBlock;
             blockEventChannel.AddListener<BlockSpawnEvent>(HandleCurrentBlock);
         }
-        
+
         private void OnDestroy()
         {
             playerInput.OnDropPressed -= HandleDropBlock;
@@ -30,7 +31,7 @@ namespace Code.Blocks
 
         private void Update()
         {
-            if(_currentBlock == null) return;
+            if(GameManager.Instance.IsStartGame == false || _currentBlock == null) return;
             
             float bottom = _camera.transform.position.y - _camera.orthographicSize;
             
@@ -51,6 +52,8 @@ namespace Code.Blocks
 
         private void HandleDropBlock(bool isClicking)
         {
+            if(GameManager.Instance.IsStartGame == false) return;
+            
             _isClicking = isClicking;
             
             if(_currentBlock == null || isClicking) return;
@@ -58,7 +61,7 @@ namespace Code.Blocks
             _currentBlock.DropBlock();
             _currentBlock = null;
             
-            blockEventChannel.RaiseEvent(BlockEvent.BlockDropEvent.Initialize());
+            blockEventChannel.RaiseEvent(BlockEvents.BlockDropEvent.Initialize());
         }
         
         private void HandleCurrentBlock(BlockSpawnEvent evt)
