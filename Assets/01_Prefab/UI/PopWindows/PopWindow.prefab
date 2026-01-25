@@ -133,12 +133,12 @@ GameObject:
   - component: {fileID: 6053985282408272437}
   - component: {fileID: 7754778162405582350}
   m_Layer: 5
-  m_Name: Window
+  m_Name: PopWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7002121735365945789
 RectTransform:
   m_ObjectHideFlags: 0
@@ -209,4 +209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e06e9c5ebe974fb2841b37a3944d624d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.UI.PopWindow
+  uiEventChannel: {fileID: 11400000, guid: 5d2fc0597fa8c2b4d8266aaa7dfc2961, type: 2}
+  <WindowType>k__BackingField: 3
   offWindowButton: {fileID: 9126874534787012520}

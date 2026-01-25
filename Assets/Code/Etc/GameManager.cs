@@ -4,12 +4,23 @@ using UnityEngine;
 
 namespace Code.Etc
 {
+    enum GameState
+    {
+        Playing,
+        Pause,
+        End
+    }
+    
     [DefaultExecutionOrder(-100)]
     public class GameManager : MonoBehaviour
     {
         [SerializeField] private GameEventChannelSO uiEventChannel;
         
-        public bool IsStartGame { get; private set; }
+        private GameState _gameState;
+
+        public bool IsPlayingGame => _gameState == GameState.Playing;
+        public bool IsStopGame => _gameState == GameState.Pause;
+        public bool IsEndGame => _gameState == GameState.End;
         
         private static GameManager _instance;
         public static GameManager Instance
@@ -34,8 +45,9 @@ namespace Code.Etc
         
         private void Awake()
         {
-            uiEventChannel.AddListener<PlayGameEvent>(HandleStartGame);
+            uiEventChannel.AddListener<PlayGameEvent>(HandlePlayGame);
             uiEventChannel.AddListener<QuitGameEvent>(HandleQuitGame);
+            uiEventChannel.AddListener<PauseGameEvent>(HandlePauseGame);
             
             if (_instance == null)
             {
@@ -50,18 +62,26 @@ namespace Code.Etc
 
         private void OnDestroy()
         {
-            uiEventChannel.RemoveListener<PlayGameEvent>(HandleStartGame);
+            uiEventChannel.RemoveListener<PlayGameEvent>(HandlePlayGame);
             uiEventChannel.RemoveListener<QuitGameEvent>(HandleQuitGame);
+            uiEventChannel.RemoveListener<PauseGameEvent>(HandlePauseGame);
         }
 
-        private void HandleStartGame(PlayGameEvent evt)
+        private void HandlePauseGame(PauseGameEvent evt)
         {
-            IsStartGame = true;
+            _gameState = GameState.Pause;
+            Time.timeScale = 0f;
+        }
+
+        private void HandlePlayGame(PlayGameEvent evt)
+        {
+            _gameState = GameState.Playing;
+            Time.timeScale = 1f;
         }
         
         private void HandleQuitGame(QuitGameEvent evt)
         {
-            IsStartGame = false;
+            _gameState = GameState.End;
         }
     }
 }

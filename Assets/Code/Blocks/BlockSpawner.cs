@@ -44,7 +44,7 @@ namespace Code.Blocks
         
         private void Update()
         {
-            if (GameManager.Instance.IsStartGame == false) return;
+            if (GameManager.Instance.IsPlayingGame == false || _currentBlock == null) return;
             
             if (_currentSpawnDelay > spawnDelay && (_currentBlock.IsLand || _currentBlock.IsDead))
             {

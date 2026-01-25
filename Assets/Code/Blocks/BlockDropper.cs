@@ -31,7 +31,7 @@ namespace Code.Blocks
 
         private void Update()
         {
-            if(GameManager.Instance.IsStartGame == false || _currentBlock == null) return;
+            if(GameManager.Instance.IsPlayingGame == false || _currentBlock == null) return;
             
             float bottom = _camera.transform.position.y - _camera.orthographicSize;
             
@@ -52,7 +52,7 @@ namespace Code.Blocks
 
         private void HandleDropBlock(bool isClicking)
         {
-            if(GameManager.Instance.IsStartGame == false) return;
+            if(GameManager.Instance.IsPlayingGame == false) return;
             
             _isClicking = isClicking;
             

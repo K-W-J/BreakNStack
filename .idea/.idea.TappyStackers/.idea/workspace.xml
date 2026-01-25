@@ -5,17 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce64176-11a5-46cf-a21b-76e18e2f9eec" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/QuitButton.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/QuitButton.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Define.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Define/Enums.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Define/Enums.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/ButtonBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/ButtonBase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/IPopWindowButton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/IPopWindowButton.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/PauseButton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/PauseButton.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindows.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/PauseWindow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/PauseWindow.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/WindowManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/WindowManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/UI/Window.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/UI/Window.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockDropper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockDropper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Etc/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Etc/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Events/UIEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Events/UIEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/CountText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/CountText.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainCanvas.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/PlayButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/PlayButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/PlayButton.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/PlayButton.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/PopWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/PopWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/PopWindow.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/PopWindow.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/QuitButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/QuitButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/QuitButton.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/QuitButton.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +49,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/149e17736657436184c79013edbc09368b000/63/5cd31735/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d303c2bf72cd4cec95665b89c457d265d2b8ef3ed6da17cd4f85587c2f9de7/System.Linq.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Checkers/CastChecker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/Modules/IModule.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -128,12 +148,14 @@
       <workItem from="1768543075282" duration="7763000" />
       <workItem from="1768663253780" duration="469000" />
       <workItem from="1768967743730" duration="15526000" />
+      <workItem from="1769209979302" duration="13674000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />
