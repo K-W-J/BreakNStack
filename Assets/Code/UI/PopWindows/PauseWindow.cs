@@ -10,4 +10,4 @@ namespace Code.UI.PopWindows
             uiEventChannel.RaiseEvent(UIEvents.PlayGameEvent);
         }
     }
-}
+}   

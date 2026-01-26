@@ -1,5 +1,3 @@
-using System;
-using System.Linq;
 using Code.Core;
 using Code.Etc;
 using Code.Events;
@@ -26,6 +24,8 @@ namespace Code.Blocks
         private Block _currentBlock;
         
         private float _currentSpawnDelay;
+        
+        private bool CanSpawn => _currentBlock == null || _currentBlock.IsLand || _currentBlock.IsDead;
 
         private void Awake()
         {
@@ -39,14 +39,15 @@ namespace Code.Blocks
         
         private void HandlePlayGame(PlayGameEvent evt)
         {
+            if(CanSpawn == false) return;
             SpawnBlock();
         }
         
         private void Update()
         {
-            if (GameManager.Instance.IsPlayingGame == false || _currentBlock == null) return;
+            if (GameManager.Instance.IsPlayingGame == false) return;
             
-            if (_currentSpawnDelay > spawnDelay && (_currentBlock.IsLand || _currentBlock.IsDead))
+            if (_currentSpawnDelay > spawnDelay && CanSpawn)
             {
                 SpawnBlock();
                 _currentSpawnDelay = 0;

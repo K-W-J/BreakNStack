@@ -3223,6 +3223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cad2de3a2a2d409787b3d45ec581f533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Screens.BackgroundMovement
+  uiEventChannel: {fileID: 11400000, guid: 5d2fc0597fa8c2b4d8266aaa7dfc2961, type: 2}
   movementScale: 0.5
 --- !u!4 &1360471536
 Transform:
@@ -4954,6 +4955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.MoveToUp
   blockEventChannel: {fileID: 11400000, guid: 9629503fecbbd3042b168eb171ef2ea4, type: 2}
+  uiEventChannel: {fileID: 11400000, guid: 5d2fc0597fa8c2b4d8266aaa7dfc2961, type: 2}
   heightMark: {fileID: 53523922}
   screenLineHeight: -1
   speed: 4
@@ -5075,7 +5077,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 895855118667205294, guid: dea65d51bfc40f44fb7ea36c55bb1c97, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

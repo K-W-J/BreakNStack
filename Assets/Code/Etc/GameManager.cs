@@ -16,7 +16,7 @@ namespace Code.Etc
     {
         [SerializeField] private GameEventChannelSO uiEventChannel;
         
-        private GameState _gameState;
+        private GameState _gameState = GameState.End;
 
         public bool IsPlayingGame => _gameState == GameState.Playing;
         public bool IsStopGame => _gameState == GameState.Pause;
@@ -82,6 +82,7 @@ namespace Code.Etc
         private void HandleQuitGame(QuitGameEvent evt)
         {
             _gameState = GameState.End;
+            Time.timeScale = 1f;
         }
     }
 }

@@ -5,35 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce64176-11a5-46cf-a21b-76e18e2f9eec" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Define.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Define/Enums.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Define/Enums.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/ButtonBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/ButtonBase.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/IPopWindowButton.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/IPopWindowButton.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/PauseButton.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/PauseButton.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindows.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/PauseWindow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/PauseWindow.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/WindowManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/WindowManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/BGM_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/BGM_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Home_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Home_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Pause_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Pause_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/SFX_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/SFX_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Start_Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Start_Button.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/UI/Window.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/UI/Window.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/UI/PopWindows/PauseWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/UI/PopWindows/PauseWindow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/UI/PopWindows/PopWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/UI/PopWindows/PopWindow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/DungGeunMo.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/DungGeunMo.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri14.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri14.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri9.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri9.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockDropper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockDropper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Etc/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Etc/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Events/UIEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Events/UIEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/PlayButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/PlayButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/PlayButton.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/PlayButton.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/PopWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/PopWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/PopWindow.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/PopWindow.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/QuitButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/QuitButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/QuitButton.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/QuitButton.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Screens/BackgroundMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Screens/BackgroundMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Screens/ScreenMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Screens/ScreenMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/PauseWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/PauseWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/InputSystem/PlayerInputSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/InputSystem/PlayerInputSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +50,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d303c2bf72cd4cec95665b89c457d265d2b8ef3ed6da17cd4f85587c2f9de7/System.Linq.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Checkers/CastChecker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Modules/IModule.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@02433b2481ab/InputSystem/Plugins/UI/InputSystemUIInputModule.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@4ee0fac0c6e4/Runtime/UGUI/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -149,6 +151,7 @@
       <workItem from="1768663253780" duration="469000" />
       <workItem from="1768967743730" duration="15526000" />
       <workItem from="1769209979302" duration="13674000" />
+      <workItem from="1769385248223" duration="15765000" />
     </task>
     <servers />
   </component>

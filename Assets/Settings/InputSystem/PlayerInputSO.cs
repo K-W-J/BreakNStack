@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace Settings.InputSystem
@@ -31,10 +32,13 @@ namespace Settings.InputSystem
 
         public void OnDrop(InputAction.CallbackContext context)
         {
+            if(IsPointerOverUI()) return;
+            
             if(context.started)
                 OnDropPressed?.Invoke(true);
             else if(context.canceled)
                 OnDropPressed?.Invoke(false);
+            
         }
 
         public void OnPointPosition(InputAction.CallbackContext context)
@@ -46,7 +50,17 @@ namespace Settings.InputSystem
         {
             Camera mainCamera = Camera.main;
             Debug.Assert(mainCamera != null, "No main camera in this scene.");
+
+            if (IsPointerOverUI())
+                return Vector2.zero;
+            
             return mainCamera.ScreenToWorldPoint(_pointPosition);
+        }
+        
+        private bool IsPointerOverUI()
+        {
+            Debug.Assert(EventSystem.current != null, "No EventSystem in this scene.");
+            return EventSystem.current.IsPointerOverGameObject();
         }
     }
 }
