@@ -5,28 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce64176-11a5-46cf-a21b-76e18e2f9eec" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/BGM_Button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/BGM_Button.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Home_Button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Home_Button.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Pause_Button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Pause_Button.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/SFX_Button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/SFX_Button.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Start_Button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/Buttons/Start_Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Effect/SmokePiece.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Effect/SmokePiece.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/CountBars/TimerBar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/CountBars/TimerBar.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/CountBars/TimerBarBackground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/CountBars/TimerBarBackground.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/ScoreText.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/SwipeImage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/SwipeImage.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/5000_Effects/Brick_Particle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/5000_Effects/Brick_Particle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/5000_Effects/Smoke_Particle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/5000_Effects/Smoke_Particle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/5000_Effects/Wood_Particle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/5000_Effects/Wood_Particle.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/UI/PopWindows/PauseWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/UI/PopWindows/PauseWindow.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/UI/PopWindows/PopWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/UI/PopWindows/PopWindow.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/DungGeunMo.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/DungGeunMo.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri14.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri14.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri9.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/Galmuri9.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/CountBars/Coin_CountBar.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/CountBars/CountBar.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/CountBars/Coin_CountBar.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/UI/CountBars/CountBar.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Etc/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Etc/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Screens/BackgroundMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Screens/BackgroundMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Screens/ScreenMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Screens/ScreenMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/PauseWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/PauseWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Define/Enums.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Define/Enums.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Events/UIEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Events/UIEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/CountText.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/CountText.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/ScoreText.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/MainCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/MainCanvas.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/WindowManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/WindowManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/InputSystem/Controls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/InputSystem/Controls.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/InputSystem/Controls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/InputSystem/Controls.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Settings/InputSystem/PlayerInputSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/InputSystem/PlayerInputSO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" afterDir="false" />
@@ -78,7 +82,7 @@
 }</component>
   <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1-x86_64\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\USER\Desktop\UnityProject\TappyStackers -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\USER\Desktop\UnityProject\TappyStackers" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -89,7 +93,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unity 시작" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1-x86_64\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\USER\Desktop\UnityProject\TappyStackers -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\USER\Desktop\UnityProject\TappyStackers" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -151,7 +155,8 @@
       <workItem from="1768663253780" duration="469000" />
       <workItem from="1768967743730" duration="15526000" />
       <workItem from="1769209979302" duration="13674000" />
-      <workItem from="1769385248223" duration="15765000" />
+      <workItem from="1769385248223" duration="17657000" />
+      <workItem from="1769470271056" duration="8498000" />
     </task>
     <servers />
   </component>

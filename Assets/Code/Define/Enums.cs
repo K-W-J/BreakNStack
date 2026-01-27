@@ -5,6 +5,7 @@ namespace Code.Define
     {
         Pause,
         Menu,
+        Announcement,
         Settings,
         Shop,
     }

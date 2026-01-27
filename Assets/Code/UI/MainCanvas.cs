@@ -15,6 +15,8 @@ namespace Code.UI
         {
             uiEventChannel.AddListener<PlayGameEvent>(HandlePlayGame);
             uiEventChannel.AddListener<QuitGameEvent>(HandleQuitGame);
+            
+            ChangeCanvas(false);
         }
 
         private void OnDestroy()

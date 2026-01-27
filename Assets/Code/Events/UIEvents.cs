@@ -5,7 +5,7 @@ namespace Code.Events
 {
     public class UIEvents
     {
-        public static CountTextEvent CountTextEvent = new CountTextEvent();
+        public static ScoreTextEvent ScoreTextEvent = new ScoreTextEvent();
         public static PlayGameEvent PlayGameEvent = new PlayGameEvent();
         public static QuitGameEvent QuitGameEvent = new QuitGameEvent();
         public static PauseGameEvent PauseGameEvent = new PauseGameEvent();
@@ -14,13 +14,13 @@ namespace Code.Events
         public static CloseWindowEvent CloseWindowEvent = new CloseWindowEvent();
     }
     
-    public class CountTextEvent : GameEvent
+    public class ScoreTextEvent : GameEvent
     {
-        public int count;
+        public int score;
 
-        public CountTextEvent Initialize(int count)
+        public ScoreTextEvent Initialize(int score)
         {
-            this.count = count;
+            this.score = score;
             return this;
         }
     }

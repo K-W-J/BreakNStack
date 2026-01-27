@@ -18,6 +18,9 @@ namespace Code.UI.PopWindows
             uiEventChannel.AddListener<CloseWindowEvent>(HandleCloseWindow);
 
             _popWindowDict = GetComponentsInChildren<PopWindow>(true).ToDictionary(window => window.WindowType);
+
+            foreach (var popWindow in _popWindowDict)
+                popWindow.Value.gameObject.SetActive(false);
         }
 
         private void OnDestroy()

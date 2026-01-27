@@ -163,7 +163,7 @@ namespace Code.Blocks
                 if (_isFirstLand == false)
                 {
                     blockEventChannel.RaiseEvent(BlockEvents.BlockLandEvent.Initialize(this));
-                    uiEventChannel.RaiseEvent(UIEvents.CountTextEvent.Initialize(BlockData.stackCount));
+                    uiEventChannel.RaiseEvent(UIEvents.ScoreTextEvent.Initialize(BlockData.stackCount));
                     _isFirstLand = true;
                 }
             }
@@ -230,7 +230,7 @@ namespace Code.Blocks
 
             if (CurrentHealth <= 0)
             {
-                uiEventChannel.RaiseEvent(UIEvents.CountTextEvent.Initialize(BlockData.destroyCount));
+                uiEventChannel.RaiseEvent(UIEvents.ScoreTextEvent.Initialize(BlockData.destroyCount));
                 PushBlock();
             }
         }
