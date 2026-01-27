@@ -20,13 +20,13 @@ namespace Code.Blocks
         {
             _camera = Camera.main;
             playerInput.OnDropPressed += HandleDropBlock;
-            blockEventChannel.AddListener<BlockSpawnEvent>(HandleCurrentBlock);
+            blockEventChannel.AddListener<BlockSpawnEvent>(HandleSpawnBlock);
         }
 
         private void OnDestroy()
         {
             playerInput.OnDropPressed -= HandleDropBlock;
-            blockEventChannel.RemoveListener<BlockSpawnEvent>(HandleCurrentBlock);
+            blockEventChannel.RemoveListener<BlockSpawnEvent>(HandleSpawnBlock);
         }
 
         private void Update()
@@ -52,11 +52,11 @@ namespace Code.Blocks
 
         private void HandleDropBlock(bool isClicking)
         {
-            if(GameManager.Instance.IsPlayingGame == false) return;
+            if(GameManager.Instance.IsPlayingGame == false || _currentBlock == null) return;
             
             _isClicking = isClicking;
             
-            if(_currentBlock == null || isClicking) return;
+            if(isClicking) return;
             
             _currentBlock.DropBlock();
             _currentBlock = null;
@@ -64,7 +64,7 @@ namespace Code.Blocks
             blockEventChannel.RaiseEvent(BlockEvents.BlockDropEvent.Initialize());
         }
         
-        private void HandleCurrentBlock(BlockSpawnEvent evt)
+        private void HandleSpawnBlock(BlockSpawnEvent evt)
         {
             _currentBlock = evt.block;
         }
