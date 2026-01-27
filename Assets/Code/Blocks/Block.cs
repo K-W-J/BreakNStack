@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Code.Agents;
+using Code.Checkers;
 using Code.Core;
 using Code.Etc;
 using Code.Events;
@@ -10,7 +11,6 @@ namespace Code.Blocks
     public enum BlockState
     {
         None,
-        Fire,
         Falling,
         Land,
         Lock,
@@ -25,12 +25,12 @@ namespace Code.Blocks
         [SerializeField] private GameEventChannelSO effectEventChannel;
         [SerializeField] private GameEventChannelSO uiEventChannel;
         [SerializeField] private PoolItemSO landEffectItem;
-        
+        [Space]
         [SerializeField] private float damageDelay;
         private float _currentDamageDelay;
-        
         [SerializeField] private float stopMoveDelay;
         private float _currentStopMoveDelay;
+        [SerializeField] private float minAdjacencyBlockMove;
         
         [field:Header("ResetBlock")]
         [field:SerializeField] public BlockSO BlockData { get; private set; }
@@ -43,6 +43,7 @@ namespace Code.Blocks
         
         private Rigidbody2D _rigidbody;
         
+        private BoxOverlapChecker _boxChecker;
         private BlockRenderer _blockRenderer;
         private BlockGuide _blockGuide;
         private PoolManager _pool;
@@ -55,11 +56,14 @@ namespace Code.Blocks
             {
                 if(stopMoveDelay > _currentStopMoveDelay) return true;
                 
-                bool isMove = _rigidbody.linearVelocity.sqrMagnitude > 0.000001f || 
+                bool isMove = _rigidbody.linearVelocity.sqrMagnitude > 0.0000001f || 
                               Mathf.Abs(_rigidbody.angularVelocity) > 10f;
+                
+                bool isAdjacencyBlockMove = _rigidbody.linearVelocity.sqrMagnitude > 0.001f || 
+                                            Mathf.Abs(_rigidbody.angularVelocity) > 10f;
                 //Approximately은 판정이 너무 타이트함
                 
-                if(isMove)
+                if(isAdjacencyBlockMove)
                     blockEventChannel.RaiseEvent(BlockEvents.BlockMoveEvent.Initialize(this));
                 
                 return isMove;
@@ -100,6 +104,7 @@ namespace Code.Blocks
             _rigidbody = GetComponentInChildren<Rigidbody2D>();
             _initSpawns = GetComponentsInChildren<IInitializeSpawn>();
             
+            _boxChecker = GetModule<BoxOverlapChecker>();
             _blockRenderer = GetModule<BlockRenderer>();
  
             _adjacencyBlocks = new List<Block>();
@@ -177,11 +182,6 @@ namespace Code.Blocks
             
             if (collision.gameObject.TryGetComponent<Block>(out var block))
             {
-                if (_adjacencyBlocks.Contains(block) == false)
-                {
-                    _adjacencyBlocks.Add(block);
-                }
-                
                 if (impulseDamage > BlockData.intensityDamage && damageDelay < _currentDamageDelay)
                 {
                     print(gameObject.name + " " + impulseDamage);
@@ -197,25 +197,15 @@ namespace Code.Blocks
                 }
                 
                 SetFreezeAll(false);
-
-                foreach (var adjacencyBlock in _adjacencyBlocks)
-                {
-                    adjacencyBlock.SetFreezeAll(false);
-                }
-                
+                OnFreezeAdjacencyBlocks();
             }
         }
 
         private void OnCollisionExit2D(Collision2D collision)
         {
             if(IsLock || IsDead) return;
-            
-            if (collision.gameObject.TryGetComponent<Block>(out var block))
-                if (_adjacencyBlocks.Contains(block))
-                {
-                    _adjacencyBlocks.Remove(block);
-                    SetFreezeAll(false);
-                }
+
+            OnFreezeAdjacencyBlocks();
         }
 
         public void TakeDamage(int damage)
@@ -257,6 +247,18 @@ namespace Code.Blocks
                 _currentStopMoveDelay = 0;
                 _rigidbody.constraints = RigidbodyConstraints2D.None;
             }
+        }
+        
+        private void OnFreezeAdjacencyBlocks()
+        {
+            _adjacencyBlocks.Clear();
+            
+            if (_boxChecker.TryGetOverlapData(_adjacencyBlocks, BlockData.size))
+            {
+                foreach (var adjacencyBlock in _adjacencyBlocks)
+                    adjacencyBlock.SetFreezeAll(false);
+            }
+            print(_adjacencyBlocks.Count);
         }
 
         private void SetLockBlock(bool isLock)
@@ -318,10 +320,7 @@ namespace Code.Blocks
             IsDead = true;
             gameObject.name = "Block[Pool]";
 
-            foreach (var adjacencyBlock in _adjacencyBlocks)
-                adjacencyBlock.SetFreezeAll(false);
-            
-            _adjacencyBlocks.Clear();
+            OnFreezeAdjacencyBlocks();
             
             blockEventChannel.RaiseEvent(BlockEvents.BlockPushEvent.Initialize(this));
             blockEventChannel.RemoveListener<BlockMoveEvent>(HandleTouchingBlockMove);
@@ -346,9 +345,8 @@ namespace Code.Blocks
         private void HandleTouchingBlockMove(BlockMoveEvent evt)
         {
             if(IsLock) return;
-            
-            if (_adjacencyBlocks.Contains(evt.block))
-                SetFreezeAll(false);
+
+            OnFreezeAdjacencyBlocks();
         }
     }
 }
