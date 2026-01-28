@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -15,8 +16,13 @@ namespace Settings.InputSystem
         
         private Controls _controls;
         
+        private PointerEventData _eventData;
+        private List<RaycastResult> _results;
+        
         private void OnEnable()
         {
+            _results = new List<RaycastResult>();
+                
             if (_controls == null)
             {
                 _controls = new Controls();
@@ -65,8 +71,17 @@ namespace Settings.InputSystem
         
         private bool IsPointerOverUI()
         {
-            Debug.Assert(EventSystem.current != null, "No EventSystem in this scene.");
-            return EventSystem.current.IsPointerOverGameObject();
+            Debug.Assert(EventSystem.current != null, "No EventSystem.current in this scene.");
+            
+            _eventData ??= new PointerEventData(EventSystem.current);
+            _results ??= new List<RaycastResult>();
+    
+            _eventData.position = _pointPosition; 
+
+            _results.Clear();
+            EventSystem.current.RaycastAll(_eventData, _results);
+
+            return _results.Count > 0;
         }
     }
 }

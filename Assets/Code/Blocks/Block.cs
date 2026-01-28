@@ -258,7 +258,6 @@ namespace Code.Blocks
                 foreach (var adjacencyBlock in _adjacencyBlocks)
                     adjacencyBlock.SetFreezeAll(false);
             }
-            print(_adjacencyBlocks.Count);
         }
 
         private void SetLockBlock(bool isLock)

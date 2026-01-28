@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce64176-11a5-46cf-a21b-76e18e2f9eec" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Checkers/BoxOverlapChecker.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Checkers/OverlapChecker.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Checkers/SphereOverlapChecker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/5000_Effects/Smoke_Particle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/5000_Effects/Smoke_Particle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/DungGeunMo.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/DungGeunMo.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/SwipeImage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/HorizontalScrollSnap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/SwipeImage.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/HorizontalScrollSnap.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/InputSystem/PlayerInputSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/InputSystem/PlayerInputSO.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +34,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Code/Modules/IModule.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@02433b2481ab/InputSystem/Plugins/UI/InputSystemUIInputModule.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@4ee0fac0c6e4/Runtime/UGUI/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@4ee0fac0c6e4/Runtime/UGUI/UI/Core/ScrollRect.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -132,7 +136,8 @@
       <workItem from="1769209979302" duration="13674000" />
       <workItem from="1769385248223" duration="17657000" />
       <workItem from="1769470271056" duration="14650000" />
-      <workItem from="1769508593740" duration="2272000" />
+      <workItem from="1769508593740" duration="7282000" />
+      <workItem from="1769558134965" duration="7761000" />
     </task>
     <servers />
   </component>
