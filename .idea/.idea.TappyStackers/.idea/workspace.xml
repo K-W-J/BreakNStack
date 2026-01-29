@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce64176-11a5-46cf-a21b-76e18e2f9eec" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps/HorizontalScrollSnap.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps/ScrollSnapMarker.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps/ScrollSnapMarker.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/UI/ScrollViewItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/UI/ScrollViewItem.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/HorizontalScrollSnap.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/HorizontalScrollSnap.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps/HorizontalScrollSnap.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/WindowManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/PopWindows/WindowManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/InputSystem/PlayerInputSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/InputSystem/PlayerInputSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps/HorizontalScrollSnap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps/HorizontalScrollSnap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps/ScrollSnapMarker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps/ScrollSnapMarker.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +133,7 @@
       <workItem from="1769470271056" duration="14650000" />
       <workItem from="1769508593740" duration="7282000" />
       <workItem from="1769558134965" duration="20991000" />
+      <workItem from="1769645962789" duration="3167000" />
     </task>
     <servers />
   </component>

@@ -1,7 +1,7 @@
+using System;
 using System.Collections.Generic;
 using Settings.InputSystem;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -10,7 +10,7 @@ namespace Code.UI.ScrollSnaps
     [RequireComponent(typeof(ScrollRect))]
     public class HorizontalScrollSnap : MonoBehaviour, IEndDragHandler, IBeginDragHandler
     {
-        public UnityEvent<int> OnChildIndexUpdateEvent;
+        public Action<int> OnChildIndexUpdateEvent;
         
         [SerializeField] private PlayerInputSO playerInput;
         private List<RectTransform> _childrenTrm;
@@ -54,6 +54,8 @@ namespace Code.UI.ScrollSnaps
                 targetPosX *= -1;
                 canUpdatePos = true;
             }
+            
+            OnChildIndexUpdateEvent?.Invoke(_currentIndex);
 
             _scrollRect.StopMovement();
             _scrollRect.content.offsetMax = Vector2.zero;
@@ -61,8 +63,6 @@ namespace Code.UI.ScrollSnaps
             
             if (canUpdatePos)
             {
-                print(targetPosX);
-                print(_scrollRect.content.offsetMin.x);
                 _scrollRect.content.offsetMin += new Vector2(targetPosX, 0);
             }
         }
