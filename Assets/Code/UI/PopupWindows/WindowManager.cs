@@ -5,22 +5,27 @@ using Code.Define;
 using Code.Events;
 using UnityEngine;
 
-namespace Code.UI.PopWindows
+namespace Code.UI.PopupWindows
 {
     public class WindowManager : MonoBehaviour
     {
         [SerializeField] private GameEventChannelSO uiEventChannel;
-        private Dictionary<WindowType, PopWindow> _popWindowDict;
+        [SerializeField] private bool isActiveWindow;
+        
+        private Dictionary<WindowType, PopupWindow> _popWindowDict;
 
         private void Awake()
         {
             uiEventChannel.AddListener<OpenWindowEvent>(HandleOpenWindow);
             uiEventChannel.AddListener<CloseWindowEvent>(HandleCloseWindow);
 
-            _popWindowDict = GetComponentsInChildren<PopWindow>(true).ToDictionary(window => window.WindowType);
+            _popWindowDict = GetComponentsInChildren<PopupWindow>(true).ToDictionary(window => window.WindowType);
 
-            foreach (var popWindow in _popWindowDict)
-                popWindow.Value.gameObject.SetActive(false);
+            if (isActiveWindow)
+            {
+                foreach (var popWindow in _popWindowDict)
+                    popWindow.Value.gameObject.SetActive(false);
+            }
         }
 
         private void OnDestroy()

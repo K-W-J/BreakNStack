@@ -1,8 +1,8 @@
 using Code.Events;
 
-namespace Code.UI.PopWindows
+namespace Code.UI.PopupWindows
 {
-    public class PauseWindow : PopWindow
+    public class PauseWindow : PopupWindow
     {
         protected override void HandleOffWindow()
         {

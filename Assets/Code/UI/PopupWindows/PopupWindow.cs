@@ -3,9 +3,9 @@ using Code.Define;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.UI.PopWindows
+namespace Code.UI.PopupWindows
 {
-    public class PopWindow : MonoBehaviour
+    public class PopupWindow : MonoBehaviour
     {
         [SerializeField] protected GameEventChannelSO uiEventChannel;
         

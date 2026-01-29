@@ -11,8 +11,8 @@ namespace Settings.InputSystem
     {
         public event Action<bool> OnDropPressed;
         
+        public Vector2 PointDelta { get; private set; }
         private Vector2 _pointPosition;
-        private Vector2 _pointDelta;
         
         private Controls _controls;
         
@@ -55,7 +55,7 @@ namespace Settings.InputSystem
 
         public void OnSwipe(InputAction.CallbackContext context)
         {
-            _pointDelta = context.ReadValue<Vector2>();
+            PointDelta = context.ReadValue<Vector2>();
         }
 
         public Vector2 GetWorldPointPosition()
