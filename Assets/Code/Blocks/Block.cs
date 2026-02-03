@@ -43,7 +43,7 @@ namespace Code.Blocks
         
         private Rigidbody2D _rigidbody;
         
-        private BoxOverlapChecker _boxChecker;
+        private BoxOverlapChecker2D _boxChecker2D;
         private BlockRenderer _blockRenderer;
         private BlockGuide _blockGuide;
         private PoolManager _pool;
@@ -104,11 +104,11 @@ namespace Code.Blocks
             _rigidbody = GetComponentInChildren<Rigidbody2D>();
             _initSpawns = GetComponentsInChildren<IInitializeSpawn>();
             
-            _boxChecker = GetModule<BoxOverlapChecker>();
+            _boxChecker2D = GetModule<BoxOverlapChecker2D>();
             _blockRenderer = GetModule<BlockRenderer>();
  
             _adjacencyBlocks = new List<Block>();
-            
+
             if(BlockData != null)
                 InitializeSpawn(BlockData);
         }
@@ -118,6 +118,8 @@ namespace Code.Blocks
             Debug.Assert(blockSo != null, "not found BlockData.");
             
             BlockData = blockSo;
+            
+            _boxChecker2D.SetBoxSize(BlockData.size);
 
             foreach (var initSpawn in _initSpawns)
                 initSpawn.InitializeSpawn();
@@ -253,7 +255,7 @@ namespace Code.Blocks
         {
             _adjacencyBlocks.Clear();
             
-            if (_boxChecker.TryGetOverlapData(_adjacencyBlocks, BlockData.size))
+            if (_boxChecker2D.TryGetOverlapData(_adjacencyBlocks))
             {
                 foreach (var adjacencyBlock in _adjacencyBlocks)
                     adjacencyBlock.SetFreezeAll(false);
@@ -281,6 +283,8 @@ namespace Code.Blocks
         [ContextMenu("DropBlock")]
         public void DropBlock()
         {
+            _rigidbody.linearVelocity = Vector2.zero;
+            
             SetFreezeAll(false);
             
             _rigidbody.gravityScale = 3f;

@@ -9,8 +9,11 @@ namespace Settings.InputSystem
     [CreateAssetMenu(fileName = "PlayerInputSO", menuName = "SO/PlayerInput", order = 0)]
     public class PlayerInputSO : ScriptableObject, Controls.IPlayerActions
     {
-        public event Action<bool> OnDropPressed;
         
+        public event Action<bool> OnDropPressed;
+
+        [SerializeField] private LayerMask whatIsUI;
+            
         public Vector2 PointDelta { get; private set; }
         private Vector2 _pointPosition;
         
@@ -45,7 +48,6 @@ namespace Settings.InputSystem
                 OnDropPressed?.Invoke(true);
             else if(context.canceled)
                 OnDropPressed?.Invoke(false);
-            
         }
 
         public void OnPointPosition(InputAction.CallbackContext context)
@@ -69,7 +71,7 @@ namespace Settings.InputSystem
             return mainCamera.ScreenToWorldPoint(_pointPosition);
         }
         
-        private bool IsPointerOverUI()
+        public bool IsPointerOverUI()
         {
             Debug.Assert(EventSystem.current != null, "No EventSystem.current in this scene.");
             
@@ -81,7 +83,12 @@ namespace Settings.InputSystem
             _results.Clear();
             EventSystem.current.RaycastAll(_eventData, _results);
 
-            return _results.Count > 0;
+            if (_results.Count > 0 && (whatIsUI & _results[0].gameObject.layer) != 0)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

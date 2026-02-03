@@ -372,8 +372,16 @@ PrefabInstance:
       value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 5297636903535089813, guid: 15b586102daa4f846aefec26d956507f, type: 3}
+      propertyPath: boxSizeRatio
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5297636903535089813, guid: 15b586102daa4f846aefec26d956507f, type: 3}
       propertyPath: viewDrawGizmos
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5297636903535089813, guid: 15b586102daa4f846aefec26d956507f, type: 3}
+      propertyPath: targetMask.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

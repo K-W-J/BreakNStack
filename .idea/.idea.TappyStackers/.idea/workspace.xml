@@ -5,10 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce64176-11a5-46cf-a21b-76e18e2f9eec" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/01_Prefab/7000_UI/ScrollView.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/7000_UI/Scroll View.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/7000_UI/Scroll View.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/7000_UI/ScrollView.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/7000_UI/ScrollViewItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/7000_UI/BannerCount.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/7000_UI/ScrollViewItem.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/7000_UI/BannerCount.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Player/PlayerInputSO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Player/PlayerInputSO.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockDropper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockDropper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Checkers/BoxOverlapChecker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Checkers/BoxOverlapChecker2D.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Checkers/BoxOverlapChecker.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Checkers/BoxOverlapChecker2D.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Buttons/PauseButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/PopupWindowButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Buttons/PauseButton.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Buttons/PopupWindowButton.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps/HorizontalScrollSnap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps/HorizontalScrollSnap.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps/ScrollSnapMarker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps/ScrollSnapMarker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/InputSystem/PlayerInputSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/InputSystem/PlayerInputSO.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +70,7 @@
 }</component>
   <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1-x86_64\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\USER\Desktop\UnityProject\TappyStackers -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\USER\Desktop\UnityProject\TappyStackers" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -67,7 +81,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unity 시작" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1-x86_64\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\USER\Desktop\UnityProject\TappyStackers -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\USER\Desktop\UnityProject\TappyStackers" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -133,7 +147,11 @@
       <workItem from="1769470271056" duration="14650000" />
       <workItem from="1769508593740" duration="7282000" />
       <workItem from="1769558134965" duration="20991000" />
-      <workItem from="1769645962789" duration="3167000" />
+      <workItem from="1769645962789" duration="8699000" />
+      <workItem from="1769758713390" duration="1819000" />
+      <workItem from="1769835262388" duration="7152000" />
+      <workItem from="1770039578597" duration="1191000" />
+      <workItem from="1770084110049" duration="8763000" />
     </task>
     <servers />
   </component>

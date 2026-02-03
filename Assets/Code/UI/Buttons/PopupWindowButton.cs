@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Code.UI.Buttons
 {
-    public class PauseButton : ButtonBase, IPopWindowButton
+    public class PopupWindowButton : ButtonBase, IPopWindowButton
     {
         [field:SerializeField] public WindowType WindowType { get; private set; }
         

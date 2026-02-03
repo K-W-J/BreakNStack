@@ -52,16 +52,20 @@ namespace Code.Blocks
 
         private void HandleDropBlock(bool isClicking)
         {
-            if(GameManager.Instance.IsPlayingGame == false || _currentBlock == null) return;
+            if (GameManager.Instance.IsPlayingGame == false)
+            {
+                _isClicking = false;
+                return;
+            }
             
             _isClicking = isClicking;
-            
-            if(isClicking) return;
-            
-            _currentBlock.DropBlock();
-            _currentBlock = null;
-            
-            blockEventChannel.RaiseEvent(BlockEvents.BlockDropEvent.Initialize());
+
+            if (isClicking == false && _currentBlock != null)
+            {
+                _currentBlock.DropBlock();
+                _currentBlock = null;
+                blockEventChannel.RaiseEvent(BlockEvents.BlockDropEvent.Initialize());
+            }
         }
         
         private void HandleSpawnBlock(BlockSpawnEvent evt)

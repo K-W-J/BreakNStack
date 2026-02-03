@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56242563ec374f1a8c2c85a0ba955b33, type: 3}
   m_Name: PlayerInputSO
   m_EditorClassIdentifier: Assembly-CSharp::Settings.InputSystem.PlayerInputSO
+  whatIsUI:
+    serializedVersion: 2
+    m_Bits: 32

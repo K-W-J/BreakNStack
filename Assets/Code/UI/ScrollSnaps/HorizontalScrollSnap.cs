@@ -13,6 +13,9 @@ namespace Code.UI.ScrollSnaps
         public Action<int> OnChildIndexUpdateEvent;
         
         [SerializeField] private PlayerInputSO playerInput;
+        [SerializeField] private GameObject bannerPrefab;
+        [SerializeField] private int bannerCount;
+        
         private List<RectTransform> _childrenTrm;
         private ScrollRect _scrollRect;
         
@@ -26,12 +29,13 @@ namespace Code.UI.ScrollSnaps
             _scrollRect = GetComponent<ScrollRect>();
             _childrenTrm = new List<RectTransform>();
 
-            _spacing = _scrollRect.content.GetComponent<HorizontalLayoutGroup>().spacing;
-            
-            foreach (RectTransform child in _scrollRect.content)
+            for (int i = 0; i < bannerCount; i++)
             {
-                _childrenTrm.Add(child);
+                RectTransform childrenTrm = Instantiate(bannerPrefab, _scrollRect.content, false).GetComponent<RectTransform>();
+                _childrenTrm.Add(childrenTrm); 
             }
+            
+            _spacing = _scrollRect.content.GetComponent<HorizontalLayoutGroup>().spacing;
             
             Debug.Assert(_childrenTrm.Count > 0, "childrenTrm is empty");
         }

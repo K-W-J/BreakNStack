@@ -22,13 +22,13 @@ namespace Code.UI.ScrollSnaps
             for (int i = 0; i < content.childCount; i++)
                 Instantiate(markPrefab, transform, false);
             
-            _markers = GetComponentsInChildren<Image>()
+            _markers = GetComponentsInChildren<Image>(true)
                 .Where(e => e != GetComponent<Image>()).ToList();
             
             foreach (var marker in _markers)
                 marker.color = defaultColor;
             
-            _markers.First().color = selectColor;
+            _markers[0].color = selectColor;
             
             scrollSnap.OnChildIndexUpdateEvent += ChangeCurrentIndex;
         }

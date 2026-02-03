@@ -679,11 +679,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1651171632}
   - {fileID: 1761271065}
   - {fileID: 1936885817}
   - {fileID: 1500160467}
   - {fileID: 198588589}
+  - {fileID: 1651171632}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -883,6 +883,7 @@ GameObject:
   - component: {fileID: 361894844}
   - component: {fileID: 361894843}
   - component: {fileID: 361894842}
+  - component: {fileID: 361894845}
   m_Layer: 5
   m_Name: Announcement_Button
   m_TagString: Untagged
@@ -991,6 +992,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 361894840}
   m_CullTransparentMesh: 1
+--- !u!114 &361894845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361894840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ff686ffae54665ba1a5f36f92dbedc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Code.UI.Buttons.PopupWindowButton
+  uiEventChannel: {fileID: 11400000, guid: 5d2fc0597fa8c2b4d8266aaa7dfc2961, type: 2}
+  <WindowType>k__BackingField: 2
 --- !u!1 &429240208
 GameObject:
   m_ObjectHideFlags: 0
@@ -4370,7 +4385,7 @@ GameObject:
   - component: {fileID: 1761271065}
   - component: {fileID: 1761271067}
   - component: {fileID: 1761271066}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5709,21 +5724,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dea65d51bfc40f44fb7ea36c55bb1c97, type: 3}
---- !u!114 &885888885036995854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6274813053460212737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e4c80411c56414884ae740d02b52cd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Code.UI.PopWindows.PauseWindow
-  uiEventChannel: {fileID: 11400000, guid: 5d2fc0597fa8c2b4d8266aaa7dfc2961, type: 2}
-  <WindowType>k__BackingField: 2
-  offWindowButton: {fileID: 1416021636}
 --- !u!222 &1500984555831676472
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5763,54 +5763,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7340369540995602210}
     m_Modifications:
-    - target: {fileID: 1891019330932095833, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1891019330932095833, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1891019330932095833, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1891019330932095833, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2608774239746765749, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2608774239746765749, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2608774239746765749, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2608774239746765749, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810287328317142389, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810287328317142389, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810287328317142389, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2810287328317142389, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2835669654543325275, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5837,11 +5789,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2835669654543325275, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 620
       objectReference: {fileID: 0}
     - target: {fileID: 2835669654543325275, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 500
+      value: 740
       objectReference: {fileID: 0}
     - target: {fileID: 2835669654543325275, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5877,7 +5829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2835669654543325275, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 2835669654543325275, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5895,21 +5847,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scroll View
       objectReference: {fileID: 0}
-    - target: {fileID: 3802364455805596545, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
+    - target: {fileID: 8895401941806929292, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895401941806929292, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3802364455805596545, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3802364455805596545, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3802364455805596545, guid: 1988bb66d3fdd224696694b7957f8e44, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6155,14 +6099,14 @@ GameObject:
   - component: {fileID: 7340369540995602210}
   - component: {fileID: 7194258996498243417}
   - component: {fileID: 2523779659856827401}
-  - component: {fileID: 885888885036995854}
+  - component: {fileID: 7340369540995602211}
   m_Layer: 5
   m_Name: AnnouncementWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &7194258996498243417
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6212,6 +6156,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 700, y: 1100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7340369540995602211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6274813053460212737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e06e9c5ebe974fb2841b37a3944d624d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Code.UI.PopupWindows.PopupWindow
+  uiEventChannel: {fileID: 11400000, guid: 5d2fc0597fa8c2b4d8266aaa7dfc2961, type: 2}
+  <WindowType>k__BackingField: 2
+  offWindowButton: {fileID: 1416021636}
 --- !u!114 &7947552737455130080
 MonoBehaviour:
   m_ObjectHideFlags: 0
