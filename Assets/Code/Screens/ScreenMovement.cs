@@ -18,7 +18,10 @@ namespace Code.Screens
         [SerializeField] private float speed;
         [SerializeField] private bool isAutoMove;
         
+        public bool IsMoveScreen => Mathf.Approximately(transform.position.y, _posY);
+        
         private List<Block> _blockList;
+        private List<Block> _movingBlocks;
         private Camera _camera;
         
         private Vector2 _startPos;
@@ -27,6 +30,7 @@ namespace Code.Screens
         private void Awake()
         {
             _blockList = new List<Block>();
+            _movingBlocks = new List<Block>();
             _camera = Camera.main;
             
             _startPos = transform.position;
@@ -34,6 +38,8 @@ namespace Code.Screens
             
             blockEventChannel.AddListener<BlockPushEvent>(HandleRemoveBlockList);
             blockEventChannel.AddListener<BlockLandEvent>(HandleLandBlock);
+            blockEventChannel.AddListener<BlockMoveEvent>(HandleBlockMove);
+            blockEventChannel.AddListener<BlockStopEvent>(HandleBlockStop);
             uiEventChannel.AddListener<QuitGameEvent>(HandleQuitGame);
         }
 
@@ -41,18 +47,49 @@ namespace Code.Screens
         {
             blockEventChannel.RemoveListener<BlockPushEvent>(HandleRemoveBlockList);
             blockEventChannel.RemoveListener<BlockLandEvent>(HandleLandBlock);
+            blockEventChannel.RemoveListener<BlockMoveEvent>(HandleBlockMove);
+            blockEventChannel.RemoveListener<BlockStopEvent>(HandleBlockStop);
             uiEventChannel.RemoveListener<QuitGameEvent>(HandleQuitGame);
         }
-        
+
         private void Update()
         {
             transform.position = Vector3.Lerp(transform.position, new Vector3(0, _posY, -10), Time.deltaTime * speed);
             heightMark.position = new Vector3(0, _posY, -10);
         }
 
-        private void MoveScreen()
+        private void MoveScreen(Vector2 targetPos)
         {
-            if (_blockList.Count < 1) return;
+            _posY = targetPos.y + screenLineHeight;
+        }
+        
+        private void HandleBlockMove(BlockMoveEvent evt)
+        {
+            if (_movingBlocks.Contains(evt.block) == false)
+                _movingBlocks.Add(evt.block);
+            
+            float topScreen = _camera.transform.position.y + _camera.orthographicSize;
+            
+            _movingBlocks.Sort((a, b) =>
+                (b.transform.position.y - topScreen)
+                .CompareTo(a.transform.position.y - topScreen));
+            
+            if (_movingBlocks.Count < 5) return;
+            
+            MoveScreen(_movingBlocks[^1].transform.position);
+        }
+        
+        
+        private void HandleBlockStop(BlockStopEvent evt)
+        {
+            if (_movingBlocks.Contains(evt.block))
+                _movingBlocks.Remove(evt.block);
+        }
+
+        private void HandleLandBlock(BlockLandEvent evt)
+        {
+            if (_blockList.Contains(evt.block) == false)
+                _blockList.Add(evt.block);
             
             float topScreen = _camera.transform.position.y + _camera.orthographicSize;
             
@@ -60,25 +97,28 @@ namespace Code.Screens
                 (b.transform.position.y - topScreen)
                 .CompareTo(a.transform.position.y - topScreen));
             
-            float firstBlockPosY = _blockList.First().transform.position.y;
-            
-            _posY = firstBlockPosY + screenLineHeight;
-        }
+            if (_blockList.Count < 1) return;
 
-        private void HandleLandBlock(BlockLandEvent evt)
-        {
-            if (_blockList.Contains(evt.block) == false)
-                _blockList.Add(evt.block);
-
-            MoveScreen();
+            MoveScreen(_blockList.First().transform.position);
         }
 
         private void HandleRemoveBlockList(BlockPushEvent evt)
         {
             if (_blockList.Contains(evt.block))
                 _blockList.Remove(evt.block);
+            
+            if (_movingBlocks.Contains(evt.block))
+                _movingBlocks.Remove(evt.block);
 
-            MoveScreen();
+            float topScreen = _camera.transform.position.y + _camera.orthographicSize;
+            
+            _blockList.Sort((a, b) =>
+                (b.transform.position.y - topScreen)
+                .CompareTo(a.transform.position.y - topScreen));
+            
+            if (_blockList.Count < 1) return;
+
+            MoveScreen(_blockList.First().transform.position);
         }
         
         private void HandleQuitGame(QuitGameEvent evt)

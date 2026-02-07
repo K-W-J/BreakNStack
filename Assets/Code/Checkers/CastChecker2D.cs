@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Code.Modules;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,7 +13,7 @@ namespace Code.Checkers
         Sphere,
     }
     
-    public class CastChecker2D : MonoBehaviour
+    public class CastChecker2D : MonoBehaviour, IModule
     {
         public UnityEvent OnTargetEnterEvent;
         
@@ -73,7 +74,7 @@ namespace Code.Checkers
             {
                 case CastType.Box:
                     _results = Physics2D.BoxCastAll(checkPoint.position, boxSize * 0.5f,
-                        0f,transform.up,  castLength, targetMask);
+                        0f, transform.up, castLength, targetMask);
                     break;
                 case CastType.Sphere:
                     _results = Physics2D.CircleCastAll(checkPoint.position, radius,
@@ -127,5 +128,9 @@ namespace Code.Checkers
             }
         }
 #endif
+        public void InitializeComponent(ModuleOwner owner)
+        {
+            
+        }
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Code.Checkers
 {
-    public class SphereOverlapChecker : OverlapChecker
+    public class SphereOverlapChecker2D : OverlapChecker2D
     {
         [SerializeField] private float radius;
 

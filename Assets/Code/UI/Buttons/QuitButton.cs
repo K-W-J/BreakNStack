@@ -8,17 +8,17 @@ namespace Code.UI.Buttons
         {
             base.Awake();
             
-            Button.onClick.AddListener(HandleClickqQuitBtn);
+            Button.onClick.AddListener(HandleClickQuitBtn);
         }
         
         protected override void OnDestroy()
         {
             base.OnDestroy();
             
-            Button.onClick.RemoveListener(HandleClickqQuitBtn);
+            Button.onClick.RemoveListener(HandleClickQuitBtn);
         }
 
-        private void HandleClickqQuitBtn()
+        private void HandleClickQuitBtn()
         {
             uiEventChannel.RaiseEvent(UIEvents.QuitGameEvent);
         }

@@ -214,7 +214,8 @@ MonoBehaviour:
   blockEventChannel: {fileID: 11400000, guid: 9629503fecbbd3042b168eb171ef2ea4, type: 2}
   effectEventChannel: {fileID: 11400000, guid: 25272de0628fad24ea520b901da83a08, type: 2}
   uiEventChannel: {fileID: 11400000, guid: 5d2fc0597fa8c2b4d8266aaa7dfc2961, type: 2}
-  landEffectItem: {fileID: 11400000, guid: ae0e191782250f6428734c12b39fabaf, type: 2}
+  bumpEffectItem: {fileID: 11400000, guid: ae0e191782250f6428734c12b39fabaf, type: 2}
+  landEffectItem: {fileID: 11400000, guid: 3514ddfd442509b4f85f2e8cf6f3320e, type: 2}
   damageDelay: 0.05
   stopMoveDelay: 0.2
   minAdjacencyBlockMove: 0

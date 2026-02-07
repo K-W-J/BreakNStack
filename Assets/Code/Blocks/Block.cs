@@ -24,6 +24,7 @@ namespace Code.Blocks
         [SerializeField] private GameEventChannelSO blockEventChannel;
         [SerializeField] private GameEventChannelSO effectEventChannel;
         [SerializeField] private GameEventChannelSO uiEventChannel;
+        [SerializeField] private PoolItemSO bumpEffectItem;
         [SerializeField] private PoolItemSO landEffectItem;
         [Space]
         [SerializeField] private float damageDelay;
@@ -45,7 +46,6 @@ namespace Code.Blocks
         
         private BoxOverlapChecker2D _boxChecker2D;
         private BlockRenderer _blockRenderer;
-        private BlockGuide _blockGuide;
         private PoolManager _pool;
 
         private BlockState _blockState = BlockState.None;
@@ -65,6 +65,8 @@ namespace Code.Blocks
                 
                 if(isAdjacencyBlockMove)
                     blockEventChannel.RaiseEvent(BlockEvents.BlockMoveEvent.Initialize(this));
+                else
+                    blockEventChannel.RaiseEvent(BlockEvents.BlockStopEvent.Initialize(this));
                 
                 return isMove;
             }
@@ -74,7 +76,7 @@ namespace Code.Blocks
         public bool IsLand => _blockState == BlockState.Land;
 
         private bool _isFirstLand;
-        private bool _isFirstGround;
+        private bool _isFirstOnCollision;
 
         [ContextMenu("ResetBlock")]
         private void ResetBlock()
@@ -125,6 +127,7 @@ namespace Code.Blocks
                 initSpawn.InitializeSpawn();
 
             _rigidbody.mass = BlockData.weight;
+            _rigidbody.simulated = false;
             
             BlockCollider = Instantiate(BlockData.colliderPrefab, transform);
             BlockCollider.transform.localScale = transform.localScale;
@@ -171,6 +174,7 @@ namespace Code.Blocks
                 {
                     blockEventChannel.RaiseEvent(BlockEvents.BlockLandEvent.Initialize(this));
                     uiEventChannel.RaiseEvent(UIEvents.ScoreTextEvent.Initialize(BlockData.stackCount));
+                    effectEventChannel.RaiseEvent(EffectEvents.PlayEffectEvent.Initialize(landEffectItem, transform.position));
                     _isFirstLand = true;
                 }
             }
@@ -180,23 +184,35 @@ namespace Code.Blocks
         {
             if(IsLock || IsDead) return;
             
-            int impulseDamage = (int)collision.relativeVelocity.magnitude;
+            int impulseDamage = (int)collision.contacts[0].normalImpulse / 4;
             
             if (collision.gameObject.TryGetComponent<Block>(out var block))
             {
                 if (impulseDamage > BlockData.intensityDamage && damageDelay < _currentDamageDelay)
                 {
-                    print(gameObject.name + " " + impulseDamage);
+                    int totalDamage = 0;
                     
                     if(block.IsMove == false)
-                        block.TakeDamage(impulseDamage + BlockData.attack);
+                        totalDamage = impulseDamage + block.BlockData.attack;
                     else
-                        block.TakeDamage((impulseDamage + BlockData.attack) / 2);
+                        totalDamage = (impulseDamage + block.BlockData.attack) / 2;
                     
                     _currentDamageDelay = 0;
+                    effectEventChannel.RaiseEvent(EffectEvents.PlayEffectEvent.Initialize(bumpEffectItem, collision.contacts[0].point));
                     
-                    effectEventChannel.RaiseEvent(EffectEvents.PlayEffectEvent.Initialize(landEffectItem, collision.contacts[0].point));
+                    print(gameObject.name + " " + totalDamage);
+                    
+                    block.TakeDamage(totalDamage);
                 }
+                else
+                {
+                    if (_isFirstOnCollision == false)
+                    {
+                        block.TakeDamage(BlockData.attack * 2);
+                        _isFirstOnCollision = true;
+                    }
+                }
+
                 
                 SetFreezeAll(false);
                 OnFreezeAdjacencyBlocks();
@@ -283,43 +299,26 @@ namespace Code.Blocks
         [ContextMenu("DropBlock")]
         public void DropBlock()
         {
-            _rigidbody.linearVelocity = Vector2.zero;
-            
             SetFreezeAll(false);
             
+            _rigidbody.linearVelocity = Vector2.zero;
             _rigidbody.gravityScale = 3f;
-            
+            _rigidbody.simulated = true;
             _rigidbody.AddForce(Vector2.down * 1.5f, ForceMode2D.Force);
-            _blockState = BlockState.Falling;
+
+            _blockRenderer.SetAlpha(1);
             
-            _blockGuide.SetGuiding(false);
-            _blockGuide = null;
+            _blockState = BlockState.Falling;
         }
         
         private void SetBlockStateToLand()
         {
             _blockState = BlockState.Land;
         }
-
-        public void SetBlockGuide(BlockGuide blockGuide)
-        {
-            _blockGuide = blockGuide;
-                
-            _blockGuide.SetGuiding(true, transform);
-            
-            float scaleY = _blockGuide.transform.localScale.y / 2;
-            Vector3 blockGuidePos = transform.position + Vector3.down * scaleY;
-            _blockGuide.SetPosition(blockGuidePos);
-            
-            _blockGuide.SetScale(BlockData.size);
-        }
         
         [ContextMenu("PushBlocks")]
         public void PushBlock()
         {
-            if(_blockGuide != null)
-                _blockGuide.SetGuiding(false);
-            
             IsDead = true;
             gameObject.name = "Block[Pool]";
 
@@ -339,9 +338,11 @@ namespace Code.Blocks
             SetLockBlock(false);
             Destroy(BlockCollider);
             
+            _blockRenderer.SetAlpha(0.8f);
+            
             CurrentHealth = 0;
             IsDead = false;
-            _isFirstGround = false;
+            _isFirstOnCollision = false;
             _isFirstLand = false;
         }
 
@@ -349,7 +350,7 @@ namespace Code.Blocks
         {
             if(IsLock) return;
 
-            OnFreezeAdjacencyBlocks();
+            //OnFreezeAdjacencyBlocks();
         }
     }
 }

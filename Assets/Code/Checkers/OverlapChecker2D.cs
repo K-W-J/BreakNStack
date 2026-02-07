@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace Code.Checkers
 {
-    public class OverlapChecker : MonoBehaviour, IModule
+    public class OverlapChecker2D : MonoBehaviour, IModule
     {
         public UnityEvent OnTargetEnterEvent;
         

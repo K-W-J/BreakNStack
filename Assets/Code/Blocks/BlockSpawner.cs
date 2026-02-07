@@ -15,7 +15,7 @@ namespace Code.Blocks
         [SerializeField] private GameEventChannelSO uiEventChannel;
         [Space]
         [SerializeField] private BlockSO[] blockData;
-        [SerializeField] private BlockGuide blockGuide;
+        [SerializeField] private GhostBlock ghostBlock;
         [SerializeField] private ScreenMovement screenMovement;
         [SerializeField] private Transform blockSpawnPoint;
         [Space]
@@ -67,7 +67,6 @@ namespace Code.Blocks
             
             int rand = Random.Range(0, blockData.Length);
             _currentBlock.InitializeSpawn(blockData[rand]);
-            _currentBlock.SetBlockGuide(blockGuide);
         }
     }
 }

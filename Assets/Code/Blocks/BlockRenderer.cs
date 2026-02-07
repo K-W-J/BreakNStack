@@ -53,5 +53,10 @@ namespace Code.Blocks
         {
             _grayMat.SetFloat(Contrast, intensity);
         }
+        
+        public void SetAlpha(float alpha)
+        {
+            _spriteRenderer.color = new Color(_spriteRenderer.color.r,_spriteRenderer.color.g,_spriteRenderer.color.b,alpha);
+        }
     }
 }

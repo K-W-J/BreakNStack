@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Code.Checkers
 {
-    public class BoxOverlapChecker2D : OverlapChecker
+    public class BoxOverlapChecker2D : OverlapChecker2D
     {
         [SerializeField] private Vector3 boxSize;
         [SerializeField] private float boxSizeRatio;

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockSO
   maxHealth: 50
   weight: 20
-  attack: 20
-  intensityDamage: 4
+  attack: 10
+  intensityDamage: 8
   destroyCount: 1
   stackCount: 1
   blockName: BlockData_Birck

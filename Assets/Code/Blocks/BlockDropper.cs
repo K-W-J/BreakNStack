@@ -1,19 +1,22 @@
-﻿using Code.Core;
+﻿using System.ComponentModel;
+using Code.Core;
 using Code.Etc;
 using Code.Events;
+using GondrLib.Dependencies;
 using Settings.InputSystem;
 using UnityEngine;
 
 namespace Code.Blocks
 {
-    public class BlockDropper : MonoBehaviour
+    public class BlockDropper : MonoBehaviour, IDependencyProvider
     {
         [SerializeField] private GameEventChannelSO blockEventChannel;
         [SerializeField] private PlayerInputSO playerInput;
         [SerializeField] private float dropBlockHeight;
+
+        public Block CurrentBlock { get; private set; }
         
         private Camera _camera;
-        private Block _currentBlock;
         private bool _isClicking;
         
         private void Awake()
@@ -31,7 +34,7 @@ namespace Code.Blocks
 
         private void Update()
         {
-            if(GameManager.Instance.IsPlayingGame == false || _currentBlock == null) return;
+            if(GameManager.Instance.IsPlayingGame == false || CurrentBlock == null) return;
             
             float bottom = _camera.transform.position.y - _camera.orthographicSize;
             
@@ -41,12 +44,12 @@ namespace Code.Blocks
                 
                 if (Mathf.Abs(playerInput.GetWorldPointPosition().x) < limitWidth)
                 {
-                    _currentBlock.transform.position = new Vector3(playerInput.GetWorldPointPosition().x, bottom + dropBlockHeight);
+                    CurrentBlock.transform.position = new Vector3(playerInput.GetWorldPointPosition().x, bottom + dropBlockHeight);
                 }
             }
             else
             {
-                _currentBlock.transform.position = new Vector3(0, bottom + dropBlockHeight);
+                CurrentBlock.transform.position = new Vector3(0, bottom + dropBlockHeight);
             }
         }
 
@@ -60,17 +63,17 @@ namespace Code.Blocks
             
             _isClicking = isClicking;
 
-            if (isClicking == false && _currentBlock != null)
+            if (isClicking == false && CurrentBlock != null)
             {
-                _currentBlock.DropBlock();
-                _currentBlock = null;
+                CurrentBlock.DropBlock();
+                CurrentBlock = null;
                 blockEventChannel.RaiseEvent(BlockEvents.BlockDropEvent.Initialize());
             }
         }
         
         private void HandleSpawnBlock(BlockSpawnEvent evt)
         {
-            _currentBlock = evt.block;
+            CurrentBlock = evt.block;
         }
     }
 }
