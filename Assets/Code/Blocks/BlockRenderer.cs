@@ -42,11 +42,6 @@ namespace Code.Blocks
         public void SetFlip(bool isFlip)
         {
             _spriteRenderer.flipX = isFlip;
-            _block.BlockCollider.transform.localScale = Vector3.one;
-            
-            float scaleX = _block.BlockCollider.transform.localScale.x * (_block.BlockData.isFlip ? -1: 1);
-            Vector2 flipScale = new Vector2(scaleX, _block.BlockCollider.transform.localScale.y);
-            _block.BlockCollider.transform.localScale = flipScale;
         }
 
         public void SetGrayScale(float intensity)

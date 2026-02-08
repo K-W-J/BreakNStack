@@ -61,12 +61,12 @@ namespace Code.Blocks
         private void SpawnBlock()
         {
             _currentBlock = PoolManager.Instance.Pop<Block>(blockItem);
-            _currentBlock.transform.DOPunchScale(Vector3.one * 0.2f, 0.2f);
-            
-            blockEventChannel.RaiseEvent(BlockEvents.BlockSpawnEvent.Initialize(_currentBlock));
+            //_currentBlock.transform.DOPunchScale(Vector3.one * 0.2f, 0.2f);
             
             int rand = Random.Range(0, blockData.Length);
             _currentBlock.InitializeSpawn(blockData[rand]);
+            
+            blockEventChannel.RaiseEvent(BlockEvents.BlockSpawnEvent.Initialize(_currentBlock));
         }
     }
 }

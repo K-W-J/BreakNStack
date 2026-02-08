@@ -1,43 +1,85 @@
+using Code.Core;
+using Code.Events;
 using UnityEngine;
 
 namespace Code.Blocks
 {
     public class GhostBlock : MonoBehaviour
     {
+        [SerializeField] private GameEventChannelSO blockEventChannel;
+        [Space]
         [SerializeField] private LayerMask whatIsTarget;
         [SerializeField] private float distance;
         [Space]
-        [SerializeField] private SpriteRenderer spriteRenderer; 
-        [SerializeField] private Block block;
+        [SerializeField] private SpriteRenderer spriteRenderer;
         
-        public void SetActive(bool isGuiding) => gameObject.SetActive(isGuiding);
-
-        public void Initialize(Sprite sprite, Vector2 scale, Vector2 position)
+        private Block _dropBlock;
+        
+        private void Awake()
         {
-            spriteRenderer.sprite = sprite;
-            spriteRenderer.color = new Color(1, 1, 1, 0.5f);
+            blockEventChannel.AddListener<BlockSpawnEvent>(HandleBlockSpawn);
+            blockEventChannel.AddListener<BlockDropEvent>(HandleBlockDrop);
             
-            SetActive(true);
-            SetScaleAndPosition(scale, position);
+            gameObject.SetActive(false);
+        }
+
+        private void OnDestroy()
+        {
+            blockEventChannel.RemoveListener<BlockSpawnEvent>(HandleBlockSpawn);
+            blockEventChannel.RemoveListener<BlockDropEvent>(HandleBlockDrop);
+        }
+
+        private void HandleBlockDrop(BlockDropEvent evt)
+        {
+            gameObject.SetActive(false);
+        }
+
+        private void HandleBlockSpawn(BlockSpawnEvent evt)
+        {
+            _dropBlock = evt.block;
+            
+            gameObject.SetActive(true);
+            
+            spriteRenderer.sprite = _dropBlock.BlockData.default_Sprite;
+            spriteRenderer.flipX = _dropBlock.BlockData.isFlip;
         }
 
         private void Update()
         {
-            
+            if(_dropBlock == null) return;
+
+            if (TryGetHitPoint(out var hit, _dropBlock.transform.position, _dropBlock.BlockData.size))
+            {
+                float blockHalfHeight = hit.point.y + _dropBlock.BlockData.size.y * 0.4f;
+                transform.position = new Vector3(_dropBlock.transform.position.x, blockHalfHeight, -10);
+                
+                spriteRenderer.color = new Color(1, 1, 1, 0.5f);
+            }
+            else
+            {
+                spriteRenderer.color = new Color(1, 1, 1, 0);
+            }
         }
 
-        public Vector2 GetHitPoint(Vector2 position, Vector2 boxSize)
+        public bool TryGetHitPoint(out RaycastHit2D hit, Vector2 position, Vector2 boxSize)
         {
-            RaycastHit2D hit = Physics2D.BoxCast(position, boxSize * 0.5f,
+            hit = Physics2D.BoxCast(position, boxSize * 0.8f,
                 0f, transform.up, distance, whatIsTarget);
-            Debug.Assert(hit.collider != null, nameof(hit.collider) + " != null");
-            return hit.point;
+            return hit.collider != null;
         }
         
-        public void SetScaleAndPosition(Vector2 scale, Vector2 position)
+#if UNITY_EDITOR
+        private void OnDrawGizmos()
         {
-            transform.localScale = new Vector2(scale.x, scale.y);
-            transform.position = position;
+            if(_dropBlock == null) return;
+            
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(_dropBlock.transform.position, transform.up * distance);
+
+            Gizmos.color = Color.yellow;
+            Gizmos.matrix = _dropBlock.transform.localToWorldMatrix;
+            Gizmos.DrawWireCube(Vector3.up * distance, _dropBlock.BlockData.size);
         }
+#endif
     }
 }

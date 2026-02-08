@@ -39,12 +39,13 @@ namespace Code.Blocks
         private List<Block> _adjacencyBlocks;
         private IInitializeSpawn[] _initSpawns;
 
-        public GameObject BlockCollider { get; private set; }
         public int CurrentHealth { get; private set; }
         
         private Rigidbody2D _rigidbody;
         
-        private BoxOverlapChecker2D _boxChecker2D;
+        private BoxOverlapChecker2D _boxChecker;
+        
+        private BlockColliderFixer _blockColliderFixer;
         private BlockRenderer _blockRenderer;
         private PoolManager _pool;
 
@@ -87,16 +88,8 @@ namespace Code.Blocks
             
             BlockRenderer blockRenderer = GetComponentInChildren<BlockRenderer>();
             blockRenderer.InitializeSpawn();
-
-            if(BlockCollider != null)
-                DestroyImmediate(BlockCollider);
             
-            BlockCollider = Instantiate(BlockData.colliderPrefab, transform);
-            BlockCollider.transform.localScale = Vector3.one;
-            
-            float scaleX = BlockCollider.transform.localScale.x * (BlockData.isFlip ? -1: 1);
-            Vector2 flipScale = new Vector2(scaleX, BlockCollider.transform.localScale.y);
-            BlockCollider.transform.localScale = flipScale;
+            _blockColliderFixer.UpdateColliderShape();
         }
         
         public void SetUpPool(PoolManager pool)
@@ -106,8 +99,9 @@ namespace Code.Blocks
             _rigidbody = GetComponentInChildren<Rigidbody2D>();
             _initSpawns = GetComponentsInChildren<IInitializeSpawn>();
             
-            _boxChecker2D = GetModule<BoxOverlapChecker2D>();
+            _boxChecker = GetModule<BoxOverlapChecker2D>();
             _blockRenderer = GetModule<BlockRenderer>();
+            _blockColliderFixer = GetModule<BlockColliderFixer>();
  
             _adjacencyBlocks = new List<Block>();
 
@@ -121,7 +115,7 @@ namespace Code.Blocks
             
             BlockData = blockSo;
             
-            _boxChecker2D.SetBoxSize(BlockData.size);
+            _boxChecker.SetBoxSize(BlockData.size);
 
             foreach (var initSpawn in _initSpawns)
                 initSpawn.InitializeSpawn();
@@ -129,8 +123,7 @@ namespace Code.Blocks
             _rigidbody.mass = BlockData.weight;
             _rigidbody.simulated = false;
             
-            BlockCollider = Instantiate(BlockData.colliderPrefab, transform);
-            BlockCollider.transform.localScale = transform.localScale;
+            _blockColliderFixer.UpdateColliderShape();
             
             CurrentHealth = BlockData.maxHealth;
 
@@ -271,7 +264,7 @@ namespace Code.Blocks
         {
             _adjacencyBlocks.Clear();
             
-            if (_boxChecker2D.TryGetOverlapData(_adjacencyBlocks))
+            if (_boxChecker.TryGetOverlapData(_adjacencyBlocks))
             {
                 foreach (var adjacencyBlock in _adjacencyBlocks)
                     adjacencyBlock.SetFreezeAll(false);
@@ -336,7 +329,6 @@ namespace Code.Blocks
             transform.rotation = Quaternion.identity;
             
             SetLockBlock(false);
-            Destroy(BlockCollider);
             
             _blockRenderer.SetAlpha(0.8f);
             
@@ -349,7 +341,6 @@ namespace Code.Blocks
         private void HandleTouchingBlockMove(BlockMoveEvent evt)
         {
             if(IsLock) return;
-
             //OnFreezeAdjacencyBlocks();
         }
     }

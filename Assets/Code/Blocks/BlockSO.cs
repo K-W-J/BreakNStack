@@ -31,7 +31,5 @@ namespace Code.Blocks
         public bool isFlip;
         [Space]
         public PoolItemSO effectPoolItem;
-        [Space]
-        public GameObject colliderPrefab;
     }
 }
