@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Settings.InputSystem;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,8 +14,7 @@ namespace Code.UI.ScrollSnaps
         public Action<int> OnChildIndexUpdateEvent;
         
         [SerializeField] private PlayerInputSO playerInput;
-        [SerializeField] private GameObject bannerPrefab;
-        [SerializeField] private int bannerCount;
+        [SerializeField] private GameObject content;
         
         private List<RectTransform> _childrenTrm;
         private ScrollRect _scrollRect;
@@ -27,13 +27,9 @@ namespace Code.UI.ScrollSnaps
         private void Awake()
         {
             _scrollRect = GetComponent<ScrollRect>();
-            _childrenTrm = new List<RectTransform>();
-
-            for (int i = 0; i < bannerCount; i++)
-            {
-                RectTransform childrenTrm = Instantiate(bannerPrefab, _scrollRect.content, false).GetComponent<RectTransform>();
-                _childrenTrm.Add(childrenTrm); 
-            }
+            
+            _childrenTrm = content.GetComponentsInChildren<RectTransform>(false)
+                .Where(b => b != content.transform).ToList();
             
             _spacing = _scrollRect.content.GetComponent<HorizontalLayoutGroup>().spacing;
             

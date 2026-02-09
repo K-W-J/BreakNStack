@@ -5,42 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce64176-11a5-46cf-a21b-76e18e2f9eec" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/GhostBlock.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/GhostBlock.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockColliderFixer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockColliderFixer.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_3.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_3.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_4.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_4.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_5.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_5.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_6.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_6.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_7.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_7.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_Anvil.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_Anvil.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_Birck.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/3000_Colliders/Collider_Birck.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Block/Anvil.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Block/Anvil.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Block/WoodBlock_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Block/WoodBlock_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Block/WoodBlock_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Block/WoodBlock_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Block/WoodBlock_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Block/WoodBlock_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Block/WoodBlock_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/01_Sprites/Block/WoodBlock_4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockRenderer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/GhostBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/GhostBlock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/7000_UI/ScrollView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/7000_UI/ScrollView.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps/HorizontalScrollSnap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps/HorizontalScrollSnap.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +59,7 @@
 }</component>
   <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1-x86_64\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\USER\Desktop\UnityProject\TappyStackers -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\USER\Desktop\UnityProject\TappyStackers" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -103,7 +70,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unity 시작" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.0f1-x86_64\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\USER\Desktop\UnityProject\TappyStackers -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\USER\Desktop\UnityProject\TappyStackers" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -177,7 +144,8 @@
       <workItem from="1770178388209" duration="16993000" />
       <workItem from="1770360510353" duration="6718000" />
       <workItem from="1770429837906" duration="15501000" />
-      <workItem from="1770514299853" duration="14916000" />
+      <workItem from="1770514299853" duration="16197000" />
+      <workItem from="1770607038905" duration="5128000" />
     </task>
     <servers />
   </component>
