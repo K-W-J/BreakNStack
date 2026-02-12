@@ -5,31 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce64176-11a5-46cf-a21b-76e18e2f9eec" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Screens/ScreenInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Screens/ScreenInfo.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_3.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_3_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_3_1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_4.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_4_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_4_1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_5.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_5.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_6.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_6.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_7.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_Anvil.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_Anvil.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_Birck.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_Birck.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/04_Shaders/BlockGuideShader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/04_Shaders/BlockGuideShader.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockColliderFixer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockColliderFixer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockDropper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockDropper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/GhostBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/GhostBlock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Events/BlockEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Events/BlockEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Screens/ScreenMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Screens/ScreenMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/04_Shaders/BlockGuideShader.shadergraph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/04_Shaders/BlockGuideShader.shadergraph.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/04_Shaders/BlockGuideShaderMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/04_Shaders/BlockGuideShaderMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/DungGeunMo.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/05_Fonts/DungGeunMo.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +153,7 @@
       <workItem from="1770607038905" duration="7812000" />
       <workItem from="1770718669475" duration="3836000" />
       <workItem from="1770784180529" duration="15146000" />
-      <workItem from="1770898689605" duration="5262000" />
+      <workItem from="1770898689605" duration="7488000" />
     </task>
     <servers />
   </component>
