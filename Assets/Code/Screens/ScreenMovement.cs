@@ -22,7 +22,6 @@ namespace Code.Screens
         
         private List<Block> _blockList;
         private List<Block> _movingBlocks;
-        private Camera _camera;
         
         private Vector2 _startPos;
         private float _posY;
@@ -31,7 +30,6 @@ namespace Code.Screens
         {
             _blockList = new List<Block>();
             _movingBlocks = new List<Block>();
-            _camera = Camera.main;
             
             _startPos = transform.position;
             _posY = _startPos.y;
@@ -57,6 +55,17 @@ namespace Code.Screens
             transform.position = Vector3.Lerp(transform.position, new Vector3(0, _posY, -10), Time.deltaTime * speed);
             heightMark.position = new Vector3(0, _posY, -10);
         }
+        
+        private void FixedUpdate()
+        {
+            if (isAutoMove == false) return;
+            
+            if (_movingBlocks.Count > 0) return;
+            
+            if (_blockList.Count <= 0) return;
+            
+            MoveScreen(_blockList.First().transform.position);
+        }
 
         private void MoveScreen(Vector2 targetPos)
         {
@@ -67,18 +76,13 @@ namespace Code.Screens
         {
             if (_movingBlocks.Contains(evt.block) == false)
                 _movingBlocks.Add(evt.block);
+
+            DistanceSort(_movingBlocks);
             
-            float topScreen = _camera.transform.position.y + _camera.orthographicSize;
-            
-            _movingBlocks.Sort((a, b) =>
-                (b.transform.position.y - topScreen)
-                .CompareTo(a.transform.position.y - topScreen));
-            
-            if (_movingBlocks.Count < 5) return;
+            if (_movingBlocks.Count < 5 || _movingBlocks.First().MovingVelocity < 0.1f) return;
             
             MoveScreen(_movingBlocks[^1].transform.position);
         }
-        
         
         private void HandleBlockStop(BlockStopEvent evt)
         {
@@ -91,11 +95,7 @@ namespace Code.Screens
             if (_blockList.Contains(evt.block) == false)
                 _blockList.Add(evt.block);
             
-            float topScreen = _camera.transform.position.y + _camera.orthographicSize;
-            
-            _blockList.Sort((a, b) =>
-                (b.transform.position.y - topScreen)
-                .CompareTo(a.transform.position.y - topScreen));
+            DistanceSort(_blockList);
             
             if (_blockList.Count < 1) return;
 
@@ -110,11 +110,7 @@ namespace Code.Screens
             if (_movingBlocks.Contains(evt.block))
                 _movingBlocks.Remove(evt.block);
 
-            float topScreen = _camera.transform.position.y + _camera.orthographicSize;
-            
-            _blockList.Sort((a, b) =>
-                (b.transform.position.y - topScreen)
-                .CompareTo(a.transform.position.y - topScreen));
+            DistanceSort(_blockList);
             
             if (_blockList.Count < 1) return;
 
@@ -125,6 +121,13 @@ namespace Code.Screens
         {
             _posY = _startPos.y;
             transform.position = _startPos;
+        }
+
+        private void DistanceSort(List<Block> blocks)
+        {
+            blocks.Sort((a, b) =>
+                (b.transform.position.y - ScreenInfo.TopScreen)
+                .CompareTo(a.transform.position.y - ScreenInfo.TopScreen));
         }
     }
 }

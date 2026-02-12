@@ -63,7 +63,7 @@ namespace Code.Blocks
 
         public bool TryGetHitPoint(out RaycastHit2D hit, Vector2 position, Vector2 boxSize)
         {
-            hit = Physics2D.BoxCast(position, boxSize * 0.8f,
+            hit = Physics2D.BoxCast(position, boxSize * 0.82f,
                 0f, transform.up, distance, whatIsTarget);
             return hit.collider != null;
         }

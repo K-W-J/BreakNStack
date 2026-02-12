@@ -286,6 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3509970a331c4286979ecbdec2750d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockColliderFixer
+  sizeColliderRatio: 0.96
 --- !u!1001 &6251642093128807695
 PrefabInstance:
   m_ObjectHideFlags: 0

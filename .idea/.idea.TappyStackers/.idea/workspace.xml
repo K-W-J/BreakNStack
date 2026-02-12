@@ -5,9 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce64176-11a5-46cf-a21b-76e18e2f9eec" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Screens/ScreenInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Screens/ScreenInfo.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/7000_UI/ScrollView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/7000_UI/ScrollView.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps/HorizontalScrollSnap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps/HorizontalScrollSnap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_3.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_3_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_3_1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_4.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_4_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_4_1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_5.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_5.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_6.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_6.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_7.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_Anvil.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_Anvil.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_Birck.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/Blocks/BlockData_Birck.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03_Graphics/04_Shaders/BlockGuideShader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03_Graphics/04_Shaders/BlockGuideShader.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockColliderFixer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockColliderFixer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockDropper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockDropper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/GhostBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/GhostBlock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Events/BlockEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Events/BlockEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Screens/ScreenMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Screens/ScreenMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +41,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/07c12a9d8ce247d18a35c5e3e7bb065f212200/1a/bf7fb5fb/Color.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/07c12a9d8ce247d18a35c5e3e7bb065f212200/38/c3282c8e/Camera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/07c12a9d8ce247d18a35c5e3e7bb065f212200/48/6e8e73ad/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/07c12a9d8ce247d18a35c5e3e7bb065f212200/67/14ffc132/Sprite.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/07c12a9d8ce247d18a35c5e3e7bb065f212200/8e/7922d3f7/Vector2.cs" root0="SKIP_HIGHLIGHTING" />
@@ -145,7 +168,10 @@
       <workItem from="1770360510353" duration="6718000" />
       <workItem from="1770429837906" duration="15501000" />
       <workItem from="1770514299853" duration="16197000" />
-      <workItem from="1770607038905" duration="5128000" />
+      <workItem from="1770607038905" duration="7812000" />
+      <workItem from="1770718669475" duration="3836000" />
+      <workItem from="1770784180529" duration="15146000" />
+      <workItem from="1770898689605" duration="5262000" />
     </task>
     <servers />
   </component>

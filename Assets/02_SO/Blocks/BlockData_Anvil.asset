@@ -16,8 +16,8 @@ MonoBehaviour:
   weight: 20
   attack: 20
   intensityDamage: 8
-  destroyCount: 1
-  stackCount: 1
+  destroyPoint: 1
+  stackPoint: 1
   blockName: BlockData_Anvil
   blockType: 3
   size: {x: 1.2, y: 0.8}
@@ -28,4 +28,3 @@ MonoBehaviour:
   break_Sprites: []
   isFlip: 0
   effectPoolItem: {fileID: 11400000, guid: f1b7cf0aa66f6884784b4963df95e5b5, type: 2}
-  colliderPrefab: {fileID: 2098947443971739465, guid: 474a7e85476ac5841af8599c161c9a7d, type: 3}

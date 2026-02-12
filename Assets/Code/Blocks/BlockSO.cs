@@ -15,8 +15,8 @@ namespace Code.Blocks
         public int attack;
         public int intensityDamage;
         [Space]
-        public int destroyCount;
-        public int stackCount;
+        public int destroyPoint;
+        public int stackPoint;
         [Space]
         public string blockName;
         public Enums.BlockType blockType;

@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockSO
   maxHealth: 100
   weight: 20
-  attack: 7
+  attack: 5
   intensityDamage: 8
-  destroyCount: 1
-  stackCount: 1
+  destroyPoint: 1
+  stackPoint: 1
   blockName: BlockData_1
   blockType: 1
   size: {x: 1.2, y: 1.2}
@@ -28,4 +28,3 @@ MonoBehaviour:
   break_Sprites: []
   isFlip: 0
   effectPoolItem: {fileID: 11400000, guid: b554dcbe8c0f7d148b0b8e59535f66c6, type: 2}
-  colliderPrefab: {fileID: 2116649532453592739, guid: a73684c0ec344c84fbc67c5f1b44613f, type: 3}

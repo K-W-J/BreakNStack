@@ -1,7 +1,7 @@
-﻿using System.ComponentModel;
-using Code.Core;
+﻿using Code.Core;
 using Code.Etc;
 using Code.Events;
+using Code.Screens;
 using GondrLib.Dependencies;
 using Settings.InputSystem;
 using UnityEngine;
@@ -36,20 +36,16 @@ namespace Code.Blocks
         {
             if(GameManager.Instance.IsPlayingGame == false || CurrentBlock == null) return;
             
-            float bottom = _camera.transform.position.y - _camera.orthographicSize;
-            
             if (_isClicking)
             {
-                float limitWidth = _camera.orthographicSize * _camera.aspect * 2;
-                
-                if (Mathf.Abs(playerInput.GetWorldPointPosition().x) < limitWidth)
+                if (Mathf.Abs(playerInput.GetWorldPointPosition().x) < ScreenInfo.WidthScreen)
                 {
-                    CurrentBlock.transform.position = new Vector3(playerInput.GetWorldPointPosition().x, bottom + dropBlockHeight);
+                    CurrentBlock.transform.position = new Vector3(playerInput.GetWorldPointPosition().x, ScreenInfo.BottomScreen + dropBlockHeight);
                 }
             }
             else
             {
-                CurrentBlock.transform.position = new Vector3(0, bottom + dropBlockHeight);
+                CurrentBlock.transform.position = new Vector3(0, ScreenInfo.BottomScreen + dropBlockHeight);
             }
         }
 

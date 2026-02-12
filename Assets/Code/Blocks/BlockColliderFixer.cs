@@ -6,6 +6,8 @@ namespace Code.Blocks
 {
     public class BlockColliderFixer : MonoBehaviour, IModule
     {
+        [SerializeField] private float sizeColliderRatio;
+        
         private List<Vector2> _pathVertices;
         
         private PolygonCollider2D _polygonCollider;
@@ -38,7 +40,7 @@ namespace Code.Blocks
                 {
                     Vector2 vertex = _pathVertices[j];
 
-                    vertex *= _blockRenderer.transform.localScale;
+                    vertex *= _blockRenderer.transform.localScale * sizeColliderRatio;
 
                     if (_block.BlockData.isFlip)
                         vertex.x *= -1;

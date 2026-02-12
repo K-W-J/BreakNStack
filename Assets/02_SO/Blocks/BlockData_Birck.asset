@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f9c418936fb45b08383c7097b70a039, type: 3}
   m_Name: BlockData_Birck
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockSO
-  maxHealth: 50
+  maxHealth: 80
   weight: 20
   attack: 10
   intensityDamage: 8
-  destroyCount: 1
-  stackCount: 1
+  destroyPoint: 1
+  stackPoint: 1
   blockName: BlockData_Birck
   blockType: 4
   size: {x: 0.8, y: 0.4}
@@ -28,4 +28,3 @@ MonoBehaviour:
   break_Sprites: []
   isFlip: 0
   effectPoolItem: {fileID: 11400000, guid: f1b7cf0aa66f6884784b4963df95e5b5, type: 2}
-  colliderPrefab: {fileID: 2098947443971739465, guid: 3d3109f91ffd56548b8261f19d0fad20, type: 3}

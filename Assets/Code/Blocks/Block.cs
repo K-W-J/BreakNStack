@@ -31,7 +31,6 @@ namespace Code.Blocks
         private float _currentDamageDelay;
         [SerializeField] private float stopMoveDelay;
         private float _currentStopMoveDelay;
-        [SerializeField] private float minAdjacencyBlockMove;
         
         [field:Header("ResetBlock")]
         [field:SerializeField] public BlockSO BlockData { get; private set; }
@@ -51,20 +50,18 @@ namespace Code.Blocks
 
         private BlockState _blockState = BlockState.None;
         
+        public float MovingVelocity => _rigidbody.linearVelocity.sqrMagnitude;
+        
         private bool IsMove
         {
             get
             {
                 if(stopMoveDelay > _currentStopMoveDelay) return true;
                 
-                bool isMove = _rigidbody.linearVelocity.sqrMagnitude > 0.0000001f || 
+                bool isMove = _rigidbody.linearVelocity.sqrMagnitude > 0.00001f || 
                               Mathf.Abs(_rigidbody.angularVelocity) > 10f;
                 
-                bool isAdjacencyBlockMove = _rigidbody.linearVelocity.sqrMagnitude > 0.001f || 
-                                            Mathf.Abs(_rigidbody.angularVelocity) > 10f;
-                //Approximately은 판정이 너무 타이트함
-                
-                if(isAdjacencyBlockMove)
+                if (isMove)
                     blockEventChannel.RaiseEvent(BlockEvents.BlockMoveEvent.Initialize(this));
                 else
                     blockEventChannel.RaiseEvent(BlockEvents.BlockStopEvent.Initialize(this));
@@ -166,7 +163,7 @@ namespace Code.Blocks
                 if (_isFirstLand == false)
                 {
                     blockEventChannel.RaiseEvent(BlockEvents.BlockLandEvent.Initialize(this));
-                    uiEventChannel.RaiseEvent(UIEvents.ScoreTextEvent.Initialize(BlockData.stackCount));
+                    uiEventChannel.RaiseEvent(UIEvents.ScoreTextEvent.Initialize(BlockData.stackPoint));
                     effectEventChannel.RaiseEvent(EffectEvents.PlayEffectEvent.Initialize(landEffectItem, transform.position));
                     _isFirstLand = true;
                 }
@@ -209,6 +206,8 @@ namespace Code.Blocks
                 
                 SetFreezeAll(false);
                 OnFreezeAdjacencyBlocks();
+
+                blockEventChannel.RaiseEvent(BlockEvents.BlockTouchEvent.Initialize(this)) ;
             }
         }
 
@@ -231,7 +230,7 @@ namespace Code.Blocks
 
             if (CurrentHealth <= 0)
             {
-                uiEventChannel.RaiseEvent(UIEvents.ScoreTextEvent.Initialize(BlockData.destroyCount));
+                uiEventChannel.RaiseEvent(UIEvents.ScoreTextEvent.Initialize(BlockData.destroyPoint));
                 PushBlock();
             }
         }
@@ -280,12 +279,12 @@ namespace Code.Blocks
             SetFreezeAll(isLock);
 
             if (isLock)
-            {               
-                blockEventChannel.RemoveListener<BlockMoveEvent>(HandleTouchingBlockMove);
+            {
+                blockEventChannel.RemoveListener<BlockTouchEvent>(HandleTouchBlock);
             }
             else
             {
-                blockEventChannel.AddListener<BlockMoveEvent>(HandleTouchingBlockMove);
+                blockEventChannel.AddListener<BlockTouchEvent>(HandleTouchBlock);
             }
         }
 
@@ -318,7 +317,6 @@ namespace Code.Blocks
             OnFreezeAdjacencyBlocks();
             
             blockEventChannel.RaiseEvent(BlockEvents.BlockPushEvent.Initialize(this));
-            blockEventChannel.RemoveListener<BlockMoveEvent>(HandleTouchingBlockMove);
             
             OnDeathEvent?.Invoke();
             _pool.Push(this);
@@ -338,10 +336,11 @@ namespace Code.Blocks
             _isFirstLand = false;
         }
 
-        private void HandleTouchingBlockMove(BlockMoveEvent evt)
+        private void HandleTouchBlock(BlockTouchEvent evt)
         {
-            if(IsLock) return;
-            //OnFreezeAdjacencyBlocks();
+            if(IsDead || IsLock) return;
+            
+            OnFreezeAdjacencyBlocks();
         }
     }
 }

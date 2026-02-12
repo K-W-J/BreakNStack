@@ -9,8 +9,20 @@ namespace Code.Events
         public static BlockLandEvent BlockLandEvent = new BlockLandEvent();
         public static BlockSpawnEvent BlockSpawnEvent = new BlockSpawnEvent();
         public static BlockMoveEvent BlockMoveEvent = new BlockMoveEvent();
+        public static BlockTouchEvent BlockTouchEvent = new BlockTouchEvent();
         public static BlockStopEvent BlockStopEvent = new BlockStopEvent();
         public static BlockDropEvent BlockDropEvent = new BlockDropEvent();
+    }
+    
+    public class BlockTouchEvent : GameEvent
+    {
+        public Block block;
+
+        public BlockTouchEvent Initialize(Block block)
+        {
+            this.block = block;
+            return this;
+        }
     }
     
     public class BlockMoveEvent : GameEvent
