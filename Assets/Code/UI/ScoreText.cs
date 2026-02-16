@@ -43,6 +43,8 @@ namespace Code.UI
             }
             
             scoreText.SetText(_score.ToString());
+            
+            uiEventChannel.RaiseEvent(UIEvents.HighScoreTextEvent.Initialize(_score));
         }
     }
 }

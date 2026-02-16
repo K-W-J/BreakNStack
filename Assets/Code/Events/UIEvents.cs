@@ -6,8 +6,10 @@ namespace Code.Events
     public class UIEvents
     {
         public static ScoreTextEvent ScoreTextEvent = new ScoreTextEvent();
+        public static HighScoreTextEvent HighScoreTextEvent = new HighScoreTextEvent();
         public static PlayGameEvent PlayGameEvent = new PlayGameEvent();
         public static QuitGameEvent QuitGameEvent = new QuitGameEvent();
+        public static DangerImageEvent DangerImageEvent = new DangerImageEvent();
         public static PauseGameEvent PauseGameEvent = new PauseGameEvent();
         public static ResetGameEvent ResetGameEvent = new ResetGameEvent();
         public static OpenWindowEvent OpenWindowEvent = new OpenWindowEvent();
@@ -21,6 +23,25 @@ namespace Code.Events
         public ScoreTextEvent Initialize(int score)
         {
             this.score = score;
+            return this;
+        }
+    }
+    
+    public class HighScoreTextEvent : GameEvent
+    {
+        public int highScore;
+
+        public HighScoreTextEvent Initialize(int highScore)
+        {
+            this.highScore = highScore;
+            return this;
+        }
+    }
+    
+    public class DangerImageEvent : GameEvent
+    {
+        public DangerImageEvent Initialize(int score)
+        {
             return this;
         }
     }

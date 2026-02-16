@@ -11,7 +11,8 @@ namespace Code.Screens
     {
         [SerializeField] private GameEventChannelSO blockEventChannel;
         [SerializeField] private GameEventChannelSO uiEventChannel;
-        [Space]
+        [Space] 
+        [SerializeField] private GameObject panel;
         [SerializeField] private Transform heightMark;
         [SerializeField] private float screenLineHeight;
         [Space]
@@ -79,7 +80,9 @@ namespace Code.Screens
 
             DistanceSort(_movingBlocks);
             
-            if (_movingBlocks.Count < 5 || _movingBlocks.First().MovingVelocity < 0.1f) return;
+            if (_movingBlocks.Count < 5 || _movingBlocks.First().MovingVelocity < 2f) return;
+            
+            panel.SetActive(true);
             
             MoveScreen(_movingBlocks[^1].transform.position);
         }
@@ -88,6 +91,8 @@ namespace Code.Screens
         {
             if (_movingBlocks.Contains(evt.block))
                 _movingBlocks.Remove(evt.block);
+            
+            panel.SetActive(false);
         }
 
         private void HandleLandBlock(BlockLandEvent evt)
@@ -113,6 +118,8 @@ namespace Code.Screens
             DistanceSort(_blockList);
             
             if (_blockList.Count < 1) return;
+            
+            panel.SetActive(false);
 
             MoveScreen(_blockList.First().transform.position);
         }
