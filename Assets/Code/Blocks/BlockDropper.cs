@@ -16,12 +16,10 @@ namespace Code.Blocks
 
         public Block CurrentBlock { get; private set; }
         
-        private Camera _camera;
         private bool _isClicking;
         
         private void Awake()
         {
-            _camera = Camera.main;
             playerInput.OnDropPressed += HandleDropBlock;
             blockEventChannel.AddListener<BlockSpawnEvent>(HandleSpawnBlock);
         }

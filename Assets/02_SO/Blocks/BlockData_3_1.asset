@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlockData_3_1
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockSO
   maxHealth: 100
-  weight: 20
+  weight: 15
   attack: 5
   intensityDamage: 8
   destroyPoint: 1

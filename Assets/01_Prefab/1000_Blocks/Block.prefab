@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1025891011
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -3997992993972219536, guid: cc52042ef9925b4478201e2823676dda, type: 3}
@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb2100a5172d4e82ba44ae3f26e87982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockRenderer
+  landMaterial: {fileID: 2100000, guid: 2d7f7ad68df490643a3716003670c7b9, type: 2}
 --- !u!1 &2606105986370208402
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +157,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 20
   m_LinearDamping: 0
-  m_AngularDamping: 3
+  m_AngularDamping: 6
   m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 80737ebd4c3b3f848a10b9d443dd810a, type: 2}
   m_IncludeLayers:
@@ -271,8 +272,7 @@ MonoBehaviour:
   bumpEffectItem: {fileID: 11400000, guid: ae0e191782250f6428734c12b39fabaf, type: 2}
   landEffectItem: {fileID: 11400000, guid: 3514ddfd442509b4f85f2e8cf6f3320e, type: 2}
   damageDelay: 0.05
-  stopMoveDelay: 0.2
-  minAdjacencyBlockMove: 0
+  stopMoveDelay: 0.3
   <BlockData>k__BackingField: {fileID: 0}
 --- !u!114 &2305976130434284125
 MonoBehaviour:
@@ -441,7 +441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5297636903535089813, guid: 15b586102daa4f846aefec26d956507f, type: 3}
       propertyPath: boxSizeRatio
-      value: 1.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5297636903535089813, guid: 15b586102daa4f846aefec26d956507f, type: 3}
       propertyPath: viewDrawGizmos

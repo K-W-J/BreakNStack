@@ -116,8 +116,8 @@ TextureImporter:
       name: WoodBlock_6_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
+        x: 6
+        y: 34
         width: 64
         height: 16
       alignment: 0
@@ -138,8 +138,8 @@ TextureImporter:
       name: WoodBlock_6_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 16
+        x: 106
+        y: 34
         width: 64
         height: 16
       alignment: 0
@@ -160,8 +160,8 @@ TextureImporter:
       name: WoodBlock_6_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 6
+        y: 6
         width: 64
         height: 16
       alignment: 0
@@ -182,8 +182,8 @@ TextureImporter:
       name: WoodBlock_6_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 106
+        y: 7
         width: 64
         height: 16
       alignment: 0

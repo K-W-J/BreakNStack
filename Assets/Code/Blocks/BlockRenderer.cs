@@ -5,6 +5,8 @@ namespace Code.Blocks
 {
     public class BlockRenderer : MonoBehaviour, IModule, IInitializeSpawn
     {
+        [SerializeField] private Material landMaterial;
+        
         private static readonly int Contrast = Shader.PropertyToID("_Contrast");
         
         private Block _block;
@@ -52,6 +54,11 @@ namespace Code.Blocks
         public void SetAlpha(float alpha)
         {
             _spriteRenderer.color = new Color(_spriteRenderer.color.r,_spriteRenderer.color.g,_spriteRenderer.color.b,alpha);
+        }
+        
+        public void SetMaterial()
+        {
+            _spriteRenderer.material = landMaterial;
         }
     }
 }

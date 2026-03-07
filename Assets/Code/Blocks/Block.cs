@@ -35,7 +35,7 @@ namespace Code.Blocks
         [field:Header("ResetBlock")]
         [field:SerializeField] public BlockSO BlockData { get; private set; }
 
-        private List<Block> _adjacencyBlocks;
+        private List<Block> _touchBlocks;
         private IInitializeSpawn[] _initSpawns;
 
         public int CurrentHealth { get; private set; }
@@ -58,7 +58,7 @@ namespace Code.Blocks
             {
                 if(stopMoveDelay > _currentStopMoveDelay) return true;
                 
-                bool isMove = _rigidbody.linearVelocity.sqrMagnitude > 0.00001f || 
+                bool isMove = _rigidbody.linearVelocity.sqrMagnitude > 0.000001f || 
                               Mathf.Abs(_rigidbody.angularVelocity) > 10f;
                 
                 if (isMove)
@@ -100,7 +100,7 @@ namespace Code.Blocks
             _blockRenderer = GetModule<BlockRenderer>();
             _blockColliderFixer = GetModule<BlockColliderFixer>();
  
-            _adjacencyBlocks = new List<Block>();
+            _touchBlocks = new List<Block>();
 
             if(BlockData != null)
                 InitializeSpawn(BlockData);
@@ -205,7 +205,7 @@ namespace Code.Blocks
 
                 
                 SetFreezeAll(false);
-                OnFreezeAdjacencyBlocks();
+                OnFreezeTouchBlocks();
 
                 blockEventChannel.RaiseEvent(BlockEvents.BlockTouchEvent.Initialize(this)) ;
             }
@@ -215,7 +215,7 @@ namespace Code.Blocks
         {
             if(IsLock || IsDead) return;
 
-            OnFreezeAdjacencyBlocks();
+            OnFreezeTouchBlocks();
         }
 
         public void TakeDamage(int damage)
@@ -259,13 +259,13 @@ namespace Code.Blocks
             }
         }
         
-        private void OnFreezeAdjacencyBlocks()
+        private void OnFreezeTouchBlocks()
         {
-            _adjacencyBlocks.Clear();
+            _touchBlocks.Clear();
             
-            if (_boxChecker.TryGetOverlapData(_adjacencyBlocks))
+            if (_boxChecker.TryGetOverlapData(_touchBlocks))
             {
-                foreach (var adjacencyBlock in _adjacencyBlocks)
+                foreach (var adjacencyBlock in _touchBlocks)
                     adjacencyBlock.SetFreezeAll(false);
             }
         }
@@ -306,6 +306,8 @@ namespace Code.Blocks
         private void SetBlockStateToLand()
         {
             _blockState = BlockState.Land;
+
+            _blockRenderer.SetMaterial();
         }
         
         [ContextMenu("PushBlocks")]
@@ -314,7 +316,7 @@ namespace Code.Blocks
             IsDead = true;
             gameObject.name = "Block[Pool]";
 
-            OnFreezeAdjacencyBlocks();
+            OnFreezeTouchBlocks();
             
             blockEventChannel.RaiseEvent(BlockEvents.BlockPushEvent.Initialize(this));
             
@@ -340,7 +342,7 @@ namespace Code.Blocks
         {
             if(IsDead || IsLock) return;
             
-            OnFreezeAdjacencyBlocks();
+            OnFreezeTouchBlocks();
         }
     }
 }
