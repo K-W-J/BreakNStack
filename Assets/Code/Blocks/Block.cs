@@ -79,14 +79,16 @@ namespace Code.Blocks
         [ContextMenu("ResetBlock")]
         private void ResetBlock()
         {
-            Debug.Assert(BlockData != null, "not found BlockData.");
+            if(BlockData != null)
+                SetUpPool(PoolManager.Instance);
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
             
-            gameObject.name = $"{BlockData.blockType.ToString()}_{BlockData.blockName}_Block";      
-            
-            BlockRenderer blockRenderer = GetComponentInChildren<BlockRenderer>();
-            blockRenderer.InitializeSpawn();
-            
-            _blockColliderFixer.UpdateColliderShape();
+            if(BlockData != null)
+                SetUpPool(PoolManager.Instance);
         }
         
         public void SetUpPool(PoolManager pool)
