@@ -45,6 +45,8 @@ namespace Code.Etc
         
         private void Awake()
         {
+            Application.targetFrameRate = 60;
+            
             uiEventChannel.AddListener<PlayGameEvent>(HandlePlayGame);
             uiEventChannel.AddListener<QuitGameEvent>(HandleQuitGame);
             uiEventChannel.AddListener<PauseGameEvent>(HandlePauseGame);

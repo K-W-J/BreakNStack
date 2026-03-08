@@ -22,8 +22,8 @@ MonoBehaviour:
   blockType: 1
   size: {x: 1.6, y: 0.4}
   default_Sprite: {fileID: 5221780704679118627, guid: 867625a3e24b96748b1b875b6c710027, type: 3}
-  break_2_Sprite: {fileID: 369496361, guid: 867625a3e24b96748b1b875b6c710027, type: 3}
-  break_3_Sprite: {fileID: -16576044, guid: 867625a3e24b96748b1b875b6c710027, type: 3}
+  break_2_Sprite: {fileID: -16576044, guid: 867625a3e24b96748b1b875b6c710027, type: 3}
+  break_3_Sprite: {fileID: 369496361, guid: 867625a3e24b96748b1b875b6c710027, type: 3}
   break_4_Sprite: {fileID: -679134301, guid: 867625a3e24b96748b1b875b6c710027, type: 3}
   break_Sprites: []
   isFlip: 0

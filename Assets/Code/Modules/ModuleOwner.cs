@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Code.Agents;
 using UnityEngine;
 
 namespace Code.Modules
@@ -15,7 +14,7 @@ namespace Code.Modules
             _moduleDict = GetComponentsInChildren<IModule>().ToDictionary(m => m.GetType());
             InitializeComponents();
         }
-
+        
         private void InitializeComponents()
         {
             foreach (var module in _moduleDict.Values) 

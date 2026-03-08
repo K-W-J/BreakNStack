@@ -306,8 +306,6 @@ namespace Code.Blocks
         private void SetBlockStateToLand()
         {
             _blockState = BlockState.Land;
-
-            _blockRenderer.SetMaterial();
         }
         
         [ContextMenu("PushBlocks")]

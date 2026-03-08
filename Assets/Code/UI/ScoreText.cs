@@ -42,7 +42,7 @@ namespace Code.UI
                 transform.DOShakeScale(0.1f).Complete(_canShake = true);
             }
             
-            scoreText.SetText(_score.ToString());
+            scoreText.SetText(_score + "m");
             
             uiEventChannel.RaiseEvent(UIEvents.HighScoreTextEvent.Initialize(_score));
         }

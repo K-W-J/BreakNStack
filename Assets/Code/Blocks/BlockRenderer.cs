@@ -1,3 +1,4 @@
+using System.Collections;
 using Code.Modules;
 using UnityEngine;
 
@@ -5,9 +6,11 @@ namespace Code.Blocks
 {
     public class BlockRenderer : MonoBehaviour, IModule, IInitializeSpawn
     {
-        [SerializeField] private Material landMaterial;
+        [SerializeField] private Material landOutline;
+        [SerializeField] private float durationOutline = 0.2f;
         
         private static readonly int Contrast = Shader.PropertyToID("_Contrast");
+        private static readonly int Thickness = Shader.PropertyToID("_OutlineThickness");
         
         private Block _block;
         private SpriteRenderer _spriteRenderer;
@@ -56,9 +59,11 @@ namespace Code.Blocks
             _spriteRenderer.color = new Color(_spriteRenderer.color.r,_spriteRenderer.color.g,_spriteRenderer.color.b,alpha);
         }
         
-        public void SetMaterial()
+        public IEnumerator StartOutline()
         {
-            _spriteRenderer.material = landMaterial;
+            _spriteRenderer.material = landOutline;
+            yield return new WaitForSeconds(durationOutline);
+            _spriteRenderer.material = _grayMat;
         }
     }
 }

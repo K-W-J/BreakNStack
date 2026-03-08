@@ -104,7 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb2100a5172d4e82ba44ae3f26e87982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockRenderer
-  landMaterial: {fileID: 2100000, guid: 2d7f7ad68df490643a3716003670c7b9, type: 2}
+  landOutline: {fileID: 2100000, guid: 2d7f7ad68df490643a3716003670c7b9, type: 2}
+  durationOutline: 0.2
 --- !u!1 &2606105986370208402
 GameObject:
   m_ObjectHideFlags: 0
