@@ -39,10 +39,10 @@ namespace Code.UI.Text
             if (_canShake)
             {
                 _canShake = false;
-                transform.DOShakeScale(0.1f).Complete(_canShake = true);
+                transform.DOShakeScale(0.1f).OnComplete(() => _canShake = true);
             }
             
-            scoreText.SetText(_score + "m");
+            scoreText.SetText(_score.ToString());
             
             uiEventChannel.RaiseEvent(UIEvents.HighScoreTextEvent.Initialize(_score));
         }

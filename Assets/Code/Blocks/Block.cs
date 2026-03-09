@@ -58,7 +58,7 @@ namespace Code.Blocks
             {
                 if(stopMoveDelay > _currentStopMoveDelay) return true;
                 
-                bool isMove = _rigidbody.linearVelocity.sqrMagnitude > 0.000001f || 
+                bool isMove = _rigidbody.linearVelocity.sqrMagnitude > 0.0000001f || 
                               Mathf.Abs(_rigidbody.angularVelocity) > 10f;
                 
                 if (isMove)

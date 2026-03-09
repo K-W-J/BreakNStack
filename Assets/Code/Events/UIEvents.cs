@@ -5,6 +5,7 @@ namespace Code.Events
 {
     public class UIEvents
     {
+        public static SetComboTimeEvent SetComboTimeEvent = new SetComboTimeEvent();
         public static ComboScoreTextEvent ComboScoreTextEvent = new ComboScoreTextEvent();
         public static ScoreTextEvent ScoreTextEvent = new ScoreTextEvent();
         public static HighScoreTextEvent HighScoreTextEvent = new HighScoreTextEvent();
@@ -16,6 +17,17 @@ namespace Code.Events
         public static ResetGameEvent ResetGameEvent = new ResetGameEvent();
         public static OpenWindowEvent OpenWindowEvent = new OpenWindowEvent();
         public static CloseWindowEvent CloseWindowEvent = new CloseWindowEvent();
+    }
+        
+    public class SetComboTimeEvent : GameEvent
+    {
+        public float time;
+
+        public SetComboTimeEvent Initialize(float time)
+        {
+            this.time = time;
+            return this;
+        }
     }
     
     public class ComboScoreTextEvent : GameEvent

@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -126,89 +126,118 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WoodBlock_7_0
+      name: Anvil_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: -23, y: 7}
+        - {x: -13, y: 5}
+        - {x: -10, y: 1}
+        - {x: -11, y: -9}
+        - {x: -15, y: -12}
+        - {x: -24, y: -12}
+        - {x: -24, y: -16}
+        - {x: 8, y: -16}
+        - {x: 8, y: -13}
+        - {x: 2, y: -10}
+        - {x: 2, y: -2}
+        - {x: 8, y: -1}
+        - {x: 8, y: 5}
+        - {x: 17, y: 6}
+        - {x: 24, y: 13}
+        - {x: 24, y: 16}
+        - {x: -24, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc84a7e65998fa940ad88edf58407f8f
+      internalID: 1083174521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anvil_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: -23, y: 7}
+        - {x: -13, y: 5}
+        - {x: -10, y: 1}
+        - {x: -11, y: -9}
+        - {x: -15, y: -12}
+        - {x: -24, y: -12}
+        - {x: -24, y: -16}
+        - {x: 8, y: -16}
+        - {x: 8, y: -13}
+        - {x: 2, y: -10}
+        - {x: 2, y: -2}
+        - {x: 8, y: -1}
+        - {x: 8, y: 5}
+        - {x: 17, y: 6}
+        - {x: 24, y: 13}
+        - {x: 24, y: 16}
+        - {x: -24, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 245b22f14db91c4448cd30fd28c7f4c4
+      internalID: -1464363896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anvil_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ea61e5fd16fad0950800000000000000
-      internalID: 6416977878966998702
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WoodBlock_7_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -23, y: 7}
+        - {x: -13, y: 5}
+        - {x: -10, y: 1}
+        - {x: -11, y: -9}
+        - {x: -15, y: -12}
+        - {x: -24, y: -12}
+        - {x: -24, y: -16}
+        - {x: 8, y: -16}
+        - {x: 8, y: -13}
+        - {x: 2, y: -10}
+        - {x: 2, y: -2}
+        - {x: 8, y: -1}
+        - {x: 8, y: 5}
+        - {x: 17, y: 6}
+        - {x: 24, y: 13}
+        - {x: 24, y: 16}
+        - {x: -24, y: 16}
       tessellationDetail: 0
       bones: []
-      spriteID: d4a9ef91ed15f6343b0f145273c8acdf
-      internalID: 1799884079
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WoodBlock_7_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 58263cb9aa085f547afa05198d5bbb84
-      internalID: 592543984
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WoodBlock_7_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c8bde12550236504f9e7c5440952c92a
-      internalID: -99677182
+      spriteID: ca514d21fc1c60d489c03c28b89f2f32
+      internalID: -1166929784
       vertices: []
       indices: 
       edges: []
@@ -247,12 +276,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":3.0},"gridSpriteSize":{"x":64.0,"y":48.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      WoodBlock_7_0: 6416977878966998702
-      WoodBlock_7_1: 1799884079
-      WoodBlock_7_2: 592543984
-      WoodBlock_7_3: -99677182
+      Anvil_0: 1083174521
+      Anvil_1: -1464363896
+      Anvil_2: -1166929784
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

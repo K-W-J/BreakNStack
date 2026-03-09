@@ -40,7 +40,7 @@ namespace Code.UI.Text
             if (_canShake)
             {
                 _canShake = false;
-                transform.DOShakeScale(0.1f).Complete(_canShake = true);
+                transform.DOShakeScale(0.1f).OnComplete(() => _canShake = true);
             }
             
             highScoreText.SetText(addString + _score);

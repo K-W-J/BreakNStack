@@ -442,7 +442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5297636903535089813, guid: 15b586102daa4f846aefec26d956507f, type: 3}
       propertyPath: boxSizeRatio
-      value: 1
+      value: 0.98
       objectReference: {fileID: 0}
     - target: {fileID: 5297636903535089813, guid: 15b586102daa4f846aefec26d956507f, type: 3}
       propertyPath: viewDrawGizmos

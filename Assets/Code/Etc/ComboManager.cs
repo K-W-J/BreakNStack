@@ -33,8 +33,9 @@ namespace Code.Etc
             if (_currentCombo < maxCombo)
             {
                 ++_currentCombo;
-                uiEventChannel.RaiseEvent(UIEvents.ComboScoreTextEvent.Initialize(_currentCombo));
             }
+            
+            uiEventChannel.RaiseEvent(UIEvents.ComboScoreTextEvent.Initialize(_currentCombo));
         }
 
         private void Update()
@@ -42,6 +43,7 @@ namespace Code.Etc
             if (_comboTimer < 0) return;
             
             _comboTimer -= Time.deltaTime;
+            uiEventChannel.RaiseEvent(UIEvents.SetComboTimeEvent.Initialize(_comboTimer / comboResetTime));
 
             if (_comboTimer < 0)
             {
