@@ -10,31 +10,40 @@ namespace Code.UI.Text
     {
         [SerializeField] private GameEventChannelSO uiEventChannel;
         [SerializeField] private TextMeshProUGUI scoreText;
-        
+
+        private int _scoreMultiply;
         private int _score;
+        
         private bool _canShake = true;
         
         private void Awake()
         {
             uiEventChannel.AddListener<ScoreTextEvent>(HandleScoreText);
             uiEventChannel.AddListener<PlayGameEvent>(HandleResetScoreText);
+            uiEventChannel.AddListener<ComboScoreTextEvent>(HandleComboScoreText);
         }
-        
+
+        private void HandleComboScoreText(ComboScoreTextEvent evt)
+        {
+            _scoreMultiply = evt.score <= 0 ? 1 : evt.score;
+        }
+
         private void OnDestroy()
         {
             uiEventChannel.RemoveListener<ScoreTextEvent>(HandleScoreText);
             uiEventChannel.RemoveListener<PlayGameEvent>(HandleResetScoreText);
+            uiEventChannel.RemoveListener<ComboScoreTextEvent>(HandleComboScoreText);
         }
 
         private void HandleResetScoreText(PlayGameEvent evt)
         {
             _score = 0;
-            scoreText.SetText(_score.ToString());
+            scoreText.SetText("");
         }
 
         private void HandleScoreText(ScoreTextEvent evt)
         {
-            _score += evt.score;
+            _score += evt.score * _scoreMultiply;
             
             if (_canShake)
             {

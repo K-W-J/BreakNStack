@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.UI.Text
+namespace Code.UI
 {
     public class ComboScorePanel : MonoBehaviour
     {
