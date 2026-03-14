@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Code.UI
 {
-    public class ComboScorePanel : MonoBehaviour
+    public class ComboScoreBar : MonoBehaviour
     {
         [SerializeField] private GameEventChannelSO uiEventChannel;
         [Space]

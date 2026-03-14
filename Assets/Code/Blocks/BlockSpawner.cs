@@ -3,6 +3,7 @@ using Code.Etc;
 using Code.Events;
 using Code.Screens;
 using DG.Tweening;
+using GondrLib.Dependencies;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -21,6 +22,7 @@ namespace Code.Blocks
         [Space]
         [SerializeField] private float spawnDelay;
         
+        [Inject] private GameManager _gameManager;
         private Block _currentBlock;
         
         private float _currentSpawnDelay;
@@ -45,7 +47,7 @@ namespace Code.Blocks
         
         private void Update()
         {
-            if (GameManager.Instance.IsPlayingGame == false) return;
+            if (_gameManager.IsPlayingGame == false) return;
             
             if (_currentSpawnDelay > spawnDelay && CanSpawn)
             {

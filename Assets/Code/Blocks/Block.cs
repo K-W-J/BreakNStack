@@ -192,7 +192,7 @@ namespace Code.Blocks
                     _currentDamageDelay = 0;
                     effectEventChannel.RaiseEvent(EffectEvents.PlayEffectEvent.Initialize(bumpEffectItem, collision.contacts[0].point));
                     
-                    print(gameObject.name + " " + totalDamage);
+                    //print(gameObject.name + " " + totalDamage);
                     
                     block.TakeDamage(totalDamage);
                 }

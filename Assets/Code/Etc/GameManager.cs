@@ -1,5 +1,6 @@
 using Code.Core;
 using Code.Events;
+using GondrLib.Dependencies;
 using UnityEngine;
 
 namespace Code.Etc
@@ -11,8 +12,8 @@ namespace Code.Etc
         End
     }
     
-    [DefaultExecutionOrder(-100)]
-    public class GameManager : MonoBehaviour
+    [DefaultExecutionOrder(-10), Provide]
+    public class GameManager : MonoBehaviour, IDependencyProvider
     {
         [SerializeField] private GameEventChannelSO uiEventChannel;
         
@@ -22,27 +23,6 @@ namespace Code.Etc
         public bool IsStopGame => _gameState == GameState.Pause;
         public bool IsEndGame => _gameState == GameState.End;
         
-        private static GameManager _instance;
-        public static GameManager Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = FindAnyObjectByType<GameManager>();
-                
-                    if (_instance == null)
-                    {
-                        GameObject gameManager = new GameObject();
-                        _instance = gameManager.AddComponent<GameManager>();
-                        gameManager.name = typeof(GameManager) + "(Singleton)";
-                    }
-                }
-
-                return _instance;
-            }
-        }
-        
         private void Awake()
         {
             Application.targetFrameRate = 60;
@@ -50,16 +30,6 @@ namespace Code.Etc
             uiEventChannel.AddListener<PlayGameEvent>(HandlePlayGame);
             uiEventChannel.AddListener<QuitGameEvent>(HandleQuitGame);
             uiEventChannel.AddListener<PauseGameEvent>(HandlePauseGame);
-            
-            if (_instance == null)
-            {
-                _instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
         }
 
         private void OnDestroy()

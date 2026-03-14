@@ -3,29 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
-namespace Settings.InputSystem
+namespace InputSystem
 {
     [CreateAssetMenu(fileName = "PlayerInputSO", menuName = "SO/PlayerInput", order = 0)]
     public class PlayerInputSO : ScriptableObject, Controls.IPlayerActions
     {
-        
         public event Action<bool> OnDropPressed;
 
-        [SerializeField] private LayerMask whatIsUI;
-            
         public Vector2 PointDelta { get; private set; }
         private Vector2 _pointPosition;
         
-        private Controls _controls;
+        private GraphicRaycaster _raycaster;
         
-        private PointerEventData _eventData;
+        private Controls _controls;
+
         private List<RaycastResult> _results;
         
         private void OnEnable()
         {
-            _results = new List<RaycastResult>();
-                
             if (_controls == null)
             {
                 _controls = new Controls();
@@ -33,6 +30,8 @@ namespace Settings.InputSystem
             }
             
             _controls.Player.Enable();
+            
+            _results = new List<RaycastResult>();
         }
 
         private void OnDisable()
@@ -42,12 +41,16 @@ namespace Settings.InputSystem
 
         public void OnDrop(InputAction.CallbackContext context)
         {
-            if(IsPointerOverUI()) return;
-            
-            if(context.started)
+            if(IsPointerOverGameObject()) return;
+
+            if (context.performed) 
+            {
                 OnDropPressed?.Invoke(true);
-            else if(context.canceled)
+            }
+            else if (context.canceled) 
+            {
                 OnDropPressed?.Invoke(false);
+            }
         }
 
         public void OnPointPosition(InputAction.CallbackContext context)
@@ -64,31 +67,14 @@ namespace Settings.InputSystem
         {
             Camera mainCamera = Camera.main;
             Debug.Assert(mainCamera != null, "No main camera in this scene.");
-
-            if (IsPointerOverUI())
-                return Vector2.zero;
             
             return mainCamera.ScreenToWorldPoint(_pointPosition);
         }
-        
-        public bool IsPointerOverUI()
-        {
+
+        private bool IsPointerOverGameObject()
+        { 
             Debug.Assert(EventSystem.current != null, "No EventSystem.current in this scene.");
-            
-            _eventData ??= new PointerEventData(EventSystem.current);
-            _results ??= new List<RaycastResult>();
-    
-            _eventData.position = _pointPosition; 
-
-            _results.Clear();
-            EventSystem.current.RaycastAll(_eventData, _results);
-
-            if (_results.Count > 0 && (whatIsUI & _results[0].gameObject.layer) != 0)
-            {
-                return true;
-            }
-
-            return false;
+            return EventSystem.current.IsPointerOverGameObject();
         }
     }
 }
