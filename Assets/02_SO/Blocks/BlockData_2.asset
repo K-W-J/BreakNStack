@@ -28,3 +28,7 @@ MonoBehaviour:
   break_Sprites: []
   isFlip: 0
   effectPoolItem: {fileID: 11400000, guid: b554dcbe8c0f7d148b0b8e59535f66c6, type: 2}
+  crashSound:
+    ID: 1073741825
+    _sourceAsset: {fileID: 11400000, guid: 7dc183037a649a047a0bb116d10771a8, type: 2}
+    <DebugObject>k__BackingField: {fileID: 0}
