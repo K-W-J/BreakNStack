@@ -5,12 +5,15 @@ using Code.Screens;
 using DG.Tweening;
 using GondrLib.Dependencies;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace Code.Blocks
 {
     public class BlockSpawner : MonoBehaviour
     {
+        public UnityEvent OnSpawnBlockEvent;
+        
         [SerializeField] private PoolItemSO blockItem;
         [SerializeField] private GameEventChannelSO blockEventChannel;
         [SerializeField] private GameEventChannelSO uiEventChannel;
@@ -62,10 +65,12 @@ namespace Code.Blocks
         private void SpawnBlock()
         {
             _currentBlock = PoolManager.Instance.Pop<Block>(blockItem);
-            //_currentBlock.transform.DOPunchScale(Vector3.one * 0.2f, 0.2f);
+            _currentBlock.transform.DOPunchScale(Vector3.one * 0.2f, 0.2f);
             
             int rand = Random.Range(0, blockData.Length);
             _currentBlock.InitializeSpawn(blockData[rand]);
+            
+            OnSpawnBlockEvent?.Invoke();
             
             blockEventChannel.RaiseEvent(BlockEvents.BlockSpawnEvent.Initialize(_currentBlock));
         }

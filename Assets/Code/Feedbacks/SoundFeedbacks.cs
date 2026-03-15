@@ -1,26 +1,27 @@
 ﻿using Ami.BroAudio;
 using Code.Blocks;
+using UnityEngine;
 
 namespace Code.Feedbacks
 {
     public class SoundFeedback : Feedback, IFeedbackSettable
     {
-        private SoundID _crashSoundId;
+        [SerializeField] private SoundID crashSoundId;
         
         public void SetFeedback(BlockSO blockSo)
         {
-            _crashSoundId = blockSo.crashSound;
+            crashSoundId = blockSo.crashSound;
         }
         
         public override void CreateFeedback()
         {
-            _crashSoundId.Play();
+            crashSoundId.Play();
             //BroAudio.Play(_crashSoundId);
         }
 
         public override void StopFeedback()
         {
-            BroAudio.Stop(_crashSoundId);
+            BroAudio.Stop(crashSoundId);
         }
     }
 }

@@ -54,14 +54,6 @@ MonoBehaviour:
       FadeIn: 0
       FadeOut: 0
       Weight: 0
-    - AudioClip: {fileID: 8300000, guid: 985fbe9713ed32444b307f62b60402b5, type: 3}
-      Volume: 0.3949258
-      Delay: 0
-      StartPosition: 0
-      EndPosition: 0
-      FadeIn: 0
-      FadeOut: 0
-      Weight: 0
     - AudioClip: {fileID: 8300000, guid: 6ad47d2e9fd68af428a6e0b7cc1dca8b, type: 3}
       Volume: 0.3949258
       Delay: 0
