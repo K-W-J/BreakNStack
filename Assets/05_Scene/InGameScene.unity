@@ -1644,10 +1644,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 29f062e0af98d024bb4b8d3464704d20, type: 2}
   - {fileID: 11400000, guid: 8c0bfaf213b99224bb3b4e94121a29d9, type: 2}
   - {fileID: 11400000, guid: 5b0899ad8b9d3c34d94bf051fe82edbb, type: 2}
-  - {fileID: 11400000, guid: 697aa076c0274544cac3887ae35adbcd, type: 2}
   - {fileID: 11400000, guid: 88d7f71b55f27ea4badf8d201a9a8017, type: 2}
   - {fileID: 11400000, guid: 9c82b4579d215b749800627238acd207, type: 2}
-  ghostBlock: {fileID: 0}
   screenMovement: {fileID: 2073160100}
   blockSpawnPoint: {fileID: 454384440}
   spawnDelay: 0
@@ -7202,10 +7200,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 494722748}
-  - {fileID: 2008926162}
   - {fileID: 554251690}
-  - {fileID: 53523922}
   - {fileID: 1279181699}
+  - {fileID: 53523922}
+  - {fileID: 2008926162}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &2105372603 stripped

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 namespace InputSystem
 {
@@ -15,11 +13,7 @@ namespace InputSystem
         public Vector2 PointDelta { get; private set; }
         private Vector2 _pointPosition;
         
-        private GraphicRaycaster _raycaster;
-        
         private Controls _controls;
-
-        private List<RaycastResult> _results;
         
         private void OnEnable()
         {
@@ -30,8 +24,6 @@ namespace InputSystem
             }
             
             _controls.Player.Enable();
-            
-            _results = new List<RaycastResult>();
         }
 
         private void OnDisable()

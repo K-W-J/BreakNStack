@@ -252,6 +252,7 @@ namespace Code.Blocks
             if (isFreeze)
             {
                 _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+                _rigidbody.linearVelocity = Vector2.zero;
                 _rigidbody.linearDamping = 0;
             }
             else

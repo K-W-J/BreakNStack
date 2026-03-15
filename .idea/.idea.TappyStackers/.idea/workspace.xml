@@ -6,26 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8ce64176-11a5-46cf-a21b-76e18e2f9eec" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02_SO/PhysicsMaterial/WoodBlock_Material.physicsMaterial2D" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/PhysicsMaterial/WoodBlock_Material.physicsMaterial2D" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockDropper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockDropper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Etc/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Etc/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/ComboScorePanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/ComboScoreBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/ComboScorePanel.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/ComboScoreBar.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps/HorizontalScrollSnap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/ScrollSnaps/HorizontalScrollSnap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/InputSystem.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/InputSystem/Controls.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/InputSystem/Controls.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/InputSystem/Controls.inputactions" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/InputSystem/Controls.inputactions.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/InputSystem/PlayerInputSO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/InputSystem/PlayerInputSO.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InputSystem/PlayerInputSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/InputSystem/PlayerInputSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,20 +50,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;KWJ&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.8f1\Editor\Unity.exe" />
@@ -174,7 +160,8 @@
       <workItem from="1772891372222" duration="4317000" />
       <workItem from="1772908568220" duration="34000" />
       <workItem from="1772939694952" duration="8288000" />
-      <workItem from="1773475266626" duration="16098000" />
+      <workItem from="1773475266626" duration="18744000" />
+      <workItem from="1773503998729" duration="2461000" />
     </task>
     <servers />
   </component>

@@ -16,7 +16,6 @@ namespace Code.Blocks
         [SerializeField] private GameEventChannelSO uiEventChannel;
         [Space]
         [SerializeField] private BlockSO[] blockData;
-        [SerializeField] private GhostBlock ghostBlock;
         [SerializeField] private ScreenMovement screenMovement;
         [SerializeField] private Transform blockSpawnPoint;
         [Space]
