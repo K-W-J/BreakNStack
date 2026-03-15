@@ -5,13 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce64176-11a5-46cf-a21b-76e18e2f9eec" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Feedbacks/FeedbackManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Feedbacks/FeedbackManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Feedbacks/IFeedbackSettable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Feedbacks/IFeedbackSettable.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TappyStackers/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02_SO/PhysicsMaterial/WoodBlock_Material.physicsMaterial2D" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02_SO/PhysicsMaterial/WoodBlock_Material.physicsMaterial2D" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/05_Scene/InGameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/Block.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/InputSystem/PlayerInputSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/InputSystem/PlayerInputSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/1000_Blocks/Block.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_Prefab/4000_Components/FeedBack.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_Prefab/4000_Components/FeedBack.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04_Audio/SFX/freesound_community-crate-break-1-93926 (mp3cut.net).mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04_Audio/SFX/freesound_community-crate-break-1-93926 (mp3cut.net).mp3.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04_Audio/SFX/freesound_community-wood-crack-1-105890 (mp3cut.net) (1).wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04_Audio/SFX/freesound_community-wood-crack-1-105890 (mp3cut.net) (1).wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04_Audio/SFX/freesound_community-wood-crack-1-105890 (mp3cut.net).wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04_Audio/SFX/freesound_community-wood-crack-1-105890 (mp3cut.net).wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Blocks/BlockSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Feedbacks/SoundFeedbacks.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Feedbacks/SoundFeedbacks.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/BroAudio/Documentation/Images/Logo.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/BroAudio/Documentation/Images/Logo.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/BroAudio/Documentation/Images/Logo_Title.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/BroAudio/Documentation/Images/Logo_Title.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/BroAudio/Editor/Resources/BroEditorSetting.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/BroAudio/Editor/Resources/BroEditorSetting.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/BroAudio/Editor/Resources/EditorBroAudioMixer.mixer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/BroAudio/Editor/Resources/EditorBroAudioMixer.mixer" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/BroAudio/Editor/Resources/Logo_Editor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/BroAudio/Editor/Resources/Logo_Editor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/BroAudio/Editor/Resources/Logo_Transparent.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/BroAudio/Editor/Resources/Logo_Transparent.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/BroAudio/Resources/BroAudioData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/BroAudio/Resources/BroAudioData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/BroAudio/Samples/Demo/AudioAssets/Demo.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/BroAudio/Samples/Demo/AudioAssets/Demo.asset.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,6 +179,7 @@
       <workItem from="1772939694952" duration="8288000" />
       <workItem from="1773475266626" duration="18744000" />
       <workItem from="1773503998729" duration="2461000" />
+      <workItem from="1773556876566" duration="4911000" />
     </task>
     <servers />
   </component>

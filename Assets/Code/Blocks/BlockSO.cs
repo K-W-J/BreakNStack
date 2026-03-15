@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Ami.BroAudio;
 using Code.Core;
 using Code.Defines;
 using Code.Effects;
@@ -31,5 +32,7 @@ namespace Code.Blocks
         public bool isFlip;
         [Space]
         public PoolItemSO effectPoolItem;
+        [Space]
+        public SoundID crashSound;
     }
 }
