@@ -19,7 +19,7 @@ namespace Code.UI.Text
         private void Awake()
         {
             uiEventChannel.AddListener<ScoreTextEvent>(HandleScoreText);
-            uiEventChannel.AddListener<PlayGameEvent>(HandleResetScoreText);
+            uiEventChannel.AddListener<QuitGameEvent>(HandleResetScoreText);
             uiEventChannel.AddListener<ComboScoreTextEvent>(HandleComboScoreText);
         }
 
@@ -31,11 +31,11 @@ namespace Code.UI.Text
         private void OnDestroy()
         {
             uiEventChannel.RemoveListener<ScoreTextEvent>(HandleScoreText);
-            uiEventChannel.RemoveListener<PlayGameEvent>(HandleResetScoreText);
+            uiEventChannel.RemoveListener<QuitGameEvent>(HandleResetScoreText);
             uiEventChannel.RemoveListener<ComboScoreTextEvent>(HandleComboScoreText);
         }
 
-        private void HandleResetScoreText(PlayGameEvent evt)
+        private void HandleResetScoreText(QuitGameEvent evt)
         {
             _score = 0;
             scoreText.SetText("");

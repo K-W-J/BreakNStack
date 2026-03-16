@@ -9,5 +9,11 @@ namespace Code.UI.PopupWindows
             base.HandleOffWindow();
             uiEventChannel.RaiseEvent(UIEvents.PlayGameEvent);
         }
+
+        public void OffWindow()
+        {
+            gameObject.SetActive(false);
+            uiEventChannel.RaiseEvent(UIEvents.PlayGameEvent);
+        }
     }
 }   
