@@ -2,6 +2,7 @@
 using Code.Etc;
 using Code.Events;
 using Code.Screens;
+using Code.UI;
 using GondrLib.Dependencies;
 using InputSystem;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace Code.Blocks
         [SerializeField] private float dropBlockHeight;
         
         [Inject] private GameManager _gameManager;
+        [Inject] private PointerOverUIChecker _pointerOverUIChecker;
 
         private Block _currentBlock;
         private bool _isClicking;
@@ -57,6 +59,9 @@ namespace Code.Blocks
                 _isClicking = false;
                 return;
             }
+            
+            if(_pointerOverUIChecker.IsPointerOverUI()) 
+                return;
             
             _isClicking = isClicking;
             

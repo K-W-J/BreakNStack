@@ -2,7 +2,6 @@
 using Ami.BroAudio;
 using Code.Core;
 using Code.Defines;
-using Code.Effects;
 using UnityEngine;
 
 namespace Code.Blocks
@@ -20,7 +19,7 @@ namespace Code.Blocks
         public int stackPoint;
         [Space]
         public string blockName;
-        public Enums.BlockType blockType;
+        public BlockType blockType;
         [Space] 
         public Vector2 size;
         [Space]

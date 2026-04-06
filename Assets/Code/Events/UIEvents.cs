@@ -1,5 +1,5 @@
 ﻿using Code.Core;
-using Code.Define;
+using Code.Defines;
 
 namespace Code.Events
 {

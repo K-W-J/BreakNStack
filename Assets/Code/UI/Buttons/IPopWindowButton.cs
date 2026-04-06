@@ -1,4 +1,4 @@
-using Code.Define;
+using Code.Defines;
 
 namespace Code.UI.Buttons
 {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Code.Core;
-using Code.Define;
+using Code.Defines;
 using Code.Events;
 using UnityEngine;
 

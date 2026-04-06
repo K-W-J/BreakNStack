@@ -1,5 +1,5 @@
 using Code.Core;
-using Code.Define;
+using Code.Defines;
 using UnityEngine;
 using UnityEngine.UI;
 

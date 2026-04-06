@@ -33,8 +33,6 @@ namespace InputSystem
 
         public void OnDrop(InputAction.CallbackContext context)
         {
-            if(IsPointerOverGameObject()) return;
-
             if (context.performed) 
             {
                 OnDropPressed?.Invoke(true);
@@ -61,12 +59,6 @@ namespace InputSystem
             Debug.Assert(mainCamera != null, "No main camera in this scene.");
             
             return mainCamera.ScreenToWorldPoint(_pointPosition);
-        }
-
-        private bool IsPointerOverGameObject()
-        { 
-            Debug.Assert(EventSystem.current != null, "No EventSystem.current in this scene.");
-            return EventSystem.current.IsPointerOverGameObject();
         }
     }
 }
