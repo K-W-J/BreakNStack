@@ -157,7 +157,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 20
-  m_LinearDamping: 0
+  m_LinearDamping: 0.5
   m_AngularDamping: 6
   m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 80737ebd4c3b3f848a10b9d443dd810a, type: 2}
@@ -169,7 +169,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!60 &7271755312784244484
 PolygonCollider2D:
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3509970a331c4286979ecbdec2750d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Blocks.BlockColliderFixer
-  sizeColliderRatio: 0.96
+  sizeColliderRatio: 0.955
 --- !u!1001 &6251642093128807695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -316,6 +316,10 @@ PrefabInstance:
       propertyPath: particlePlayer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1269354322719037432, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
+      propertyPath: crashSoundId.<DebugObject>k__BackingField
+      value: 
+      objectReference: {fileID: 2138322031160655683}
     - target: {fileID: 5435444333478840908, guid: a548ba90946b6044b9d8a30651e9452a, type: 3}
       propertyPath: m_Name
       value: FeedBack

@@ -12,6 +12,8 @@ namespace Code.Checkers
         
         public bool TryGetOverlapData<T>(List<T> outputList, bool includeInactive = false) where T : MonoBehaviour
         {
+            outputList.Clear();
+            
             Collider2D[] colliders = Physics2D.OverlapBoxAll(checkPoint.position, boxSize * (0.5f * boxSizeRatio), 0,targetMask);
 
             foreach (var foundCollider in colliders)

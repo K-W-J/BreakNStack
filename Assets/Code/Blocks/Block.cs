@@ -24,6 +24,7 @@ namespace Code.Blocks
         [SerializeField] private GameEventChannelSO blockEventChannel;
         [SerializeField] private GameEventChannelSO effectEventChannel;
         [SerializeField] private GameEventChannelSO uiEventChannel;
+        [Space]
         [SerializeField] private PoolItemSO bumpEffectItem;
         [SerializeField] private PoolItemSO landEffectItem;
         [Space]
@@ -31,7 +32,7 @@ namespace Code.Blocks
         private float _currentDamageDelay;
         [SerializeField] private float stopMoveDelay;
         private float _currentStopMoveDelay;
-        
+        [field:Space]
         [field:Header("ResetBlock")]
         [field:SerializeField] public BlockSO BlockData { get; private set; }
 
@@ -252,8 +253,6 @@ namespace Code.Blocks
             if (isFreeze)
             {
                 _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
-                _rigidbody.linearVelocity = Vector2.zero;
-                _rigidbody.linearDamping = 0;
             }
             else
             {
@@ -264,8 +263,6 @@ namespace Code.Blocks
         
         private void OnFreezeTouchBlocks()
         {
-            _touchBlocks.Clear();
-            
             if (_boxChecker.TryGetOverlapData(_touchBlocks))
             {
                 foreach (var adjacencyBlock in _touchBlocks)
