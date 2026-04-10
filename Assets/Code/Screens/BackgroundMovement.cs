@@ -7,15 +7,13 @@ namespace Code.Screens
     public class BackgroundMovement : MonoBehaviour
     {
         [SerializeField] private GameEventChannelSO uiEventChannel;
+        [Space]
         [SerializeField] private float movementScale;
-        
-        private Camera _camera;
         
         private Vector2 _startPos;
         
         private void Awake()
         {
-            _camera = Camera.main;
             _startPos = transform.position;
             
             uiEventChannel.AddListener<QuitGameEvent>(HandleQuitGame);
@@ -28,8 +26,7 @@ namespace Code.Screens
 
         private void Update()
         {
-            Vector2 camPos = _camera.transform.position;
-            transform.position = new Vector2(transform.position.x, camPos.y * movementScale);
+            transform.position = new Vector2(transform.position.x, ScreenInfo.ScreenPosition.y * movementScale);
         }
         
         private void HandleQuitGame(QuitGameEvent evt)

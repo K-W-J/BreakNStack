@@ -22,13 +22,13 @@ namespace Code.Editor
                 EditorGUILayout.BeginHorizontal();
 
                 Rect buttonRect = GUILayoutUtility.GetRect(64, 64, GUILayout.Width(64), GUILayout.Height(64));
-                if (GUI.Button(buttonRect, new GUIContent("Set Icon")))
+                if (GUI.Button(buttonRect, new GUIContent("Set SO Icon")))
                 {
                     int controlID = GUIUtility.GetControlID(FocusType.Passive);
                     EditorGUIUtility.ShowObjectPicker<Sprite>(null, false, "", controlID);
                 }
 
-                if (GUILayout.Button("아이콘 초기화\n(Reset)", GUILayout.Width(64), GUILayout.Height(64)))
+                if (GUILayout.Button("Reset", GUILayout.Width(64), GUILayout.Height(64)))
                 {
                     EditorGUIUtility.SetIconForObject(data, null);
                     EditorUtility.SetDirty(data);

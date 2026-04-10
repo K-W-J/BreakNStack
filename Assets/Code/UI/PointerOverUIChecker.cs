@@ -34,7 +34,6 @@ namespace Code.UI
             _results.Clear();
             graphicRaycaster.Raycast(pointerData, _results);
             
-            Debug.Log(_results.Count > 0);
             return _results.Count > 0;
         }
     }

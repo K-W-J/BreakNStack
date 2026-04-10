@@ -13,7 +13,7 @@ namespace Code.Screens
         [SerializeField] private GameEventChannelSO uiEventChannel;
         [Space] 
         [SerializeField] private GameObject panel;
-        [SerializeField] private Transform heightMark;
+        [SerializeField] private Transform trackingTarget;
         [SerializeField] private float screenLineHeight;
         [Space]
         [SerializeField] private float speed;
@@ -54,7 +54,7 @@ namespace Code.Screens
         private void Update()
         {
             transform.position = Vector3.Lerp(transform.position, new Vector3(0, _posY, -10), Time.deltaTime * speed);
-            heightMark.position = new Vector3(0, _posY, -10);
+            trackingTarget.position = new Vector3(0, _posY, -10);
         }
         
         private void FixedUpdate()

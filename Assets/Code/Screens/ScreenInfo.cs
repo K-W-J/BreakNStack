@@ -4,46 +4,19 @@ namespace Code.Screens
 {
     public class ScreenInfo : MonoBehaviour
     {
-        public static float TopScreen
+        private static Camera _mainCamera;
+
+        private void Awake()
         {
-            get
-            {
-                Camera mainCamera = Camera.main;
-                if (mainCamera == null)
-                {
-                    Debug.Assert(false, "Camera not found");
-                    return 0;
-                }
-                return mainCamera.transform.position.y + mainCamera.orthographicSize;
-            }
+            _mainCamera = Camera.main;
+            Debug.Assert(_mainCamera != null, "Camera not found");
         }
-        
-        public static float BottomScreen
-        {
-            get
-            {
-                Camera mainCamera = Camera.main;
-                if (mainCamera == null)
-                {
-                    Debug.Assert(false, "Camera not found");
-                    return 0;
-                }
-                return mainCamera.transform.position.y - mainCamera.orthographicSize;
-            }
-        }
-        
-        public static float WidthScreen
-        {
-            get
-            {
-                Camera mainCamera = Camera.main;
-                if (mainCamera == null)
-                {
-                    Debug.Assert(false, "Camera not found");
-                    return 0;
-                }
-                return mainCamera.orthographicSize * mainCamera.aspect * 2;
-            }
-        }
+
+        public static float TopScreen => _mainCamera.transform.position.y + _mainCamera.orthographicSize;
+        public static float BottomScreen => _mainCamera.transform.position.y - _mainCamera.orthographicSize;
+        public static float WidthScreen => _mainCamera.orthographicSize * _mainCamera.aspect;
+        public static float HeightScreen => _mainCamera.orthographicSize;
+        public static Vector2 ScreenPosition => _mainCamera.transform.position;
+        public static Camera MainCamera => _mainCamera;
     }
 }

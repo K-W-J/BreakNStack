@@ -1,4 +1,5 @@
 ﻿using System;
+using Code.Screens;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -55,10 +56,7 @@ namespace InputSystem
 
         public Vector2 GetWorldPointPosition()
         {
-            Camera mainCamera = Camera.main;
-            Debug.Assert(mainCamera != null, "No main camera in this scene.");
-            
-            return mainCamera.ScreenToWorldPoint(_pointPosition);
+            return ScreenInfo.MainCamera.ScreenToWorldPoint(_pointPosition);
         }
     }
 }
